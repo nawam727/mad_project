@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/pages/home_page.dart';
+import 'package:mad_project/pages/login_page.dart';
 import 'package:mad_project/pages/onboarding/onboard_1.dart';
 import 'package:mad_project/pages/onboarding/onboard_2.dart';
 import 'package:mad_project/pages/onboarding/onboard_3.dart';
@@ -61,7 +62,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return const HomePage();
+                              return const LoginPage();
                             },),);
                           },
                           child: const Text("Done"))

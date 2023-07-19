@@ -13,8 +13,8 @@ class Onboard3 extends StatelessWidget {
         children: [
           Image.asset(
             'assets/images/navigation.png', // Replace with your image path
-            width: 200,
-            height: 200,
+            width: 225,
+            height: 225,
           ),
           const SizedBox(height: 20),
           const Text(

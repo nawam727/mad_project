@@ -9,11 +9,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    
+
+    return MaterialApp(
+      theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: OnBoardingScreen(),
+      home: const OnBoardingScreen(),
     );
   }
 }

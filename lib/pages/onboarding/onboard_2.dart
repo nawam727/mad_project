@@ -13,8 +13,8 @@ class Onboard2 extends StatelessWidget {
         children: [
           Image.asset(
             'assets/images/lechall.png', // Replace with your image path
-            width: 200,
-            height: 200,
+            width: 250,
+            height: 250,
           ),
           const SizedBox(height: 20),
           const Text(

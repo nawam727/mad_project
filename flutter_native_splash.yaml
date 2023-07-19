@@ -1,0 +1,4 @@
+flutter_native_splash:
+  image: assets/images/Logo.png
+  color: "#42a5f5"
+  fill: true

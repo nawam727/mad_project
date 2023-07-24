@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mad_project/components/menu_notify.dart';
 import 'package:mad_project/components/nav_bar.dart';
 import 'package:mad_project/pages/home_page.dart';
 import 'package:mad_project/pages/login_page.dart';
@@ -63,7 +64,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return const NavBar();
+                              return const MenuNotify();
                             },),);
                           },
                           child: const Text("Done"))

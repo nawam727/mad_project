@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Add your custom splash screen background color here -->
+    <item android:drawable="@android:color/white" />
+
+    <!-- Add your app logo or image here -->
+    <item
+        android:drawable="@drawable/logo"
+        android:gravity="center" />
+</layer-list>

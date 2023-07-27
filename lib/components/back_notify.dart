@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class BackSetting extends StatefulWidget {
-  const BackSetting({super.key});
+class BackNotify extends StatefulWidget {
+  const BackNotify({super.key});
 
   @override
-  State<BackSetting> createState() => _BackSettingState();
+  State<BackNotify> createState() => _BackNotifyState();
 }
 
-class _BackSettingState extends State<BackSetting> {
-   @override
+class _BackNotifyState extends State<BackNotify> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -41,7 +41,7 @@ class _BackSettingState extends State<BackSetting> {
                   //Notification icon
                   IconButton(
                     icon: Image.asset(
-                      'assets/icons/setting.png',
+                      'assets/icons/notification.png',
                       width: 24,
                       height: 24,
                     ),

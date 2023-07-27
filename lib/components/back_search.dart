@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class BackSetting extends StatefulWidget {
-  const BackSetting({super.key});
+class BackSearch extends StatefulWidget {
+  const BackSearch({super.key});
 
   @override
-  State<BackSetting> createState() => _BackSettingState();
+  State<BackSearch> createState() => _BackSearchState();
 }
 
-class _BackSettingState extends State<BackSetting> {
-   @override
+class _BackSearchState extends State<BackSearch> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -41,7 +41,7 @@ class _BackSettingState extends State<BackSetting> {
                   //Notification icon
                   IconButton(
                     icon: Image.asset(
-                      'assets/icons/setting.png',
+                      'assets/icons/search.png',
                       width: 24,
                       height: 24,
                     ),

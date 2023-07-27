@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mad_project/components/back_setting.dart';
+import 'package:mad_project/components/menu_calendar.dart';
 import 'package:mad_project/components/menu_notify.dart';
 import 'package:mad_project/components/nav_bar.dart';
 import 'package:mad_project/pages/home_page.dart';
@@ -64,7 +66,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return const MenuNotify();
+                              return const BackSetting();
                             },),);
                           },
                           child: const Text("Done"))

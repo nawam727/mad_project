@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BackDots extends StatefulWidget {
-  const BackDots({super.key});
+class BackNotify extends StatefulWidget {
+  const BackNotify({super.key});
 
   @override
-  State<BackDots> createState() => _BackDotsState();
+  State<BackNotify> createState() => _BackNotifyState();
 }
 
-class _BackDotsState extends State<BackDots> {
+class _BackNotifyState extends State<BackNotify> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +41,7 @@ class _BackDotsState extends State<BackDots> {
                   //Notification icon
                   IconButton(
                     icon: Image.asset(
-                      'assets/icons/dots.png',
+                      'assets/icons/notification.png',
                       width: 24,
                       height: 24,
                     ),

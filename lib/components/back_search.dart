@@ -41,7 +41,7 @@ class _BackSearchState extends State<BackSearch> {
                   //Notification icon
                   IconButton(
                     icon: Image.asset(
-                      'assets/icons/setting.png',
+                      'assets/icons/search.png',
                       width: 24,
                       height: 24,
                     ),

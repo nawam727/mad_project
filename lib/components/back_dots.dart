@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class BackSetting extends StatefulWidget {
-  const BackSetting({super.key});
+class BackDots extends StatefulWidget {
+  const BackDots({super.key});
 
   @override
-  State<BackSetting> createState() => _BackSettingState();
+  State<BackDots> createState() => _BackDotsState();
 }
 
-class _BackSettingState extends State<BackSetting> {
-   @override
+class _BackDotsState extends State<BackDots> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(

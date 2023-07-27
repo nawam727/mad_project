@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/back_setting.dart';
-import 'package:mad_project/components/menu_calendar.dart';
-import 'package:mad_project/components/menu_notify.dart';
-import 'package:mad_project/components/nav_bar.dart';
-import 'package:mad_project/pages/home_page.dart';
-import 'package:mad_project/pages/login_page.dart';
 import 'package:mad_project/pages/onboarding/onboard_1.dart';
 import 'package:mad_project/pages/onboarding/onboard_2.dart';
 import 'package:mad_project/pages/onboarding/onboard_3.dart';

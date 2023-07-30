@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BackSearch extends StatefulWidget {
-  const BackSearch({super.key});
+class MenuNotify extends StatefulWidget {
+  const MenuNotify({super.key});
 
   @override
-  State<BackSearch> createState() => _BackSearchState();
+  State<MenuNotify> createState() => _MenuNotifyState();
 }
 
-class _BackSearchState extends State<BackSearch> {
+class _MenuNotifyState extends State<MenuNotify> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,22 +19,35 @@ class _BackSearchState extends State<BackSearch> {
           //Menu Icon
           IconButton(
             icon: Image.asset(
-              'assets/icons/back.png',
+              'assets/icons/menu.png',
               color: Colors.black,
-              width: 32,
-              height: 32,
+              width: 24,
+              height: 24,
             ),
             onPressed: () {},
           ),
+
           //Centered text
-          Text(
-            'My Profile',
-            style: TextStyle(color: Colors.black, fontSize: 17),
+          Column(
+            children: [
+              SizedBox(
+                height: 14,
+              ),
+              Text(
+                'Hi GNYS Silva',
+                style: TextStyle(color: Colors.black, fontSize: 17),
+              ),
+              Text(
+                'Have a nice day',
+                style: TextStyle(color: Colors.grey, fontSize: 12),
+              ),
+            ],
           ),
+
           //Notification icon
           IconButton(
             icon: Image.asset(
-              'assets/icons/search.png',
+              'assets/icons/notification.png',
               width: 24,
               height: 24,
             ),

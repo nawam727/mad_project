@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mad_project/components/back_setting.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -6,13 +7,12 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              child: Text("Profile Page"),
-            )
+            Flexible(
+              child: BackSetting(), // MenuNotify takes only the space it needs
+            ),
           ],
         ),
       ),

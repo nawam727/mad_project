@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mad_project/components/nav_bar.dart';
 import 'package:mad_project/pages/onboading_screens.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: const OnBoardingScreen(),
+      home: const NavBar(),
     );
   }
 }

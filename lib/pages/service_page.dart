@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mad_project/components/menu_notify.dart';
+
 
 class ServicePage extends StatelessWidget {
   const ServicePage({super.key});
@@ -6,13 +8,12 @@ class ServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              child: Text("Service Page"),
-            )
+            Flexible(
+              child: MenuNotify(), // MenuNotify takes only the space it needs
+            ),
           ],
         ),
       ),

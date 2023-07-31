@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class MenuCalendar extends StatelessWidget implements PreferredSizeWidget {
+class MenuSetting extends StatelessWidget implements PreferredSizeWidget {
   late final Function() onMenuPressed;
   final String title;
 
-  MenuCalendar({required this.onMenuPressed, required this.title, required List<IconButton> actions});
+  MenuSetting({required this.onMenuPressed, required this.title});
 
   @override
   Size get preferredSize =>
@@ -28,7 +28,7 @@ class MenuCalendar extends StatelessWidget implements PreferredSizeWidget {
                   width: 24,
                   height: 24,
                 ),
-                onPressed: onMenuPressed,
+                onPressed: () {},
               ),
 
               //Centered text
@@ -40,7 +40,7 @@ class MenuCalendar extends StatelessWidget implements PreferredSizeWidget {
               //Notification icon
               IconButton(
                 icon: Image.asset(
-                  'assets/icons/calendar.png',
+                  'assets/icons/setting.png',
                   width: 24,
                   height: 24,
                 ),

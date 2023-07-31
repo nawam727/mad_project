@@ -110,6 +110,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_inner_drawer:
+    dependency: "direct main"
+    description:
+      name: flutter_inner_drawer
+      sha256: "781df2087be0861dc31b64096593edc2b7adda4e7626e279718a81329f626443"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0+1"
   flutter_native_splash:
     dependency: "direct dev"
     description:

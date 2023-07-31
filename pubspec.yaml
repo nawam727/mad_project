@@ -45,6 +45,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^5.1.0
   smooth_page_indicator: ^1.0.0
+  flutter_inner_drawer: ^1.0.0+1
 
 dev_dependencies:
   flutter_native_splash: ^2.3.1

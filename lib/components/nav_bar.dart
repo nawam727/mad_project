@@ -69,6 +69,7 @@ class _NavBarState extends State<NavBar> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        //fixedColor: Colors.white,
         items: [
           BottomNavigationBarItem(
             icon: CustomIcon(

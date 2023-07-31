@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/menu_calendar.dart';
+import 'package:mad_project/pages/drawer_screen.dart';
 
 class CalendarPage extends StatelessWidget {
   const CalendarPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    //Size size = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: DrawerScreen(),
+      appBar: MenuCalendar(
+        title: "Time Table",
+        onMenuPressed: () {
+           Scaffold.of(context).openDrawer();
+      }, actions: [],),
       body: SafeArea(
         child: Column(
           children: [
-            Flexible(
-              child: MenuCalendar(), // MenuNotify takes only the space it needs
-            ),
+            // Flexible(
+            //   child: MenuCalendar(onMenuPressed: () {  },), // MenuNotify takes only the space it needs
+            // ),
             SizedBox(
               height: 20,
             ),

@@ -4,7 +4,7 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
   late final Function() onMenuPressed;
   final String title;
 
-  MenuNotify({required this.onMenuPressed, required this.title});
+  MenuNotify({required this.title});
 
   @override
   Size get preferredSize =>
@@ -29,6 +29,7 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
                   height: 24,
                 ),
                 onPressed: () {
+                  Scaffold.of(context).openDrawer();
                 },
               ),
     

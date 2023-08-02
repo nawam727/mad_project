@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/menu_setting.dart';
+import 'package:mad_project/pages/drawer_screen.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -7,10 +8,9 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: DrawerScreen(),
       appBar: MenuSetting(
         title: "My Profile",
-        onMenuPressed: () {},
       ),
       body: SafeArea(
         child: Column(

@@ -4,7 +4,7 @@ class MenuSetting extends StatelessWidget implements PreferredSizeWidget {
   late final Function() onMenuPressed;
   final String title;
 
-  MenuSetting({required this.onMenuPressed, required this.title});
+  MenuSetting({required this.title});
 
   @override
   Size get preferredSize =>
@@ -28,7 +28,9 @@ class MenuSetting extends StatelessWidget implements PreferredSizeWidget {
                   width: 24,
                   height: 24,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
               ),
 
               //Centered text

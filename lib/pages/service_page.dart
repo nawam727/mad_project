@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/menu_notify.dart';
+import 'package:mad_project/pages/drawer_screen.dart';
 
 class ServicePage extends StatelessWidget {
   const ServicePage({super.key});
@@ -7,10 +8,9 @@ class ServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: DrawerScreen(),
       appBar: MenuNotify(
         title: "Services",
-        onMenuPressed: () {},
       ),
       body: Column(
         children: [

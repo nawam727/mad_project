@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
-import 'package:mad_project/pages/home_page.dart';
+
 
 class MenuHome extends StatelessWidget implements PreferredSizeWidget {
   //late final Function() onMenuPressed;
@@ -15,7 +15,7 @@ class MenuHome extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerScreen(),
+      //drawer: DrawerScreen(),
       body: SafeArea(
         child: Container(
           height: preferredSize.height,

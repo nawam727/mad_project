@@ -1,88 +1,115 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:intl/intl.dart';
 import 'package:mad_project/components/menu_calendar.dart';
-import 'package:mad_project/pages/drawer_screen.dart';
 
 class CalendarPage extends StatelessWidget {
   const CalendarPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    //Size size = MediaQuery.of(context).size;
+    DateTime today = DateTime.now();
+    List<DateTime> daysOfTheWeek = _getDaysOfTheWeek(today);
+
     return Scaffold(
-      drawer: DrawerScreen(),
-      appBar: MenuCalendar(
-        title: "Time Table",
-        onMenuPressed: () {
-           Scaffold.of(context).openDrawer();
-      }, actions: [],),
-      body: SafeArea(
-        child: Column(
-          children: [
-            // Flexible(
-            //   child: MenuCalendar(onMenuPressed: () {  },), // MenuNotify takes only the space it needs
-            // ),
-            SizedBox(
-              height: 20,
+      appBar: MenuCalendar(title: "Time Table"),
+      body: ListView(
+        children: [
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            height: 100, // Adjust the height as needed
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal, // Display items horizontally
+              itemCount: daysOfTheWeek.length,
+              itemBuilder: (context, index) {
+                DateTime day = daysOfTheWeek[index];
+                String formattedDayText = DateFormat('EEE').format(day);
+
+                return DayofCalendar(
+                  dayText: formattedDayText,
+                  date: day,
+                );
+              },
             ),
-            Column(
-              children: [
-                SizedBox(
-                  child: Row(
-                    children: [
-                      DayofCalendar(
-                        dayText: "MON",
-                        dateNum: "10",
-                      ),
-                      DayofCalendar(dayText: "TUE", dateNum: "11"),
-                      DayofCalendar(dayText: "WED", dateNum: "12"),
-                      DayofCalendar(dayText: "THU", dateNum: "13"),
-                      DayofCalendar(dayText: "FRI", dateNum: "14"),
-                      DayofCalendar(dayText: "SAT", dateNum: "15"),
-                      DayofCalendar(dayText: "SAT", dateNum: "15"),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
+  }
+
+  List<DateTime> _getDaysOfTheWeek(DateTime date) {
+    DateTime startOfWeek = date.subtract(Duration(days: date.weekday - 1));
+    List<DateTime> daysOfTheWeek = [];
+
+    for (int i = 0; i < 7; i++) {
+      daysOfTheWeek.add(startOfWeek.add(Duration(days: i)));
+    }
+
+    return daysOfTheWeek;
   }
 }
 
 class DayofCalendar extends StatelessWidget {
   final String dayText;
-  final String dateNum;
+  final DateTime date;
 
-  const DayofCalendar({
+  DayofCalendar({
     required this.dayText,
-    required this.dateNum, // Pass the dayText parameter
+    required this.date,
   });
 
   @override
   Widget build(BuildContext context) {
+    DateTime currentDate = date;
+    String formattedDate = DateFormat('d').format(currentDate);
+    String formattedDayText = DateFormat('EEE').format(currentDate);
+
+    bool isToday = isActualDate(currentDate);
+
+    double containerSize = MediaQuery.of(context).size.width * 0.117;
+    double fontSize = MediaQuery.of(context).size.width * 0.04;
+
+    Color textColor = isToday ? const Color(0xFF00B251) : Colors.black;
+    Color containerColor = isToday ? Colors.white : Colors.white;
+    Color borderColor = isToday ? const Color(0xFF00B251) : HexColor("#77796B");
+
     return Padding(
       padding: const EdgeInsets.only(left: 9),
       child: Column(
         children: [
           Container(
-            child: Text(dayText),
+            child: Text(
+              formattedDayText, // Use the formatted day name
+              style: TextStyle(fontSize: fontSize, color: textColor),
+            ),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 10),
           Container(
-            height: 48,
-            width: 48,
-            child: Center(child: Text(dateNum)),
+            height: containerSize,
+            width: containerSize,
+            child: Center(
+              child: Text(
+                formattedDate,
+                style: TextStyle(fontSize: fontSize, color: textColor),
+              ),
+            ),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                border: Border.all(color: HexColor("#77796B"))),
+              color: containerColor,
+              borderRadius: BorderRadius.circular(100),
+              border: Border.all(color: borderColor),
+            ),
           )
         ],
       ),
     );
+  }
+
+  bool isActualDate(DateTime currentDate) {
+    DateTime today = DateTime.now();
+    return currentDate.year == today.year &&
+        currentDate.month == today.month &&
+        currentDate.day == today.day;
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/nav_bar.dart';
 
+
 void main() {
   runApp(const MyApp());
 }

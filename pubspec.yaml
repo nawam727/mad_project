@@ -48,6 +48,8 @@ dependencies:
   flutter_inner_drawer: ^1.0.0+1
   carousel_slider: ^4.2.1
   dots_indicator: ^3.0.0
+  syncfusion_flutter_calendar: ^21.2.3
+  timeline_tile: ^2.0.0
 
 dev_dependencies:
   flutter_native_splash: ^2.3.1

@@ -29,16 +29,19 @@ class Onboard1 extends StatelessWidget {
               padding: EdgeInsets.all(10.0),
               child: Align(
                 alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "Stay on top of your university schedule. Easily view your daily time table, including lecture timings, subjects, and faculty names, all in one place", 
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Stay on top of your university schedule. Easily view your daily time table, including lecture timings, subjects, and faculty names, all in one place",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
                   ),
-                  ),
-              ),
+                ),
               ),
             ),
           ),

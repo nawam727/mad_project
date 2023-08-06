@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
 import 'package:mad_project/components/menu_calendar.dart';
+import 'package:timeline_tile/timeline_tile.dart';
+
+import 'drawer_screen.dart';
 
 class CalendarPage extends StatelessWidget {
   const CalendarPage({super.key});
@@ -12,6 +15,7 @@ class CalendarPage extends StatelessWidget {
     List<DateTime> daysOfTheWeek = _getDaysOfTheWeek(today);
 
     return Scaffold(
+      drawer: DrawerScreen(),
       appBar: MenuCalendar(title: "Time Table"),
       body: ListView(
         children: [
@@ -19,7 +23,7 @@ class CalendarPage extends StatelessWidget {
             height: 10,
           ),
           Container(
-            height: 100, // Adjust the height as needed
+            height: 80, // Adjust the height as needed
             child: ListView.builder(
               scrollDirection: Axis.horizontal, // Display items horizontally
               itemCount: daysOfTheWeek.length,
@@ -33,6 +37,72 @@ class CalendarPage extends StatelessWidget {
                 );
               },
             ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          TimeLineTitle(
+            isFirst: false,
+            isLast: false,
+            timeText: "9.00",
+            eventText: 'Software Quality Assurance',
+            eventColor: '#ECEEFE',
+          ),
+          TimeLineTitle(
+            isFirst: false,
+            isLast: false,
+            timeText: "10.00",
+            eventText: '',
+            eventColor: '#ECEEFE',
+          ),
+          TimeLineTitle(
+            isFirst: false,
+            isLast: false,
+            timeText: "11.00",
+            eventText: '',
+            eventColor: '#ECEEFE',
+          ),
+          TimeLineTitle(
+            isFirst: false,
+            isLast: false,
+            timeText: "12.00",
+            eventText: '',
+            eventColor: '#ECEEFE',
+          ),
+          TimeLineTitle(
+            isFirst: false,
+            isLast: false,
+            timeText: "13.00",
+            eventText: '',
+            eventColor: '#ffffff',
+          ),
+          TimeLineTitle(
+            isFirst: false,
+            isLast: false,
+            timeText: "14.00",
+            eventText: 'Advanced DBMS',
+            eventColor: '#FEECEC',
+          ),
+          TimeLineTitle(
+            isFirst: false,
+            isLast: false,
+            timeText: "15.00",
+            eventText: '',
+            eventColor: '#FEECEC',
+          ),
+          TimeLineTitle(
+            isFirst: false,
+            isLast: false,
+            timeText: "16.00",
+            eventText: '',
+            eventColor: '#FEECEC',
+          ),
+          TimeLineTitle(
+            isFirst: false,
+            isLast: true,
+            timeText: "17.00",
+            eventText: '',
+            eventColor: '#FEECEC',
           ),
         ],
       ),
@@ -48,6 +118,75 @@ class CalendarPage extends StatelessWidget {
     }
 
     return daysOfTheWeek;
+  }
+}
+
+class TimeLineTitle extends StatelessWidget {
+  final bool isFirst;
+  final bool isLast;
+  final String timeText;
+  final String eventText;
+  final String eventColor;
+
+  const TimeLineTitle({
+    super.key,
+    required this.isFirst,
+    required this.isLast,
+    required this.timeText,
+    required this.eventText,
+    required this.eventColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0),
+      child: SizedBox(
+        height: 66,
+        child: TimelineTile(
+          isFirst: isFirst,
+          isLast: isFirst,
+          beforeLineStyle: LineStyle(
+            color: HexColor('#717273'),
+            thickness: 1,
+          ),
+          indicatorStyle: IndicatorStyle(
+            width: 40, // Adjust width as needed
+            padding: EdgeInsets.all(8), // Adjust padding as needed
+            indicator: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius:
+                    BorderRadius.circular(5), // Adjust border radius as needed
+              ),
+              child: Text(
+                timeText,
+                style: TextStyle(
+                  color: HexColor('#717273'),
+                ),
+              ),
+            ),
+          ),
+          // Add the event text to the tile's content
+          endChild: Padding(
+            padding: const EdgeInsets.only(right:16.0),
+            child: Container(
+              color: HexColor(eventColor),
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                eventText,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 

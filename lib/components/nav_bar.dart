@@ -65,6 +65,7 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: HexColor("#E6FFF1"),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

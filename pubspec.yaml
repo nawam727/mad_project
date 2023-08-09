@@ -50,16 +50,14 @@ dependencies:
   dots_indicator: ^3.0.0
   syncfusion_flutter_calendar: ^21.2.3
   timeline_tile: ^2.0.0
+  firebase_core: ^2.15.0
+  cloud_firestore: ^4.8.4
+  firebase_auth: ^4.7.2
 
 dev_dependencies:
-  flutter_native_splash: ^2.3.1
   flutter_test:
     sdk: flutter
   intl: ^0.17.0
-flutter_native_splash:
-  
-  color: "#E6FFF1"
-  image: "assets/images/Logo.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

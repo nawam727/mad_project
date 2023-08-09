@@ -172,7 +172,7 @@ class TimeLineTitle extends StatelessWidget {
             padding: const EdgeInsets.only(right:16.0),
             child: Container(
               color: HexColor(eventColor),
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: EdgeInsets.symmetric(horizontal: 60),
               alignment: Alignment.centerLeft,
               child: Text(
                 eventText,

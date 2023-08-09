@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/notification_page.dart';
+
 class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
   late final Function() onMenuPressed;
   final String title;
@@ -48,6 +50,7 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 onPressed: () {
                   // Your notification icon onPressed logic here
+                  Navigator.of(context).push(_createRoute());
                 },
               ),
             ],
@@ -56,4 +59,24 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => NotificationPgae(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(1.0, 0.0);
+      const end = Offset.zero;
+      const curve = Curves.easeInOut;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      var offsetAnimation = animation.drive(tween);
+
+      return SlideTransition(
+        position: offsetAnimation,
+        child: child,
+      );
+    },
+  );
 }

@@ -20,7 +20,7 @@ class CustomIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color iconColor = isSelected ? HexColor("#00B251") : Colors.grey;
+    Color iconColor = isSelected ? HexColor("#00B251") : Colors.black;
 
     return GestureDetector(
       onTap: onTap,
@@ -65,7 +65,6 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: HexColor("#E6FFF1"),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

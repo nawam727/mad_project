@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      home: const NavBar(),
     );
   }
 }

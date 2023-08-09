@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mad_project/components/back_search.dart';
 import '../components/menu_home.dart';
 
-class LectureAvailabilityPage extends StatelessWidget {
-  const LectureAvailabilityPage({super.key});
+class LecturerAvailabilityPage extends StatelessWidget {
+  const LecturerAvailabilityPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,26 +16,26 @@ class LectureAvailabilityPage extends StatelessWidget {
     String attendanceLetter = "A";
     String letter = "A";
     return Scaffold(
-        appBar: MenuHome(
-          username: "Hi GNYS Silva",
+        appBar: BackSearch(
+          title: "Lecturers Availability",
         ),
         body: SafeArea(
             child: ListView(children: [
 
 
           //lecture's attencance
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              "Lecture's Attendance",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-                color: HexColor("#9B9C98"),
-              ),
-              textAlign: TextAlign.start,
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 16),
+          //   child: Text(
+          //     "Lecture's Attendance",
+          //     style: TextStyle(
+          //       fontSize: 20,
+          //       fontWeight: FontWeight.w300,
+          //       color: HexColor("#9B9C98"),
+          //     ),
+          //     textAlign: TextAlign.start,
+          //   ),
+          // ),
           Padding(
             padding: EdgeInsets.all(size.width * 0.05),
             child: Container(
@@ -107,7 +108,7 @@ class LectureAvailabilityPage extends StatelessWidget {
                   bottom: size.width * 0.05),
               //lecturer cabin status
               child: Container(
-                  height: size.height * 0.05,
+                  height: size.height * 0.07,
                   color: Colors.white,
                   child: ElevatedButton(
                     onPressed: () {},

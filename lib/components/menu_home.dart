@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 
+import '../pages/notification_page.dart';
+
 
 class MenuHome extends StatelessWidget implements PreferredSizeWidget {
   //late final Function() onMenuPressed;
@@ -61,6 +63,7 @@ class MenuHome extends StatelessWidget implements PreferredSizeWidget {
                   height: 24,
                 ),
                 onPressed: () {
+                  Navigator.of(context).push(_createRoute());
                   // Your notification icon onPressed logic here
                 },
               ),
@@ -70,4 +73,25 @@ class MenuHome extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
+}
+
+// Create a Route for the slide transition
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => NotificationPgae(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(1.0, 0.0);
+      const end = Offset.zero;
+      const curve = Curves.easeInOut;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      var offsetAnimation = animation.drive(tween);
+
+      return SlideTransition(
+        position: offsetAnimation,
+        child: child,
+      );
+    },
+  );
 }

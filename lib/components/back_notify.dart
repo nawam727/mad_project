@@ -1,46 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:mad_project/components/nav_bar.dart';
+import 'package:mad_project/pages/home_page.dart';
 
-class BackNotify extends StatefulWidget {
-  const BackNotify({super.key});
+class BackNotify extends StatelessWidget implements PreferredSizeWidget {
+  //late final Function() onMenuPressed;
+  final String title;
+
+  BackNotify({
+    required this.title,
+  });
 
   @override
-  State<BackNotify> createState() => _BackNotifyState();
-}
+  Size get preferredSize =>
+      Size.fromHeight(60); // Specify the preferred height of your app bar
 
-class _BackNotifyState extends State<BackNotify> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      color: Colors.white, // Customize your background color here
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          //Menu Icon
-          IconButton(
-            icon: Image.asset(
-              'assets/icons/back.png',
-              color: Colors.black,
-              width: 32,
-              height: 32,
-            ),
-            onPressed: () {},
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          height: preferredSize.height,
+          color: Colors.white, // Customize your background color here
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              //Menu Icon
+              IconButton(
+                  icon: Image.asset(
+                    'assets/icons/back.png',
+                    color: Colors.black,
+                    width: 32,
+                    height: 32,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  } //onMenuPressed,
+                  ),
+
+              //Centered text
+              Text(
+                title,
+                style: TextStyle(color: Colors.black, fontSize: 17),
+              ),
+
+              //Notification icon
+              IconButton(
+                icon: Image.asset(
+                  'assets/icons/notification.png',
+                  width: 24,
+                  height: 24,
+                ),
+                onPressed: () {
+                  // Your notification icon onPressed logic here
+                },
+              ),
+            ],
           ),
-          //Centered text
-          Text(
-            'Services',
-            style: TextStyle(color: Colors.black, fontSize: 17),
-          ),
-          //Notification icon
-          IconButton(
-            icon: Image.asset(
-              'assets/icons/notification.png',
-              width: 24,
-              height: 24,
-            ),
-            onPressed: () {},
-          ),
-        ],
+        ),
       ),
     );
   }

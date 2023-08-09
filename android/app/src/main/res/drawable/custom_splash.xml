@@ -7,5 +7,7 @@
     <!-- Add your app logo or image here -->
     <item
         android:drawable="@drawable/logo"
+        android:width="100dp"
+        android:height="100dp"
         android:gravity="center" />
 </layer-list>

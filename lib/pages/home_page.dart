@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/menu_home.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
+import 'package:mad_project/pages/location_view_page.dart';
 
 class HomePage extends StatefulWidget {
   //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -188,6 +189,15 @@ class _HomePageState extends State<HomePage> {
                             CircularCantainer(
                               nameText: "Others",
                               imagePath: 'assets/images/other.png',
+                              onPressed: () {
+                                // Your onPressed logic here
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          LocationView()),
+                                );
+                              },
                             ),
                           ],
                         ),
@@ -337,9 +347,7 @@ class RecentlyViewed extends StatelessWidget {
                       title,
                       style: TextStyle(fontSize: fontlarge),
                     ),
-                    SizedBox(
-                      width: 30,
-                    ),
+                    Spacer(),
                     IconButton(
                       icon: Icon(
                         Icons.arrow_circle_right,
@@ -367,10 +375,13 @@ class RecentlyViewed extends StatelessWidget {
 class CircularCantainer extends StatelessWidget {
   final String nameText;
   final String imagePath;
+  final VoidCallback? onPressed;
+
   CircularCantainer({
     super.key,
     required this.nameText,
     required this.imagePath,
+    this.onPressed,
   });
 
   @override
@@ -381,14 +392,17 @@ class CircularCantainer extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0),
       child: Column(
         children: [
-          ClipOval(
-            child: Container(
-              height: containerSize,
-              width: containerSize,
-              color: HexColor("#C8F6CD"),
-              child: Image.asset(
-                imagePath, // Provide the image asset path here
-                fit: BoxFit.cover,
+          GestureDetector(
+            onTap: onPressed,
+            child: ClipOval(
+              child: Container(
+                height: containerSize,
+                width: containerSize,
+                color: HexColor("#C8F6CD"),
+                child: Image.asset(
+                  imagePath, // Provide the image asset path here
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

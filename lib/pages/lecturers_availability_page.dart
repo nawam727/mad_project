@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_search.dart';
-import '../components/menu_home.dart';
 
 class LecturerAvailabilityPage extends StatelessWidget {
   const LecturerAvailabilityPage({super.key});
@@ -21,8 +20,6 @@ class LecturerAvailabilityPage extends StatelessWidget {
         ),
         body: SafeArea(
             child: ListView(children: [
-
-
           //lecture's attencance
           // Padding(
           //   padding: const EdgeInsets.only(left: 16),
@@ -40,7 +37,7 @@ class LecturerAvailabilityPage extends StatelessWidget {
             padding: EdgeInsets.all(size.width * 0.05),
             child: Container(
               color: HexColor("#F3FFF8"),
-              height: size.height * (2.9 / 4),
+              height: size.height * (2.9 / 3.5),
               child: Padding(
                 padding: EdgeInsets.only(
                     top: size.width * 0.014,
@@ -141,10 +138,10 @@ class LecturerAvailabilityPage extends StatelessWidget {
                   )),
             ),
           ),
-        ]))
-        );
+        ])));
   }
-   Container lecturerCard(
+
+  Container lecturerCard(
       Size size,
       String imageLink,
       String name,
@@ -245,7 +242,8 @@ class LecturerAvailabilityPage extends StatelessWidget {
                           );
                         },
                         style: ButtonStyle(
-                          backgroundColor:MaterialStateProperty.all(HexColor("#00B251")),
+                          backgroundColor:
+                              MaterialStateProperty.all(HexColor("#00B251")),
                           alignment: Alignment.center,
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(

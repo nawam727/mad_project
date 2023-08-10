@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class BackDots extends StatelessWidget implements PreferredSizeWidget {
-  late final Function() onMenuPressed;
+  late String title;
 
-  BackDots({required this.onMenuPressed});
+  BackDots({
+    required this.title,
+  });
 
   @override
   Size get preferredSize =>
@@ -19,32 +21,26 @@ class BackDots extends StatelessWidget implements PreferredSizeWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              //Menu Icon
+              //back Icon
               IconButton(
                 icon: Image.asset(
                   'assets/icons/back.png',
                   color: Colors.black,
-                  width: 24,
-                  height: 24,
+                  width: 32,
+                  height: 32,
                 ),
                 onPressed: () {
+                  Navigator.pop(context);
                 },
               ),
-    
+
               //Centered text
-              Column(
-                children: [
-                  SizedBox(
-                    height: 14,
-                  ),
-                  Text(
-                    'Hi GNYS Silva',
-                    style: TextStyle(color: Colors.black, fontSize: 17),
-                  ),
-                ],
+              Text(
+                title,
+                style: TextStyle(color: Colors.black, fontSize: 17),
               ),
-    
-              //Notification icon
+
+              //dots icon
               IconButton(
                 icon: Image.asset(
                   'assets/icons/dots.png',

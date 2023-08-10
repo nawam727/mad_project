@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mad_project/components/menu_notify.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 import 'package:mad_project/pages/lecturers_availability_page.dart';
+import 'package:mad_project/pages/navigator_page.dart';
 
 class ServicePage extends StatelessWidget {
   const ServicePage({super.key});
@@ -24,6 +25,10 @@ class ServicePage extends StatelessWidget {
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 214, 247, 221),
               borderRadius: BorderRadius.circular(24),
+              border: Border.all(
+                color: Colors.grey, // Set your desired border color here
+                width: 0.3, // Set the border width as needed
+              ),
               // boxShadow: const [
               //   BoxShadow(
               //     color: Color.fromARGB(255, 214, 247, 221),
@@ -32,33 +37,35 @@ class ServicePage extends StatelessWidget {
               //   ),
               // ],
             ),
-            child: Container(
-              margin: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch, // add this
-                children: <Widget>[
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(8.0),
-                      topRight: Radius.circular(8.0),
-                    ),
-                    child: Image.asset(
-                      'assets/images/Frame.png',
-                      width: 150,
-                      height: 100,
-                      alignment: Alignment.center,
-                      //fit:BoxFit.fill
-                    ),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NavigatorPage(),
                   ),
-                  const SizedBox(height: 20),
-                  OutlinedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Colors.transparent),
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch, // add this
+                  children: <Widget>[
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(8.0),
+                        topRight: Radius.circular(8.0),
+                      ),
+                      child: Image.asset(
+                        'assets/images/Frame.png',
+                        width: 150,
+                        height: 100,
+                        alignment: Alignment.center,
+                        //fit:BoxFit.fill
+                      ),
                     ),
-                    child: const Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       'Navigation',
                       style: TextStyle(
                           fontSize: 16,
@@ -66,20 +73,23 @@ class ServicePage extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
-                  ),
-                  const Text(
-                    'Find your way around NSBM with ease',
-                    textAlign: TextAlign.center,
-                  )
-                ],
+                    SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      'Find your way around NSBM with ease',
+                      textAlign: TextAlign.center,
+                    )
+                  ],
+                ),
+                // child: Center(
+                //   child: Container(
+                //   height: 10,
+                //   width: 20,
+                //   color: Colors.grey,
+                //   ),
+                // ),
               ),
-              // child: Center(
-              //   child: Container(
-              //   height: 10,
-              //   width: 20,
-              //   color: Colors.grey,
-              //   ),
-              // ),
             ),
           ),
 
@@ -92,6 +102,10 @@ class ServicePage extends StatelessWidget {
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 214, 247, 221),
               borderRadius: BorderRadius.circular(24),
+              border: Border.all(
+                color: Colors.grey, // Set your desired border color here
+                width: 0.3, // Set the border width as needed
+              ),
               // boxShadow: const [
               //   BoxShadow(
               //     color: Color.fromARGB(255, 214, 247, 221),
@@ -100,37 +114,35 @@ class ServicePage extends StatelessWidget {
               //   ),
               // ],
             ),
-            child: Container(
-              margin: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch, // add this
-                children: <Widget>[
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(8.0),
-                      topRight: Radius.circular(8.0),
-                    ),
-                    child: Image.asset(
-                      'assets/images/Frame (1).png',
-                      width: 150,
-                      height: 100,
-                      alignment: Alignment.center,
-                      //fit:BoxFit.fill
-                    ),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LecturerAvailabilityPage(),
                   ),
-                  const SizedBox(height: 20),
-                  OutlinedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => LecturerAvailabilityPage()),
-                      );
-                    },
-                    style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Colors.transparent),
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch, // add this
+                  children: <Widget>[
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(8.0),
+                        topRight: Radius.circular(8.0),
+                      ),
+                      child: Image.asset(
+                        'assets/images/Frame (1).png',
+                        width: 150,
+                        height: 100,
+                        alignment: Alignment.center,
+                        //fit:BoxFit.fill
+                      ),
                     ),
-                    child: const Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       'Lecturer Availability',
                       style: TextStyle(
                           fontSize: 16,
@@ -138,12 +150,15 @@ class ServicePage extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
-                  ),
-                  const Text(
-                    'Easily view wheather lecturers are available',
-                    textAlign: TextAlign.center,
-                  )
-                ],
+                    SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      'Easily view wheather lecturers are available',
+                      textAlign: TextAlign.center,
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -157,6 +172,10 @@ class ServicePage extends StatelessWidget {
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 214, 247, 221),
               borderRadius: BorderRadius.circular(24),
+              border: Border.all(
+                color: Colors.grey, // Set your desired border color here
+                width: 0.3, // Set the border width as needed
+              ),
               // boxShadow: const [
               //   BoxShadow(
               //     color: Color.fromARGB(255, 214, 247, 221),
@@ -165,33 +184,35 @@ class ServicePage extends StatelessWidget {
               //   ),
               // ],
             ),
-            child: Container(
-              margin: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch, // add this
-                children: <Widget>[
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(8.0),
-                      topRight: Radius.circular(8.0),
-                    ),
-                    child: Image.asset(
-                      'assets/images/Frame (2).png',
-                      width: 150,
-                      height: 100,
-                      alignment: Alignment.center,
-                      //fit:BoxFit.fill
-                    ),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LecturerAvailabilityPage(),
                   ),
-                  const SizedBox(height: 20),
-                  OutlinedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Colors.transparent),
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch, // add this
+                  children: <Widget>[
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(8.0),
+                        topRight: Radius.circular(8.0),
+                      ),
+                      child: Image.asset(
+                        'assets/images/Frame (2).png',
+                        width: 150,
+                        height: 100,
+                        alignment: Alignment.center,
+                        //fit:BoxFit.fill
+                      ),
                     ),
-                    child: const Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       'Hall Availability',
                       style: TextStyle(
                           fontSize: 16,
@@ -199,12 +220,15 @@ class ServicePage extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
-                  ),
-                  const Text(
-                    'Real-time updates on lecture hall availability',
-                    textAlign: TextAlign.center,
-                  )
-                ],
+                    SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      'Real-time updates on lecture hall availability',
+                      textAlign: TextAlign.center,
+                    )
+                  ],
+                ),
               ),
             ),
           ),

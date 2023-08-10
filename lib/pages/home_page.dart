@@ -279,6 +279,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                   ],
+                ),
+                SizedBox(
+                  height: 20,
                 )
               ],
             ),
@@ -314,7 +317,11 @@ class RecentlyViewed extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius:
-            BorderRadius.circular(10), // Adjust the radius value as needed
+            BorderRadius.circular(10),
+        border: Border.all(
+                color: Colors.grey, // Set your desired border color here
+                width: 0.5, // Set the border width as needed
+              ), // Adjust the radius value as needed
       ),
       child: Column(
         children: [

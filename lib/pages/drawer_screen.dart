@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mad_project/pages/privacy_policy.dart';
 
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({super.key});
@@ -84,8 +85,12 @@ class DrawerScreen extends StatelessWidget {
                 ),
                 title: Text('Privacy Policy', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  // Replace this with the action you want to perform when the user taps on this item
-                  Navigator.pop(context); // Close the drawer
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                      PrivacyPolicy()),
+                      );
                 },
               ),
               ListTile(

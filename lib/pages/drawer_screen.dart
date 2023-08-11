@@ -1,8 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import 'auth_pade.dart';
+
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({super.key});
+
+  //sign out method
+  void signUserOut(BuildContext context) async {
+  await FirebaseAuth.instance.signOut();
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => AuthPage()), // Replace AuthPage with your authentication page widget
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -131,12 +144,14 @@ class DrawerScreen extends StatelessWidget {
                     width: 22,
                     height: 22,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    signUserOut(context);
+                  },
                 ),
                 title: Text('Log Out', style: TextStyle(fontSize: 16)),
                 onTap: () {
                   // Replace this with the action you want to perform when the user taps on this item
-                  Navigator.pop(context); // Close the drawer
+                  signUserOut(context); // Close the drawer
                 },
               ),
             ],

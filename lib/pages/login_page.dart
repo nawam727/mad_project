@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/my_button.dart';
+import 'package:mad_project/components/nav_bar.dart';
 import 'package:mad_project/components/text_field.dart';
 //import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +14,31 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  void signUserIn() {}
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void signUserIn(BuildContext context) async {
+    String email = usernameController.text;
+    String password = passwordController.text;
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Authentication successful, navigate to the home page
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                NavBar()), // Replace HomePage with your actual home page widget
+      );
+    } catch (e) {
+      // Handle any authentication errors here
+      print('Error signing in: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   // Username TextField
                   MyTextField(
+                    controller: usernameController,
                     hintText: "Username",
                     obscureText: false,
                   ),
@@ -64,6 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   // Password TextField
                   MyTextField(
+                    controller: passwordController,
                     hintText: "Password",
                     obscureText: true,
                   ),
@@ -88,7 +116,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   // Login Button
                   MyButton(
-                    onTap: signUserIn,
+                    onTap: () {
+                      signUserIn(context);
+                    },
                   ),
                 ],
               ),

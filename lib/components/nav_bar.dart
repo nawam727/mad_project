@@ -111,7 +111,9 @@ class _NavBarState extends State<NavBar> {
         currentIndex: _selectedIndex,
         onTap: onItemTap,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blue,
+        selectedFontSize: 10.0, // Adjust this value as needed
+        unselectedFontSize: 10.0, 
+        //selectedItemColor: Colors.blue,
       ),
     );
   }

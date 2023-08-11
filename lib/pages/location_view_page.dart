@@ -149,7 +149,7 @@ class LocationCard extends StatelessWidget {
     double containerWidth = MediaQuery.of(context).size.width * 0.43;
     double containerHeight = 150;
     double fontlarge = MediaQuery.of(context).size.width * 0.04;
-    double fontsmall = MediaQuery.of(context).size.width * 0.028;
+    //double fontsmall = MediaQuery.of(context).size.width * 0.028;
 
     return Container(
       height: containerHeight,

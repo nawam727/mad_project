@@ -17,12 +17,16 @@ class MyButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: HexColor("#00B251"),
           borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+                color: Colors.black, // Set your desired border color here
+                width: 0.3,
+          ),
         ),
         child: Center(
           child: Text("Login",
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 18,
+            fontSize: 16,
             color: HexColor("#ffffff")
             ),
           ),

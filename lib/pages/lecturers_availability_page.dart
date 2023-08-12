@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_search.dart';
+import 'package:mad_project/pages/lecture_cabin_state_page.dart';
 
 class LecturerAvailabilityPage extends StatelessWidget {
   const LecturerAvailabilityPage({super.key});
@@ -104,7 +105,9 @@ class LecturerAvailabilityPage extends StatelessWidget {
               height: size.height * 0.05,
               color: Colors.white,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const CabinState()));
+                },
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all(
                     RoundedRectangleBorder(

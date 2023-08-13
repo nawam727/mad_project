@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/menu_notify.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 import 'package:mad_project/pages/lecturers_availability_page.dart';
@@ -26,16 +27,10 @@ class ServicePage extends StatelessWidget {
               color: const Color.fromARGB(255, 214, 247, 221),
               borderRadius: BorderRadius.circular(24),
               border: Border.all(
-                color: Colors.grey, // Set your desired border color here
+                color:
+                    HexColor("#00B251"), // Set your desired border color here
                 width: 0.3, // Set the border width as needed
               ),
-              // boxShadow: const [
-              //   BoxShadow(
-              //     color: Color.fromARGB(255, 214, 247, 221),
-              //     blurRadius: 10,
-              //     spreadRadius: 5,
-              //   ),
-              // ],
             ),
             child: GestureDetector(
               onTap: () {
@@ -82,13 +77,6 @@ class ServicePage extends StatelessWidget {
                     )
                   ],
                 ),
-                // child: Center(
-                //   child: Container(
-                //   height: 10,
-                //   width: 20,
-                //   color: Colors.grey,
-                //   ),
-                // ),
               ),
             ),
           ),
@@ -103,16 +91,10 @@ class ServicePage extends StatelessWidget {
               color: const Color.fromARGB(255, 214, 247, 221),
               borderRadius: BorderRadius.circular(24),
               border: Border.all(
-                color: Colors.grey, // Set your desired border color here
+                color:
+                    HexColor("#00B251"), // Set your desired border color here
                 width: 0.3, // Set the border width as needed
               ),
-              // boxShadow: const [
-              //   BoxShadow(
-              //     color: Color.fromARGB(255, 214, 247, 221),
-              //     blurRadius: 10,
-              //     spreadRadius: 5,
-              //   ),
-              // ],
             ),
             child: GestureDetector(
               onTap: () {
@@ -173,16 +155,10 @@ class ServicePage extends StatelessWidget {
               color: Color.fromARGB(255, 214, 247, 221),
               borderRadius: BorderRadius.circular(24),
               border: Border.all(
-                color: Colors.grey, // Set your desired border color here
+                color:
+                    HexColor("#00B251"), // Set your desired border color here
                 width: 0.3, // Set the border width as needed
               ),
-              // boxShadow: const [
-              //   BoxShadow(
-              //     color: Color.fromARGB(255, 214, 247, 221),
-              //     blurRadius: 10,
-              //     spreadRadius: 5,
-              //   ),
-              // ],
             ),
             child: GestureDetector(
               onTap: () {
@@ -231,6 +207,9 @@ class ServicePage extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          SizedBox(
+            height: 20,
           ),
         ],
       ),

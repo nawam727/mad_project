@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                                           "#00B251")), // Border color when focused
                                 ),
                                 contentPadding:
-                                    EdgeInsets.symmetric(vertical: 20),
+                                    EdgeInsets.symmetric(vertical: 15),
                                 prefixIcon: Icon(
                                   Icons.search,
                                 ), // Icon to be displayed before the text field

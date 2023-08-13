@@ -10,7 +10,7 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      Size.fromHeight(60); // Specify the preferred height of your app bar
+      Size.fromHeight(55); // Specify the preferred height of your app bar
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +23,19 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               //Menu Icon
-              IconButton(
-                icon: Image.asset(
-                  'assets/icons/menu.png',
-                  color: Colors.black,
-                  width: 24,
-                  height: 24,
+              Padding(
+                padding: const EdgeInsets.only(left:4.0),
+                child: IconButton(
+                  icon: Image.asset(
+                    'assets/icons/menu.png',
+                    color: Colors.black,
+                    width: 24,
+                    height: 24,
+                  ),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
                 ),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
               ),
     
               //Centered text
@@ -42,16 +45,19 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
               ),
     
               //Notification icon
-              IconButton(
-                icon: Image.asset(
-                  'assets/icons/notification.png',
-                  width: 24,
-                  height: 24,
+              Padding(
+                padding: const EdgeInsets.only(right:4.0),
+                child: IconButton(
+                  icon: Image.asset(
+                    'assets/icons/notification.png',
+                    width: 24,
+                    height: 24,
+                  ),
+                  onPressed: () {
+                    // Your notification icon onPressed logic here
+                    Navigator.of(context).push(_createRoute());
+                  },
                 ),
-                onPressed: () {
-                  // Your notification icon onPressed logic here
-                  Navigator.of(context).push(_createRoute());
-                },
               ),
             ],
           ),

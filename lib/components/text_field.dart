@@ -4,11 +4,13 @@ import 'package:hexcolor/hexcolor.dart';
 class MyTextField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
+  final TextEditingController controller;
 
   const MyTextField({
     super.key,
     required this.hintText,
     required this.obscureText,
+    required this.controller,
   });
 
   @override
@@ -16,6 +18,7 @@ class MyTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 27),
       child: TextField(
+        controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
             enabledBorder: const OutlineInputBorder(

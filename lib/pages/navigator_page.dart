@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mad_project/components/back_dots.dart';
 import 'package:mad_project/components/back_search.dart';
 
 import 'location_view_page.dart';
@@ -10,7 +11,7 @@ class NavigatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BackSearch(
+      appBar: BackDots(
         title: 'Navigator',
       ),
       body: SafeArea(
@@ -41,7 +42,7 @@ class NavigatorPage extends StatelessWidget {
                                           "#00B251")), // Border color when focused
                                 ),
                                 contentPadding:
-                                    EdgeInsets.symmetric(vertical: 20),
+                                    EdgeInsets.symmetric(vertical: 15),
                                 prefixIcon: Icon(
                                   Icons.search,
                                 ), // Icon to be displayed before the text field
@@ -240,6 +241,51 @@ class NavigatorPage extends StatelessWidget {
                 ),
 
                 //Busines Faculty Location Card
+                Container(
+                  height: 150,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      LocationCard(
+                        imagePath: 'assets/images/gate.png',
+                        title: 'Main Gate',
+                      ),
+                      LocationCard(
+                        imagePath: 'assets/images/gate.png',
+                        title: 'Main Gate',
+                      ),
+                      LocationCard(
+                        imagePath: 'assets/images/gate.png',
+                        title: 'Main Gate',
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+
+                //Engineering Faculty Text
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Engineering Faculty",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+
+                //Engineering Faculty Location Card
                 Container(
                   height: 150,
                   child: ListView(

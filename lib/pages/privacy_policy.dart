@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mad_project/components/back_dots.dart';
 import 'package:mad_project/components/back_menu.dart';
 
 class PrivacyPolicy extends StatefulWidget {
@@ -14,9 +15,8 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BackMenu(
+      appBar: BackDots(
         title: "Privacy Policy",
-        onMenuPressed: () {},
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -73,7 +73,9 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
               ),
             ),
 
-
+            SizedBox(
+              height: 9,
+            ),
             //privacy image 1
             Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -161,7 +163,9 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
             ),
             ),
 
-
+            SizedBox(
+              height: 9,
+            ),
             //privacy image 2
             Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -272,7 +276,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
               ],
             ),
             ),
-            const SizedBox(height: 10), 
+            const SizedBox(height: 9), 
 
 
 

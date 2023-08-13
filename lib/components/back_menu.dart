@@ -7,7 +7,7 @@ class BackMenu extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      const Size.fromHeight(60); // Specify the preferred height of your app bar
+      const Size.fromHeight(55); // Specify the preferred height of your app bar
 
   @override
   Widget build(BuildContext context) {

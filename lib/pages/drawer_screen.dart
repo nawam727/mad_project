@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mad_project/pages/about_page.dart';
 import 'package:mad_project/pages/privacy_policy.dart';
 
 import 'auth_pade.dart';
@@ -83,7 +84,12 @@ class DrawerScreen extends StatelessWidget {
                 ),
                 onTap: () {
                   // Replace this with the action you want to perform when the user taps on this item
-                  Navigator.pop(context); // Close the drawer
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                      AboutPage()),
+                      ); // Close the drawer
                 },
               ),
               ListTile(

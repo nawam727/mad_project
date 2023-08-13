@@ -17,26 +17,19 @@ class LecturerAvailabilityPage extends StatelessWidget {
         body: SafeArea(
             child: ListView(children: [
 
-      //lecture's attencance
-
-      const Padding(
-        padding: EdgeInsets.only(left: 16, top: 16),
-        child: Text(
-          "Lecture's Attendance",
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.w300,
-          ),
-          textAlign: TextAlign.start,
-        ),
-      ),
-
       //light green background 
       Padding(
         padding: EdgeInsets.all(size.width * 0.05),
         child: Container(
-          color: HexColor("#E6FFF1"),
-          height: size.height * 0.8,
+          decoration: BoxDecoration(
+              color: HexColor("#E6FFF1"),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: HexColor("#00B251"), // Set your desired border color here
+                width: 0.1,
+              ),
+            ),
+          height: size.height * 0.85,
           child: Padding(
             padding: EdgeInsets.only(
                 top: size.width * 0.023, left: size.width * 0.025),
@@ -153,7 +146,11 @@ class LecturerAvailabilityPage extends StatelessWidget {
             height: size.width * (0.39),
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 255, 255, 255),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(7),
+              border: Border.all(
+                color: HexColor("#00B251"), // Set your desired border color here
+                width: 0.1,
+              ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -168,7 +165,7 @@ class LecturerAvailabilityPage extends StatelessWidget {
                       top: size.width * 0.01,
                     ),
                     child: CircleAvatar(
-                      radius: 45,
+                      radius: 29,
                       backgroundImage: AssetImage(imageLink),
                     ),
                   ),
@@ -299,8 +296,8 @@ class LecturerAvailabilityPage extends StatelessWidget {
                 child: SizedBox(
                     child: Image.asset(
                   imageLink,
-                  width: 150,
-                  height: 150,
+                  width: 90,
+                  height: 90,
                 )),
               ),
               const SizedBox(

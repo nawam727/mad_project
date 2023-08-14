@@ -1,45 +1,44 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:mad_project/components/back_search.dart';
-import 'package:mad_project/pages/drawer_screen.dart';
 import 'package:hexcolor/hexcolor.dart';
-
-
+import 'package:mad_project/components/back_search.dart';
 
 class HallAvailability extends StatefulWidget {
-
   HallAvailability({super.key});
 
   @override
   State<HallAvailability> createState() => _HallAvailabilityState();
 }
 
-
-  class _HallAvailabilityState extends State<HallAvailability> {
+class _HallAvailabilityState extends State<HallAvailability> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerScreen(),
-      /*appBar: BackSearch(
+      appBar: BackSearch(
         title: "Hall Availability",
-      ),*/
-      appBar: AppBar(
-        title: Text("Hall Availability"),
       ),
-    
-    body: ListView(
+      body: ListView(
         children: [
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons", HexColor("#98C5EE"), const Color.fromARGB(255, 119, 246, 77)),
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons", HexColor("#98E9EE"), const Color.fromARGB(255, 119, 246, 77)),
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons", HexColor("#AE98EE"), const Color.fromARGB(255, 119, 246, 77)),
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons", HexColor("#98EEA0"), const Color.fromARGB(255, 119, 246, 77)),
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons", HexColor("#D8EE98"), const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
+              HexColor("#98C5EE"), const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
+              HexColor("#98E9EE"), const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
+              HexColor("#AE98EE"), const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
+              HexColor("#98EEA0"), const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
+              HexColor("#D8EE98"), const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
+              HexColor("#98C5EE"), const Color.fromARGB(255, 119, 246, 77)),
         ],
       ),
     );
   }
 
-  Widget _buildHallContainer(String hallName, String location, String capacity, Color containerColor, Color availableColor) {
+  Widget _buildHallContainer(String hallName, String location, String capacity,
+      Color containerColor, Color availableColor) {
     return Container(
       width: 500,
       height: 122,
@@ -48,13 +47,13 @@ class HallAvailability extends StatefulWidget {
       decoration: BoxDecoration(
         color: containerColor,
         borderRadius: BorderRadius.circular(24),
-        boxShadow: [
-          BoxShadow(
-            color: containerColor,
-            blurRadius: 1,
-            spreadRadius: 2,
-          ),
-        ],
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: containerColor,
+        //     blurRadius: 1,
+        //     spreadRadius: 2,
+        //   ),
+        // ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -74,10 +73,11 @@ class HallAvailability extends StatefulWidget {
                           topRight: Radius.circular(16.0),
                         ),
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: 0),
                       Text(
                         hallName,
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -85,9 +85,8 @@ class HallAvailability extends StatefulWidget {
                   Text(
                     location,
                     style: TextStyle(fontSize: 16),
-                  ),                 
-                  
-                  SizedBox(height: 8),
+                  ),
+                  SizedBox(height: 20),
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.black, width: 1),
@@ -96,7 +95,8 @@ class HallAvailability extends StatefulWidget {
                       padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
                       child: Text(
                         capacity,
-                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -122,10 +122,11 @@ class HallAvailability extends StatefulWidget {
                           color: Colors.black,
                         ),
                         label: Text(
-                          "go",
+                          "Go",
                           style: TextStyle(color: Colors.black),
                         ),
-                        style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white),
                       ),
                     ),
                   ),
@@ -144,7 +145,10 @@ class HallAvailability extends StatefulWidget {
               Container(
                 decoration: BoxDecoration(
                   color: availableColor,
-                  border: Border.all(color: availableColor, width: 1,),
+                  border: Border.all(
+                    color: availableColor,
+                    width: 1,
+                  ),
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: Padding(
@@ -158,9 +162,7 @@ class HallAvailability extends StatefulWidget {
             ],
           ),
         ],
-      ),    
-      
-  );
- }
+      ),
+    );
+  }
 }
-

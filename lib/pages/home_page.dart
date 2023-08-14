@@ -194,8 +194,7 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          LocationView()),
+                                      builder: (context) => LocationView()),
                                 );
                               },
                             ),
@@ -316,12 +315,11 @@ class RecentlyViewed extends StatelessWidget {
       width: containerWidth,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius:
-            BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(
-                color: Colors.grey, // Set your desired border color here
-                width: 0.5, // Set the border width as needed
-              ), // Adjust the radius value as needed
+          color: Colors.grey, // Set your desired border color here
+          width: 0.5, // Set the border width as needed
+        ), // Adjust the radius value as needed
       ),
       child: Column(
         children: [
@@ -366,9 +364,15 @@ class RecentlyViewed extends StatelessWidget {
                     ),
                   ],
                 ),
-                Text(
-                  description,
-                  style: TextStyle(fontSize: fontsmall),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      description,
+                      style: TextStyle(fontSize: fontsmall),
+                    ),
+                  ),
                 ),
               ],
             ),

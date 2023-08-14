@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mad_project/components/back_dots.dart';
-import 'package:mad_project/components/nav_bar.dart';
 import 'package:mad_project/pages/login_page.dart';
 import 'package:mad_project/pages/onboarding/onboard_1.dart';
 import 'package:mad_project/pages/onboarding/onboard_2.dart';
 import 'package:mad_project/pages/onboarding/onboard_3.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -62,10 +59,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   onLastPage
                       ? GestureDetector(
                           onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return const LoginPage();
-                            },),);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const LoginPage();
+                                },
+                              ),
+                            );
                           },
                           child: const Text("Done"))
                       : GestureDetector(

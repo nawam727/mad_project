@@ -50,9 +50,7 @@ class BackSearch extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 onPressed: () {
                   showSearch(
-                context: context,
-                delegate: CustomSearchDelegate()
-              );
+                      context: context, delegate: CustomSearchDelegate());
                 },
               ),
             ],
@@ -66,35 +64,49 @@ class BackSearch extends StatelessWidget implements PreferredSizeWidget {
 //search bar
 class CustomSearchDelegate extends SearchDelegate {
   List<String> searchTerms = [
-     "Rasika Ranaweera",
+    "Rasika Ranaweera",
     "Pavithra Subashini",
     "Canteen",
     "Auditoriam",
   ];
-     
+
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
-      IconButton(
-        onPressed: () {
-          query = '';
-        },
-        icon: const Icon(Icons.clear),
+      Padding(
+        padding: const EdgeInsets.only(right: 8.0),
+        child: IconButton(
+          onPressed: () {
+            query = '';
+          },
+          icon: Image.asset(
+            'assets/icons/close.png',
+            color: Colors.black,
+            width: 19,
+            height: 19,
+          ),
+        ),
       ),
     ];
   }
- 
-  
+
   @override
   Widget? buildLeading(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        close(context, null);
-      },
-      icon: const Icon(Icons.arrow_back),
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0),
+      child: IconButton(
+        onPressed: () {
+          close(context, null);
+        },
+        icon: Image.asset(
+          'assets/icons/back.png',
+          color: Colors.black,
+          width: 32,
+          height: 32,
+        ),
+      ),
     );
   }
- 
 
   @override
   Widget buildResults(BuildContext context) {
@@ -105,7 +117,7 @@ class CustomSearchDelegate extends SearchDelegate {
       }
     }
     return ListView.builder(
-     itemCount: matchQuery.length,
+      itemCount: matchQuery.length,
       itemBuilder: (context, index) {
         var result = matchQuery[index];
         return ListTile(
@@ -114,8 +126,7 @@ class CustomSearchDelegate extends SearchDelegate {
       },
     );
   }
- 
-  
+
   @override
   Widget buildSuggestions(BuildContext context) {
     List<String> matchQuery = [];

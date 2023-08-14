@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/menu_notify.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
+import 'package:mad_project/pages/hall_availability.dart';
 import 'package:mad_project/pages/lecturers_availability_page.dart';
 import 'package:mad_project/pages/navigator_page.dart';
 
@@ -165,7 +166,7 @@ class ServicePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LecturerAvailabilityPage(),
+                    builder: (context) => HallAvailability(),
                   ),
                 );
               },

@@ -14,10 +14,10 @@ class NavigatorPage extends StatelessWidget {
       appBar: BackDots(
         title: 'Navigator',
       ),
-      body: SafeArea(
-        child: ListView(
-          children: [
-            Column(
+      body: ListView(
+        children: [
+          SafeArea(
+            child: Column(
               children: [
                 SizedBox(
                   height: 20,
@@ -335,8 +335,8 @@ class NavigatorPage extends StatelessWidget {
                 )
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

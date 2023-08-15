@@ -21,6 +21,17 @@ class _LoginPageState extends State<LoginPage> {
     String email = usernameController.text;
     String password = passwordController.text;
 
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: CircularProgressIndicator(
+            color: HexColor("#00B251"),
+          ),
+        );
+      },
+    );
+
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
@@ -53,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: screenHeight * 0.10,
+                    height: screenHeight * 0.15,
                   ),
                   // Logo
                   Image.asset(

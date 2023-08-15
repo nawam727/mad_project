@@ -55,6 +55,7 @@ class CabinState extends StatelessWidget {
                 ),
               ),
             ),
+            
             //card details of the lecturer and cabin status
             Padding(
               padding: EdgeInsets.only(

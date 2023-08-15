@@ -11,13 +11,52 @@ class DrawerScreen extends StatelessWidget {
 
   //sign out method
   void signUserOut(BuildContext context) async {
-  await FirebaseAuth.instance.signOut();
-  Navigator.pushReplacement(
-    context,
-    MaterialPageRoute(builder: (context) => AuthPage()), // Replace AuthPage with your authentication page widget
-  );
-}
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+          builder: (context) =>
+              AuthPage()), // Replace AuthPage with your authentication page widget
+    );
+  }
 
+  //Alert box
+  void showAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirmation'),
+          content: Text('Do you want to logout?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .pop(false); // Dismiss the dialog and return false
+              },
+              child: Text(
+                'No',
+                style: TextStyle(
+                  color: HexColor("#00B251"),
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                signUserOut(context);
+              },
+              child: Text(
+                'Yes',
+                style: TextStyle(
+                  color: HexColor("#00B251"),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,10 +125,8 @@ class DrawerScreen extends StatelessWidget {
                   // Replace this with the action you want to perform when the user taps on this item
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                      AboutPage()),
-                      ); // Close the drawer
+                    MaterialPageRoute(builder: (context) => AboutPage()),
+                  ); // Close the drawer
                 },
               ),
               ListTile(
@@ -104,12 +141,10 @@ class DrawerScreen extends StatelessWidget {
                 ),
                 title: Text('Privacy Policy', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                   Navigator.push(
+                  Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                      PrivacyPolicy()),
-                      );
+                    MaterialPageRoute(builder: (context) => PrivacyPolicy()),
+                  );
                 },
               ),
               ListTile(
@@ -156,13 +191,13 @@ class DrawerScreen extends StatelessWidget {
                     height: 22,
                   ),
                   onPressed: () {
-                    signUserOut(context);
+                    showAlert(context);
                   },
                 ),
                 title: Text('Log Out', style: TextStyle(fontSize: 16)),
                 onTap: () {
                   // Replace this with the action you want to perform when the user taps on this item
-                  signUserOut(context); // Close the drawer
+                  showAlert(context); // Close the drawer
                 },
               ),
             ],

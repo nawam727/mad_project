@@ -30,8 +30,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.white,
-      //key: _scaffoldKey,
       drawer: DrawerScreen(),
       appBar: MenuHome(
         username: "Hi GNYS Silva",
@@ -41,9 +39,6 @@ class _HomePageState extends State<HomePage> {
           SafeArea(
             child: Column(
               children: [
-                // Flexible(
-                //   child: MenuHome(),
-                // ),
                 SizedBox(
                   height: 20,
                 ),

@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/nav_bar.dart';
 import 'package:mad_project/firebase_options.dart';
-import 'package:mad_project/pages/hall_availability.dart';
+import 'package:mad_project/pages/support_page.dart';
 import 'package:mad_project/pages/login_page.dart';
 import 'package:mad_project/pages/notification_page.dart';
 import 'package:mad_project/pages/auth_pade.dart';
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: NavBar(),
+      home: SupportPage(),
     );
   }
 }

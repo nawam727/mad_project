@@ -6,6 +6,8 @@ import 'package:mad_project/components/menu_home.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 import 'package:mad_project/pages/location_view_page.dart';
 
+import 'mode_selector_page.dart';
+
 class HomePage extends StatefulWidget {
   //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -177,14 +179,38 @@ class _HomePageState extends State<HomePage> {
                             CircularCantainer(
                               nameText: "Canteen",
                               imagePath: 'assets/images/canteen.png',
+                              onPressed: () {
+                                // Your onPressed logic here
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ModeSelector()),
+                                );
+                              },
                             ),
                             CircularCantainer(
                               nameText: "Toilet",
                               imagePath: 'assets/images/toilet.png',
+                              onPressed: () {
+                                // Your onPressed logic here
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ModeSelector()),
+                                );
+                              },
                             ),
                             CircularCantainer(
                               nameText: "Elevator",
                               imagePath: 'assets/images/lift.png',
+                              onPressed: () {
+                                // Your onPressed logic here
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ModeSelector()),
+                                );
+                              },
                             ),
                             CircularCantainer(
                               nameText: "Others",
@@ -359,7 +385,12 @@ class RecentlyViewed extends StatelessWidget {
                         color: HexColor("#00B251"),
                       ), // Replace with your desired icon
                       onPressed: () {
-                        // Add the desired onPressed action for the IconButton
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ModeSelector(),
+                          ),
+                        );
                       },
                     ),
                   ],

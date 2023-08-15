@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 //import 'package:mad_project/components/back_search.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_search.dart';
+import 'package:mad_project/pages/mode_selector_page.dart';
 
 class HallAvailability extends StatefulWidget {
   HallAvailability({super.key});
@@ -39,108 +40,82 @@ class _HallAvailabilityState extends State<HallAvailability> {
 
   Widget _buildHallContainer(String hallName, String location, String capacity,
       Color containerColor, Color availableColor) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      width: 500,
-      height: 122,
+      width: screenWidth * 0.9,
+      height: 130,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       margin: const EdgeInsets.only(right: 20, left: 20, top: 25),
       decoration: BoxDecoration(
         color: containerColor,
         borderRadius: BorderRadius.circular(24),
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: containerColor,
-        //     blurRadius: 1,
-        //     spreadRadius: 2,
-        //   ),
-        // ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        //crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          //Hall name and Go button
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(16.0),
-                          topRight: Radius.circular(16.0),
-                        ),
-                      ),
-                      SizedBox(width: 0),
-                      Text(
-                        hallName,
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    location,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 1),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
-                      child: Text(
-                        capacity,
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ],
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(16.0),
+                  topRight: Radius.circular(16.0),
+                ),
+              ),
+              Text(
+                hallName,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               Spacer(),
-              Directionality(
-                textDirection: TextDirection.rtl,
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: EdgeInsets.all(0.0),
-                    child: ButtonTheme(
-                      minWidth: 100,
-                      height: 50,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      child: ElevatedButton.icon(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: Colors.black,
-                        ),
-                        label: Text(
-                          "Go",
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white),
-                      ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ModeSelector(),
                     ),
-                  ),
+                  );
+                },
+                child: Text(
+                  'Go',
+                  style: TextStyle(color: Colors.black),
                 ),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
               ),
             ],
           ),
-          Spacer(),
+          SizedBox(
+            height: 10,
+          ),
+
+          //Hall Location Text
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              location,
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+
+          //Hall Capacity and Availability
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              SizedBox(height: 8),
-              Align(
-                alignment: Alignment.bottomRight,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black, width: 1),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+                  child: Text(
+                    capacity,
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
               Container(
                 decoration: BoxDecoration(

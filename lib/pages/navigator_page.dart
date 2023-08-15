@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_dots.dart';
-import 'package:mad_project/components/back_search.dart';
 
 import 'location_view_page.dart';
+import 'mode_selector_page.dart';
 
 class NavigatorPage extends StatelessWidget {
   const NavigatorPage({super.key});
@@ -101,14 +101,38 @@ class NavigatorPage extends StatelessWidget {
                         CircularCantainer(
                           nameText: "Canteen",
                           imagePath: 'assets/images/canteen.png',
+                          onPressed: () {
+                            // Your onPressed logic here
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ModeSelector()),
+                            );
+                          },
                         ),
                         CircularCantainer(
                           nameText: "Toilet",
                           imagePath: 'assets/images/toilet.png',
+                          onPressed: () {
+                            // Your onPressed logic here
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ModeSelector()),
+                            );
+                          },
                         ),
                         CircularCantainer(
                           nameText: "Elevator",
                           imagePath: 'assets/images/lift.png',
+                          onPressed: () {
+                            // Your onPressed logic here
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ModeSelector()),
+                            );
+                          },
                         ),
                         CircularCantainer(
                           nameText: "Others",
@@ -388,7 +412,12 @@ class LocationCard extends StatelessWidget {
                               color: HexColor("#00B251"),
                             ), // Replace with your desired icon
                             onPressed: () {
-                              // Add the desired onPressed action for the IconButton
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ModeSelector(),
+                                ),
+                              );
                             },
                           ),
                         ],

@@ -3,238 +3,100 @@ import 'package:mad_project/components/menu_setting.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 
 
-String name="Amal";
-String email="amal7788@gmail.com";
-String batch="21.1";
-String degree="Software Engineering";
-String index="44551";
-String address="Pitipana, Homagama";
+class ProfilePage extends StatefulWidget {
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerScreen(),
       appBar: MenuSetting(
-        title: "My Profile",
+        title: "Profile",
       ),
-      body: ListView(
-        children: [
-          Padding(
-                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 40),
-                     child: Column(
-               
-                                 // profile picture  Section
-      
-                           children: [          
-                              const Column(   
-                                  children: [
-                                    SizedBox(
-                                       width: 160,
-                                       height: 160,
-                                        child: CircleAvatar(
-                                        backgroundImage: AssetImage("assets/Profile.png"),
-                                        child: Padding(
-                                          padding:  EdgeInsets.symmetric(horizontal: 20,),
-                                          child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            crossAxisAlignment: CrossAxisAlignment.end,
-                                              
-                                              children: [
-                                                 Icon(Icons.camera,size: 50,
-                                                 color: Colors.black,
-                                              
-                                                 ),
-                                              ],
-                                         
-                                                 
-                                                
-                                        
-                                          ),
-                                        ),
-                                        
-                                        ),
-                                    ),
-                                  ],    
-                                ),    
-      
-                           
-                                const SizedBox(height: 40),
-      
-                                  // Name  Section
-      
-                            Container(                          
-                               alignment: Alignment.center,
-                               margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                               height: 50,
-                               width:double.infinity,
-                               decoration: BoxDecoration(
-                                 color: const Color.fromARGB(255, 175, 255, 178),
-                                  borderRadius: BorderRadius.circular(10), //border corner radius
-                                  boxShadow:[ 
-                                    BoxShadow(
-                                       color: Colors.grey.withOpacity(0.5), //color of shadow
-                                       spreadRadius: 5, //spread radius
-                                       blurRadius: 7, // blur radius
-                                       offset: const Offset(0, 2), // changes position of shadow
-                                       //first paramerter of offset is left-right
-                                       //second parameter is top to down
-                                    ),
-                                    //you can set more BoxShadow() here
-                                   ],
-                               ),
-                               child: Text('Name : $name', style: const TextStyle(
-                                 fontSize:20,
-                               ),),
-                            ),  
-      
-                                //Email Section
-                             
-                             Container(
-                               alignment: Alignment.center,
-                               margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                               height: 50,
-                               width:double.infinity,
-                               decoration: BoxDecoration(
-                                 color:const Color.fromARGB(255, 175, 255, 178),
-                                  borderRadius: BorderRadius.circular(10), //border corner radius
-                                  boxShadow:[ 
-                                    BoxShadow(
-                                       color: Colors.grey.withOpacity(0.5), //color of shadow
-                                       spreadRadius: 5, //spread radius
-                                       blurRadius: 7, // blur radius
-                                       offset: const Offset(0, 2), // changes position of shadow
-                                       //first paramerter of offset is left-right
-                                       //second parameter is top to down
-                                    ),
-                                    //you can set more BoxShadow() here
-                                   ],
-                               ),
-                               child: Text("Email : $email", style: const TextStyle(
-                                 fontSize:20,
-                               ),),
-                            ),  
-      
-      
-                                   // Batch Section
-      
-                            Container(
-                               alignment: Alignment.center,
-                               margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                               height: 50,
-                               width:double.infinity,
-                               decoration: BoxDecoration(
-                                 color: const Color.fromARGB(255, 175, 255, 178),
-                                  borderRadius: BorderRadius.circular(10), //border corner radius
-                                  boxShadow:[ 
-                                    BoxShadow(
-                                       color: Colors.grey.withOpacity(0.5), //color of shadow
-                                       spreadRadius: 5, //spread radius
-                                       blurRadius: 7, // blur radius
-                                       offset: const Offset(0, 2), // changes position of shadow
-                                       //first paramerter of offset is left-right
-                                       //second parameter is top to down
-                                    ),
-                                    //you can set more BoxShadow() here
-                                   ],
-                               ),
-                               child: Text("Batch : $batch", style: const TextStyle(
-                                 fontSize:20,
-                               ),),
-                            ),  
-      
-      
-                                    // Degree Section 
-      
-                            Container(
-                               alignment: Alignment.center,
-                               margin:const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                               height: 50,
-                               width:double.infinity,
-                               decoration: BoxDecoration(
-                                 color: const Color.fromARGB(255, 175, 255, 178),
-                                  borderRadius: BorderRadius.circular(10), //border corner radius
-                                  boxShadow:[ 
-                                    BoxShadow(
-                                       color: Colors.grey.withOpacity(0.5), //color of shadow
-                                       spreadRadius: 5, //spread radius
-                                       blurRadius: 7, // blur radius
-                                       offset: const Offset(0, 2), // changes position of shadow
-                                       //first paramerter of offset is left-right
-                                       //second parameter is top to down
-                                    ),
-                                    //you can set more BoxShadow() here
-                                   ],
-                               ),
-                               child: Text("Degree : $degree", style: const TextStyle(
-                                 fontSize:20,
-                               ),),
-                            ),  
-      
-      
-                                    // Index Number Section
-      
-      
-                            Container(
-                               alignment: Alignment.center,
-                               margin:const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                               height: 50,
-                               width:double.infinity,
-                               decoration: BoxDecoration(
-                                 color:const Color.fromARGB(255, 175, 255, 178),
-                                  borderRadius: BorderRadius.circular(10), //border corner radius
-                                  boxShadow:[ 
-                                    BoxShadow(
-                                       color: Colors.grey.withOpacity(0.5), //color of shadow
-                                       spreadRadius: 5, //spread radius
-                                       blurRadius: 7, // blur radius
-                                       offset: const Offset(0, 2), // changes position of shadow
-                                       //first paramerter of offset is left-right
-                                       //second parameter is top to down
-                                    ),
-                                    //you can set more BoxShadow() here
-                                   ],
-                               ),
-                               child: Text("Index No : $index", style: const TextStyle(
-                                 fontSize:20,
-                               ),),
-                            ),  
-      
-      
-                                  //Address  section  
-      
-                            Container(
-                               alignment: Alignment.center,
-                               margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                               height: 50,
-                               width:double.infinity,
-                               decoration: BoxDecoration(
-                                 color:const Color.fromARGB(255, 175, 255, 178),
-                                  borderRadius: BorderRadius.circular(10), //border corner radius
-                                  boxShadow:[ 
-                                    BoxShadow(
-                                       color: Colors.grey.withOpacity(0.5), //color of shadow
-                                       spreadRadius: 5, //spread radius
-                                       blurRadius: 7, // blur radius
-                                       offset: const Offset(0, 2), // changes position of shadow
-                                       //first paramerter of offset is left-right
-                                       //second parameter is top to down
-                                    ),
-                                    //you can set more BoxShadow() here
-                                   ],
-                               ),
-                               child: Text("Address: $address", style: const TextStyle(
-                                 fontSize:20,
-                               ),),
-                            ),  
-                       ],  
-          ), 
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 60,
+              backgroundImage: AssetImage('assets/images/profile.jpg'),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Denawakage N S M',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
               ),
-        ],
+            ),
+            SizedBox(height: 6),
+            Text(
+              'nsmdenawage@students.nsbm.ac.lk',
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.grey[600],
+              ),
+            ),
+            Divider(
+              color: Color.fromRGBO(0, 178, 86, 1),
+              height: 30,
+              thickness: 2,
+            ),
+            ProfileInfoItem(title: 'Index No', value: '22972'),
+            ProfileInfoItem(title: 'Faculty', value: 'Faculty of Computing'),
+            ProfileInfoItem(title: 'Degree', value: 'BSc (Hons.) in Software Engineering'),
+            ProfileInfoItem(title: 'Intake', value: '2021.1'),
+            ProfileInfoItem(title: 'NIC/Passport', value: '200005802480'),
+            ProfileInfoItem(title: 'EMail', value: 'nawamdenawakage@gmail.com'),
+            ProfileInfoItem(title: 'Mobile Phone', value: '076 7312274'),
+          ],
+        ),
       ),
-       
+    );
+  }
+}
+
+class ProfileInfoItem extends StatelessWidget {
+  final String title;
+  final String value;
+
+  ProfileInfoItem({required this.title, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: RichText(
+          text: TextSpan(
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+            ),
+            children: [
+              TextSpan(
+                text: '$title: ',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextSpan(
+                text: value,
+                style: TextStyle(
+                  color: Colors.grey[600],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+      )
     );
   }
 }

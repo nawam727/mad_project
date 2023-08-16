@@ -73,13 +73,23 @@ class DrawerScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Image.asset(
+                    'assets/images/user.png',
+                    width: 80, // Adjust the width of the image
+                    height: 80, // Adjust the height of the image
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                SizedBox(height: 6),
+                Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'GNYS Silva',
+                        'NSM Denawakage',
                         style: TextStyle(
                           fontSize: 24,
                           color: Colors.black,
@@ -89,16 +99,7 @@ class DrawerScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                // Profile Image
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Image.asset(
-                    'assets/images/user.png',
-                    width: 80, // Adjust the width of the image
-                    height: 80, // Adjust the height of the image
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                
               ],
             ),
           ),

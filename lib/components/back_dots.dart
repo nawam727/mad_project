@@ -53,9 +53,8 @@ class BackDots extends StatelessWidget implements PreferredSizeWidget {
 
               //dots icon
               Padding(
-                padding: const EdgeInsets.only(left:4.0),
+                padding: const EdgeInsets.only(right:4.0),
                 child: PopupMenuButton<_MenuValues>(
-                  icon: const Icon(Icons.menu),
                     itemBuilder: (BuildContext context) => [
                           const PopupMenuItem(
                               value: _MenuValues.home,

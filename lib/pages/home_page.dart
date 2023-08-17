@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: DrawerScreen(),
       appBar: MenuHome(
-        username: "Hi GNYS Silva",
+        username: "Hi NSM Denawakage",
       ),
       body: ListView(
         children: [

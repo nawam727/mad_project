@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
-
 // ignore: must_be_immutable
+import '../pages/calendar_page.dart';
+import '../pages/home_page.dart';
+import '../pages/profile_page.dart';
+import '../pages/service_page.dart';
+
+enum _MenuValues {
+  home,
+  services,
+  profile,
+  timeTable,
+}
 class BackDots extends StatelessWidget implements PreferredSizeWidget {
   late String title;
 
@@ -42,15 +52,37 @@ class BackDots extends StatelessWidget implements PreferredSizeWidget {
               ),
 
               //dots icon
-              IconButton(
-                icon: Image.asset(
-                  'assets/icons/dots.png',
-                  width: 24,
-                  height: 24,
-                ),
-                onPressed: () {
-                  // Your notification icon onPressed logic here
-                },
+              Padding(
+                padding: const EdgeInsets.only(right:4.0),
+                child: PopupMenuButton<_MenuValues>(
+                    itemBuilder: (BuildContext context) => [
+                          const PopupMenuItem(
+                              value: _MenuValues.home,
+                              child: Text("Home")),
+                              const PopupMenuItem(
+                              value: _MenuValues.timeTable,
+                              child: Text("TimeTable")),
+                          const PopupMenuItem(
+                              value: _MenuValues.services,
+                              child: Text("Services")),
+                          const PopupMenuItem(
+                            value: _MenuValues.profile,
+                            child: Text("Profile"),
+                          ),
+                        ],
+                        onSelected: (value){
+                          switch(value){
+                            case _MenuValues.home:Navigator.of(context).push(MaterialPageRoute(builder: (c)=> HomePage()));
+                            break;
+                            case _MenuValues.timeTable:Navigator.of(context).push(MaterialPageRoute(builder: (c)=> CalendarPage()));
+                            break;
+                            case _MenuValues.services:Navigator.of(context).push(MaterialPageRoute(builder: (c)=>const ServicePage()));
+                            break;
+                            case _MenuValues.profile:Navigator.of(context).push(MaterialPageRoute(builder: (c)=>ProfilePage()));
+                            break;
+                          }
+                        },
+                        ),
               ),
             ],
           ),

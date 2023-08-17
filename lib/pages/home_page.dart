@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/menu_home.dart';
@@ -26,6 +28,7 @@ class _HomePageState extends State<HomePage> {
     'assets/images/slider3.png',
     'assets/images/slider4.png',
   ];
+
 
   @override
   Widget build(BuildContext context) {

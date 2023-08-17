@@ -8,6 +8,7 @@ import 'package:mad_project/pages/notification_page.dart';
 import 'package:mad_project/pages/auth_pade.dart';
 import 'package:mad_project/pages/get_started.dart';
 import 'package:mad_project/pages/support_page.dart';
+import 'components/back_dots.dart';
 
 
 //import 'pages/lecturers_availability_page.dart';

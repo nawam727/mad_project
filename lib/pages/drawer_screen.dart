@@ -66,9 +66,9 @@ class DrawerScreen extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(
-              color: HexColor("#C8F6CD"),
-            ),
+            // decoration: BoxDecoration(
+            //   color: HexColor("#"),
+            // ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -81,7 +81,7 @@ class DrawerScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(height: 6),
+                SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Column(
@@ -95,7 +95,7 @@ class DrawerScreen extends StatelessWidget {
                           color: Colors.black,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 0),
                     ],
                   ),
                 ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/menu_setting.dart';
-import 'package:mad_project/pages/drawer_screen.dart';
 
+import 'drawer_screen.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -12,6 +12,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerScreen(),
       appBar: MenuSetting(
         title: "Profile",
       ),
@@ -20,6 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(height: 20),
             CircleAvatar(
               radius: 60,
               backgroundImage: AssetImage('assets/images/profile.jpg'),
@@ -47,7 +49,8 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             ProfileInfoItem(title: 'Index No', value: '22972'),
             ProfileInfoItem(title: 'Faculty', value: 'Faculty of Computing'),
-            ProfileInfoItem(title: 'Degree', value: 'BSc (Hons.) in Software Engineering'),
+            ProfileInfoItem(
+                title: 'Degree', value: 'BSc (Hons.) in Software Engineering'),
             ProfileInfoItem(title: 'Intake', value: '2021.1'),
             ProfileInfoItem(title: 'NIC/Passport', value: '200005802480'),
             ProfileInfoItem(title: 'EMail', value: 'nawamdenawakage@gmail.com'),
@@ -71,32 +74,36 @@ class ProfileInfoItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: RichText(
-          text: TextSpan(
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black,
-            ),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextSpan(
-                text: '$title: ',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
+              SizedBox(
+                width: 150, // Adjust the width as needed
+                child: Text(
+                  '$title',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              TextSpan(
-                text: value,
-                style: TextStyle(
-                  color: Colors.grey[600],
+              SizedBox(width: 16), // Adjust the spacing as needed
+              Flexible(
+                child: Text(
+                  value,
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 16,
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),
       ),
-      )
     );
   }
 }

@@ -7,7 +7,7 @@ import 'package:mad_project/pages/login_page.dart';
 import 'package:mad_project/pages/notification_page.dart';
 import 'package:mad_project/pages/auth_pade.dart';
 import 'package:mad_project/pages/get_started.dart';
-import 'package:mad_project/pages/support_page.dart';
+import 'package:mad_project/pages/help_center.dart';
 
 
 //import 'pages/lecturers_availability_page.dart';
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: NavBar(),
+      home: HelpCenter(),
     );
   }
 }

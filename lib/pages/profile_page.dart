@@ -4,6 +4,7 @@ import 'package:mad_project/components/menu_setting.dart';
 import 'drawer_screen.dart';
 
 class ProfilePage extends StatefulWidget {
+  
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }

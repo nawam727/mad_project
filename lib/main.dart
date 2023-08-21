@@ -1,3 +1,5 @@
+// ignore_for_file: dead_code
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'pages/lecturers_availability_page.dart';
 
@@ -10,24 +12,38 @@ import 'package:mad_project/firebase_options.dart';
 FirebaseAuth _auth = FirebaseAuth.instance;
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-Future<void> getUserDetails() async {
+class UserData {
+  final String name;
+  final String email;
+
+  UserData(this.name, this.email);
+}
+
+
+Future<UserData?> getUserDetails() async {
   User? user = _auth.currentUser;
 
   if (user != null) {
     DocumentSnapshot doc =
         await _firestore.collection('students').doc(user.uid).get();
-    Map<String, dynamic> userData = doc.data() as Map<String, dynamic>;
+    Map<String, dynamic> userDataMap = doc.data() as Map<String, dynamic>;
 
-    // Now you can use userData to display user details in your UI
-    print('User Name: ${userData['name']}');
-    print('User Email: ${userData['email']}');
-    // Display other user details as needed
+    UserData userData = UserData(userDataMap['name'], userDataMap['semail']);
+
+    print('User Name: ${userData.name}');
+    print('User Email: ${userData.email}');
+
+    return userData;
   }
+
+  return null;
 }
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  UserData? userData = await getUserDetails();
   runApp(const MyApp());
 }
 

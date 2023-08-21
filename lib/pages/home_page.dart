@@ -1,7 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/menu_home.dart';
@@ -29,14 +27,11 @@ class _HomePageState extends State<HomePage> {
     'assets/images/slider4.png',
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: DrawerScreen(),
-      appBar: MenuHome(
-        username: "Hi NSM Denawakage",
-      ),
+      appBar: MenuHome(),
       body: ListView(
         children: [
           SafeArea(
@@ -106,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                               height: 200.0,
                               viewportFraction: 1,
                               enlargeCenterPage: true,
-                              autoPlay: true,
+                              autoPlay: false,
                               autoPlayInterval: Duration(seconds: 3),
                               autoPlayAnimationDuration:
                                   Duration(milliseconds: 800),
@@ -253,8 +248,18 @@ class _HomePageState extends State<HomePage> {
                         //color: HexColor("#FEECEC"),
                         height: 110,
                         decoration: BoxDecoration(
-                            color: HexColor("#FEECEC"),
-                            borderRadius: BorderRadius.circular(10)),
+                          color: HexColor("#FEECEC"),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 1,
+                              blurRadius: 10,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -340,6 +345,14 @@ class RecentlyViewed extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 10,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
         border: Border.all(
           color: Colors.grey, // Set your desired border color here
           width: 0.5, // Set the border width as needed
@@ -438,7 +451,17 @@ class CircularCantainer extends StatelessWidget {
               child: Container(
                 height: containerSize,
                 width: containerSize,
-                color: HexColor("#C8F6CD"),
+                decoration: BoxDecoration(
+                  color: HexColor("#C8F6CD"),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 20,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
                 child: Image.asset(
                   imagePath, // Provide the image asset path here
                   fit: BoxFit.cover,

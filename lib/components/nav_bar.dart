@@ -5,6 +5,8 @@ import 'package:mad_project/pages/home_page.dart';
 import 'package:mad_project/pages/profile_page.dart';
 import 'package:mad_project/pages/service_page.dart';
 
+import '../pages/navigator_page.dart';
+
 class CustomIcon extends StatelessWidget {
   final String imagePath;
   final bool isSelected;

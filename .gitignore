@@ -47,3 +47,10 @@ app.*.map.json
 
 android/unityLibrary/
 android/unityLibrary
+
+unity/DemoApp/Builds/
+unity/DemoApp/Library/
+unity/DemoApp/Logs/
+unity/DemoApp/Temp/
+
+mad_project_NEW2\unity\nsideapp\Library\

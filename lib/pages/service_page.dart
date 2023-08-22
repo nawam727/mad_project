@@ -25,6 +25,14 @@ class ServicePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             margin: const EdgeInsets.only(right: 20, left: 20, top: 30),
             decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 10,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
               color: const Color.fromARGB(255, 214, 247, 221),
               borderRadius: BorderRadius.circular(24),
               border: Border.all(
@@ -89,6 +97,14 @@ class ServicePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             margin: const EdgeInsets.only(right: 20, left: 20, top: 30),
             decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 10,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
               color: const Color.fromARGB(255, 214, 247, 221),
               borderRadius: BorderRadius.circular(24),
               border: Border.all(
@@ -153,6 +169,14 @@ class ServicePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             margin: const EdgeInsets.only(right: 20, left: 20, top: 30),
             decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 10,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
               color: Color.fromARGB(255, 214, 247, 221),
               borderRadius: BorderRadius.circular(24),
               border: Border.all(

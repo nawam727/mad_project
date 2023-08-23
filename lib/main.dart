@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: HelpCenter(),
+      home: NavBar(),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/back_dots.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:mad_project/pages/terms_conditions.dart';
 import 'package:mad_project/widgets/settings_tile.dart';
 
 
@@ -27,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(height: 10),
               //account
               SettingsTile(
-                color: const Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 214, 247, 221),
                 icon: Ionicons.person_outline,
                 title: "Account",
                 onTap: () {},
@@ -37,7 +38,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               //notification
               SettingsTile(
-                color: const Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 214, 247, 221),
                 icon: Ionicons.notifications_outline,
                 title: "Notification",
                 onTap: () {},
@@ -47,7 +48,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               //location
               SettingsTile(
-                color: const Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 214, 247, 221),
                 icon: Ionicons.location_outline,
                 title: "Location",
                 onTap: () {},
@@ -57,17 +58,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               //terms and conditions
               SettingsTile(
-                color: const Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 214, 247, 221),
                 icon: Ionicons.document_outline,
                 title: "Terms and Conditions",
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TermsConditions()),
+                  );
+                },
               ),
               const SizedBox(
                 height: 10,
               ),
               //software update
               SettingsTile(
-                color: const Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 214, 247, 221),
                 icon: Ionicons.arrow_up_outline,
                 title: "Software Update",
                 onTap: () {},
@@ -77,7 +83,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               //logout
               SettingsTile(
-                color: const Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 214, 247, 221),
                 icon: Ionicons.log_out_outline,
                 title: "Logout",
                 onTap: () {},

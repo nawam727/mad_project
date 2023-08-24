@@ -16,41 +16,49 @@ class SettingsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: color,
-          ),
-          child: Icon(
-            icon,
-            color: Colors.black,
-          ),
-        ),
-        const SizedBox(width: 10),
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.normal,
-          ),
-        ),
-        const Spacer(),
-        InkWell(
-          onTap: onTap,
-          child: Container(
+    return Container(
+      width: 500,
+      height: 50,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: const Color.fromARGB(255, 214, 247, 221)
+      ),
+      child: Row(
+        children: [
+          Container(
             width: 50,
             height: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
+              color: color,
             ),
-            child: const Icon(Ionicons.chevron_forward_outline),
+            child: Icon(
+              icon,
+              color: Colors.black,
+            ),
           ),
-        )
-      ],
+          const SizedBox(width: 10),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+          const Spacer(),
+          InkWell(
+            onTap: onTap,
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Icon(Ionicons.chevron_forward_outline),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

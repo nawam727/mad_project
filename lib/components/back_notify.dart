@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/nav_bar.dart';
-import 'package:mad_project/pages/home_page.dart';
+import 'package:mad_project/pages/navbar_pages/home_page.dart';
 
 class BackNotify extends StatelessWidget implements PreferredSizeWidget {
   //late final Function() onMenuPressed;

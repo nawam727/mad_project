@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/menu_setting.dart';
 
-import 'drawer_screen.dart';
+import '../../main.dart';
+import '../drawer_screen.dart';
 
 class ProfilePage extends StatefulWidget {
-  
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  UserData? userData;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+  }
+
+  Future<void> getUserData() async {
+    UserData? userDetails = await getUserDetails();
+    setState(() {
+      userData = userDetails;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 20),
             Text(
-              'Denawakage N S M',
+              userData != null ? userData!.name : "User Name",
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -37,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 6),
             Text(
-              'nsmdenawage@students.nsbm.ac.lk',
+              userData != null ? userData!.sEmail : 'user@example.com',
               style: TextStyle(
                 fontSize: 15,
                 color: Colors.grey[600],
@@ -48,14 +64,33 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 30,
               thickness: 2,
             ),
-            ProfileInfoItem(title: 'Index No', value: '22972'),
-            ProfileInfoItem(title: 'Faculty', value: 'Faculty of Computing'),
-            ProfileInfoItem(
-                title: 'Degree', value: 'BSc (Hons.) in Software Engineering'),
-            ProfileInfoItem(title: 'Intake', value: '2021.1'),
-            ProfileInfoItem(title: 'NIC/Passport', value: '200005802480'),
-            ProfileInfoItem(title: 'EMail', value: 'nawamdenawakage@gmail.com'),
-            ProfileInfoItem(title: 'Mobile Phone', value: '076 7312274'),
+            userData != null
+                ? Column(
+                    children: [
+                      if (userData!.index != null)
+                        ProfileInfoItem(title: 'Index', value: userData!.index),
+                      if (userData!.faculty != null)
+                        ProfileInfoItem(
+                            title: 'Faculty', value: userData!.faculty),
+                      if (userData!.degree != null)
+                        ProfileInfoItem(
+                            title: 'Degree', value: userData!.degree),
+                      if (userData!.batch != null)
+                        ProfileInfoItem(
+                            title: 'Intake', value: userData!.batch),
+                      if (userData!.nic != null)
+                        ProfileInfoItem(
+                            title: 'NIC/Passport', value: userData!.nic),
+                      if (userData!.email != null)
+                        ProfileInfoItem(title: 'Email', value: userData!.email),
+                      if (userData!.mobile != null)
+                        ProfileInfoItem(
+                            title: 'Mobile Phone', value: userData!.mobile),
+                    ],
+                  )
+                : CircularProgressIndicator(
+                  color: HexColor("00B251"),
+                ),
           ],
         ),
       ),

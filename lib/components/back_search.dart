@@ -45,8 +45,8 @@ class BackSearch extends StatelessWidget implements PreferredSizeWidget {
               IconButton(
                 icon: Image.asset(
                   'assets/icons/search.png',
-                  width: 22,
-                  height: 22,
+                  width: 21,
+                  height: 21,
                 ),
                 onPressed: () {
                   showSearch(
@@ -82,8 +82,8 @@ class CustomSearchDelegate extends SearchDelegate {
           icon: Image.asset(
             'assets/icons/close.png',
             color: Colors.black,
-            width: 19,
-            height: 19,
+            width: 17,
+            height: 17,
           ),
         ),
       ),

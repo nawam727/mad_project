@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mad_project/components/back_dots.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 
 
@@ -10,7 +11,7 @@ class HelpCenter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: DrawerScreen(),
-      
+      appBar: BackDots(title: 'Help Center'),
       body:ListView(
   children: <Widget>[
     Column(

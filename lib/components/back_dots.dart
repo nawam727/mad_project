@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-import '../pages/calendar_page.dart';
-import '../pages/home_page.dart';
-import '../pages/profile_page.dart';
-import '../pages/service_page.dart';
+import '../pages/navbar_pages/calendar_page.dart';
+import '../pages/navbar_pages/home_page.dart';
+import '../pages/navbar_pages/profile_page.dart';
+import '../pages/navbar_pages/service_page.dart';
 
 enum _MenuValues {
   home,

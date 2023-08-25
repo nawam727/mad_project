@@ -6,7 +6,8 @@ import 'package:mad_project/components/menu_home.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 import 'package:mad_project/pages/location_view_page.dart';
 
-import 'mode_selector_page.dart';
+import '../../main.dart';
+import '../mode_selector_page.dart';
 
 class HomePage extends StatefulWidget {
   //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -20,6 +21,22 @@ class HomePage extends StatefulWidget {
 int _currentIndex = 0;
 
 class _HomePageState extends State<HomePage> {
+  //fireStore fetching data
+  UserData? userData;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+  }
+
+  Future<void> getUserData() async {
+    UserData? userDetails = await getUserDetails();
+    setState(() {
+      userData = userDetails;
+    });
+  }
+
   List<String> imageList = [
     'assets/images/slider1.png',
     'assets/images/slider2.png',

@@ -5,10 +5,32 @@ import 'package:mad_project/pages/about_page.dart';
 import 'package:mad_project/pages/privacy_policy.dart';
 import 'package:mad_project/pages/support_page.dart';
 
+import '../main.dart';
 import 'auth_pade.dart';
 
-class DrawerScreen extends StatelessWidget {
+class DrawerScreen extends StatefulWidget {
   const DrawerScreen({super.key});
+
+  @override
+  State<DrawerScreen> createState() => _DrawerScreenState();
+}
+
+class _DrawerScreenState extends State<DrawerScreen> {
+  //fireStore fetching data
+  UserData? userData;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+  }
+
+  Future<void> getUserData() async {
+    UserData? userDetails = await getUserDetails();
+    setState(() {
+      userData = userDetails;
+    });
+  }
 
   //sign out method
   void signUserOut(BuildContext context) async {
@@ -74,14 +96,12 @@ class DrawerScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
-                  child: Image.asset(
-                    'assets/images/user.png',
-                    width: 80, // Adjust the width of the image
-                    height: 80, // Adjust the height of the image
-                    fit: BoxFit.cover,
+                  child: CircleAvatar(
+                    radius: 45,
+                    backgroundImage: AssetImage('assets/images/profile.jpg'),
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 13),
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Column(
@@ -89,7 +109,7 @@ class DrawerScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'NSM Denawakage',
+                        userData != null ? userData!.name : "User Name",
                         style: TextStyle(
                           fontSize: 24,
                           color: Colors.black,
@@ -99,7 +119,6 @@ class DrawerScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                
               ],
             ),
           ),

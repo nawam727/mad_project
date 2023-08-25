@@ -1,26 +1,40 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:mad_project/pages/drawer_screen.dart';
-import '../firebase_options.dart';
+
 import '../main.dart';
 import '../pages/notification_page.dart';
 
-
-class MenuHome extends StatelessWidget implements PreferredSizeWidget {
+class MenuHome extends StatefulWidget implements PreferredSizeWidget {
+  @override
+  _MenuHomeState createState() => _MenuHomeState();
 
   @override
-  Size get preferredSize =>
-      Size.fromHeight(55); // Specify the preferred height of your app bar
+  Size get preferredSize => Size.fromHeight(55);
+}
+
+class _MenuHomeState extends State<MenuHome> {
+
+  UserData? userData;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+  }
+
+  Future<void> getUserData() async {
+    UserData? userDetails = await getUserDetails();
+    setState(() {
+      userData = userDetails;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          height: preferredSize.height,
-          color: Colors.white, // Customize your background color here
+          height: widget.preferredSize.height,
+          color: Colors.white,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -43,7 +57,7 @@ class MenuHome extends StatelessWidget implements PreferredSizeWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'HI NSM Denawakag',
+                    'Hi, ' + (userData != null ? userData!.name : "User Name"),
                     style: TextStyle(color: Colors.black, fontSize: 17),
                   ),
                   Text(

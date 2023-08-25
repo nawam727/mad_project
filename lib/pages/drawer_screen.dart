@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/pages/about_page.dart';
 import 'package:mad_project/pages/privacy_policy.dart';
+import 'package:mad_project/pages/settings_page.dart';
 import 'package:mad_project/pages/support_page.dart';
 
 import '../main.dart';
@@ -181,7 +182,10 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 title: Text('Settings', style: TextStyle(fontSize: 16)),
                 onTap: () {
                   // Replace this with the action you want to perform when the user taps on this item
-                  Navigator.pop(context); // Close the drawer
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SettingsScreen()),
+                  ); // Close the drawer
                 },
               ),
               ListTile(

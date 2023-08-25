@@ -171,7 +171,7 @@ class HelpCenter extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             child: TextField(
               decoration: InputDecoration(
                 prefixIcon: Icon(
@@ -227,7 +227,7 @@ class HelpCenter extends StatelessWidget {
                           padding: const EdgeInsets.only(
                               top: 10), // Add padding to move the text down
                           child: Image.asset(
-                            'assets/images/human.png',
+                            'assets/images/faq.png',
                             width: 100,
                             height: 50,
                             alignment: Alignment.center,
@@ -241,7 +241,7 @@ class HelpCenter extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {},
                           child: Text(
-                            'General Questions',
+                            'FAQ',
                             style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.black,
@@ -357,9 +357,9 @@ class HelpCenter extends StatelessWidget {
                           topRight: Radius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(top: 8),
                           child: Image.asset(
-                            'assets/images/faq.png',
+                            'assets/images/human.png',
                             width: 100,
                             height: 50,
                             alignment: Alignment.center,
@@ -373,7 +373,7 @@ class HelpCenter extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {}, // Add padding to move the text down
                           child: Text(
-                            'FAQ',
+                            'General Questions',
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.black,
@@ -1110,14 +1110,7 @@ class HelpCenter extends StatelessWidget {
                 color: HexColor("#FFFFFF"),
                 width: 0.3,
               ),
-              /*boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 10,
-                  offset: Offset(0, 3), // changes position of shadow
-                ),
-              ],*/
+              
             ),
           child: Row(
               //text and image
@@ -1171,14 +1164,7 @@ class HelpCenter extends StatelessWidget {
                 color: HexColor("#FFFFFF"),
                 width: 0.3,
               ),
-              /*boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 10,
-                  offset: Offset(0, 3), // changes position of shadow
-                ),
-              ],*/
+              
             ),
           child: Row(
               //text and image
@@ -1232,14 +1218,7 @@ class HelpCenter extends StatelessWidget {
                 color: HexColor("#FFFFFF"),
                 width: 0.3,
               ),
-              /*boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 10,
-                  offset: Offset(0, 3), // changes position of shadow
-                ),
-              ],*/
+              
             ),
           child: Row(
               //text and image
@@ -1293,14 +1272,7 @@ class HelpCenter extends StatelessWidget {
                 color: HexColor("#FFFFFF"),
                 width: 0.3,
               ),
-              /*boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 10,
-                  offset: Offset(0, 3), // changes position of shadow
-                ),
-              ],*/
+              
             ),
           child: Row(
               //text and image
@@ -1354,14 +1326,7 @@ class HelpCenter extends StatelessWidget {
                 color: HexColor("#FFFFFF"),
                 width: 0.3,
               ),
-              /*boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 10,
-                  offset: Offset(0, 3), // changes position of shadow
-                ),
-              ],*/
+              
             ),
           child: Row(
               //text and image
@@ -1415,14 +1380,7 @@ class HelpCenter extends StatelessWidget {
                 color: HexColor("#FFFFFF"),
                 width: 0.3,
               ),
-              /*boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 10,
-                  offset: Offset(0, 3), // changes position of shadow
-                ),
-              ],*/
+              
             ),
           child: Row(
               //text and image
@@ -1488,12 +1446,199 @@ class HelpCenter extends StatelessWidget {
           ),
         ],
       ),
-        ),
-      ],
+
+      child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children:<Widget>[
+            Container(
+            width:MediaQuery.of(context).size.width,
+            height:MediaQuery.of(context).size.height*0.10,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            margin: const EdgeInsets.only(top: 15),
+            decoration: BoxDecoration(
+              color: HexColor('FFFFFF'),
+              borderRadius: BorderRadius.circular(24),
+              border: Border.all(
+                color: HexColor("FFFFFF"),
+                width: 0.3,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 10,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
             ),
 
+      child: Row(
+
+        crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(8.0),
+                    topRight: Radius.circular(8.0),
+                  ),
+                  child: IconButton(
+                    icon: Image.asset(
+                    'assets/icons/search.png',
+                    width:MediaQuery.of(context).size.width*0.05,
+            height:MediaQuery.of(context).size.height*0.05,
+                    alignment: Alignment.centerLeft,
+                  ),
+                  onPressed: () {},
+                  ),
+                ),
+              
+              //text 
+              SizedBox(
+                        height: 36,
+                        child:Text(
+                        'Ask Us Anything',
+                        style: TextStyle(
+                          fontSize: 28,
+                          color: HexColor('3F3F3F'),
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      ),
+
+                    ],
+                  ),
+                ),
+
+                Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    //add comment boxes
+    Padding(
+      padding: EdgeInsets.only(top: 30, bottom: 5), // Add padding to move text down
+      //add name field
+      child: Text(
+        'Enter your name....',
+        style: TextStyle(
+          fontSize: 16,
+          color: HexColor('00B251'),
+        ),
+        textAlign: TextAlign.left,
+      ),
+    ),
+    SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.10,
+      child: TextField(
+        maxLines: null,
+        expands: true,
+        keyboardType: TextInputType.multiline,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: HexColor('FCFCFC'),
+          hintText: 'Enter your name....',
+          contentPadding: EdgeInsets.all(10.0),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide(
+              color: HexColor("FFFFFF"),
+            ),
+          ),
+        ),
+      ),
+    ),
+
+
+    Padding(
+      padding: EdgeInsets.only(top: 30 , bottom: 5), // Add padding to move text down
+      child: Text(
+        //add email field
+        'Enter your email....',
+        style: TextStyle(
+          fontSize: 16,
+          color: HexColor('00B251'),
+        ),
+        textAlign: TextAlign.left,
+      ),
+    ),
+    SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.10,
+      child: TextField(
+        maxLines: null,
+        expands: true,
+        keyboardType: TextInputType.multiline,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: HexColor('FCFCFC'),
+          hintText: 'Enter your email....',
+          contentPadding: EdgeInsets.all(10.0),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide(
+              color: HexColor("FFFFFF"),
+            ),
+          ),
+        ),
+      ),
+    ),
+
+    Padding(
+      padding: EdgeInsets.only(top: 30, bottom: 5), // Add padding to move text down
+      child: Text(
+        //add question field
+        'Ask your question....',
+        style: TextStyle(
+          fontSize: 16,
+          color: HexColor('00B251'),
+        ),
+        textAlign: TextAlign.left,
+      ),
+    ),
+    SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.20,
+      child: TextField(
+        maxLines: null,
+        expands: true,
+        keyboardType: TextInputType.multiline,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: HexColor('FCFCFC'),
+          hintText:'Ask your question....',
+          contentPadding: EdgeInsets.all(10.0),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide(
+              color: HexColor("FFFFFF"),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ],
+),
+
+//add submit button
+SizedBox(height: 30), 
+ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  'Submit',
+                  style: TextStyle(color: HexColor('FFFFFF'), fontSize: 16),
+                ),
+                style: ElevatedButton.styleFrom(backgroundColor: HexColor('00B251'),elevation: 3,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0)),
+              fixedSize: Size(100, 40)),
+              ),
+            ],
+        ),
+        ),
   ],
     ),
+  ],
+      ),
     );
   }
 }

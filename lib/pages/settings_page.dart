@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mad_project/components/back_dots.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:mad_project/components/back_dots.dart';
+import 'package:mad_project/pages/location_settings.dart';
+import 'package:mad_project/pages/notification_settings.dart';
 import 'package:mad_project/pages/terms_conditions.dart';
 import 'package:mad_project/widgets/settings_tile.dart';
 
@@ -41,7 +43,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: const Color.fromARGB(255, 214, 247, 221),
                 icon: Ionicons.notifications_outline,
                 title: "Notification",
-                onTap: () {},
+                onTap: () {
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => NotificationSettings()),
+                  );
+                },
               ),
               const SizedBox(
                 height: 10,
@@ -51,7 +58,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: const Color.fromARGB(255, 214, 247, 221),
                 icon: Ionicons.location_outline,
                 title: "Location",
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LocationSettings()),
+                  );
+                },
               ),
               const SizedBox(
                 height: 10,

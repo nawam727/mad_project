@@ -60,7 +60,7 @@ Future<UserData?> getUserDetails() async {
         userDataMap.containsKey('batch') ? userDataMap['batch'] : '',
         userDataMap.containsKey('index') ? userDataMap['index'] : '',
         userDataMap.containsKey('nic') ? userDataMap['nic'] : '',
-        userDataMap.containsKey('degree') ? userDataMap['degree'] : '',
+         userDataMap.containsKey('degree') ? userDataMap['degree'] : '',
         userDataMap.containsKey('mobile') ? userDataMap['mobile'] : '',
         userDataMap.containsKey('semail') ? userDataMap['semail'] : '',
       );

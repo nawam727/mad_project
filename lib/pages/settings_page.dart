@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:mad_project/components/back_dots.dart';
 import 'package:mad_project/pages/location_settings.dart';
+import 'package:mad_project/pages/navbar_pages/profile_page.dart';
 import 'package:mad_project/pages/notification_settings.dart';
 import 'package:mad_project/pages/terms_conditions.dart';
 import 'package:mad_project/widgets/settings_tile.dart';
@@ -27,7 +28,48 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                  );
+                },
+                child: Row( 
+                  children: [
+                    const SizedBox(width: 15),
+                    const CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('assets/images/profile.jpg'),
+                    ),
+                    const SizedBox(width: 12),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Denawakage N S M',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'nsmdenawage@students.nsbm.ac.lk',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 40),
+              
+              
               //account
               SettingsTile(
                 color: const Color.fromARGB(255, 214, 247, 221),
@@ -38,51 +80,68 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(
                 height: 10,
               ),
+              
+              
               //notification
-              SettingsTile(
-                color: const Color.fromARGB(255, 214, 247, 221),
-                icon: Ionicons.notifications_outline,
-                title: "Notification",
+              GestureDetector(
                 onTap: () {
-                   Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => NotificationSettings()),
-                  );
-                },
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => NotificationSettings()),
+                    );
+                  },
+                child: SettingsTile(
+                  color: const Color.fromARGB(255, 214, 247, 221),
+                  icon: Ionicons.notifications_outline,
+                  title: "Notification",
+                  onTap: () {},
+                ),
               ),
               const SizedBox(
                 height: 10,
               ),
+             
+             
               //location
-              SettingsTile(
-                color: const Color.fromARGB(255, 214, 247, 221),
-                icon: Ionicons.location_outline,
-                title: "Location",
+              GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LocationSettings()),
-                  );
-                },
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LocationSettings()),
+                    );
+                  },
+                child: SettingsTile(
+                  color: const Color.fromARGB(255, 214, 247, 221),
+                  icon: Ionicons.location_outline,
+                  title: "Location",
+                  onTap: () {},
+                ),
               ),
               const SizedBox(
                 height: 10,
               ),
+             
+             
               //terms and conditions
-              SettingsTile(
-                color: const Color.fromARGB(255, 214, 247, 221),
-                icon: Ionicons.document_outline,
-                title: "Terms and Conditions",
+              GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TermsConditions()),
-                  );
-                },
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TermsConditions()),
+                    );
+                  },
+                child: SettingsTile(
+                  color: const Color.fromARGB(255, 214, 247, 221),
+                  icon: Ionicons.document_outline,
+                  title: "Terms and Conditions",
+                  onTap: () {},
+                ),
               ),
               const SizedBox(
                 height: 10,
               ),
+              
+              
               //software update
               SettingsTile(
                 color: const Color.fromARGB(255, 214, 247, 221),
@@ -98,7 +157,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: const Color.fromARGB(255, 214, 247, 221),
                 icon: Ionicons.log_out_outline,
                 title: "Logout",
-                onTap: () {},
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Logout"),
+                        content: Text("Are you sure you want to log out?"),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                            child: Text("Cancel"),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              // Perform logout action here
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                            child: Text("Logout"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),

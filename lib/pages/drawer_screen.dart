@@ -17,6 +17,7 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
+
   //fireStore fetching data
   UserData? userData;
 
@@ -92,6 +93,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
             // decoration: BoxDecoration(
             //   color: HexColor("#"),
             // ),
+
+            //DP and Name
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -129,6 +132,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+
+              //About
               ListTile(
                 leading: IconButton(
                   icon: Image.asset(
@@ -151,6 +156,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   ); // Close the drawer
                 },
               ),
+
+              //Privacy Policy
               ListTile(
                 leading: IconButton(
                   icon: Image.asset(
@@ -169,6 +176,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   );
                 },
               ),
+
+              //Settings
               ListTile(
                 leading: IconButton(
                   icon: Image.asset(
@@ -188,6 +197,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   ); // Close the drawer
                 },
               ),
+
+              //Support Page
               ListTile(
                 leading: IconButton(
                   icon: Image.asset(
@@ -210,6 +221,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
               SizedBox(
                 height: 290,
               ),
+
+              //Log Out
               ListTile(
                 leading: IconButton(
                   icon: Image.asset(

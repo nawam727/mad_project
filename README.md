@@ -31,7 +31,7 @@ The N-Side Mobile App is an innovative solution designed to enhance the universi
 - **Sadeep Amantha** ([Amantha07](https://github.com/Amantha07))
   - **UI/UX Designer / Flutter Developer:** Contributing to UI/UX design and Flutter development, ensuring a delightful user experience.
 
-- **Moksha Dilshan** ([MokshaDil](https://github.com/MokshaDil))
+- **Moksha Dilshan** ([MokshaDill](https://github.com/MokshaDill))
   - **Flutter & AR Navigation Developer:** Pioneering the AR navigation feature, integrating it into the app for accurate indoor navigation.
 
 

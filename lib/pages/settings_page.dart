@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:mad_project/components/back_dots.dart';
 import 'package:mad_project/pages/location_settings.dart';
@@ -6,6 +8,9 @@ import 'package:mad_project/pages/navbar_pages/profile_page.dart';
 import 'package:mad_project/pages/notification_settings.dart';
 import 'package:mad_project/pages/terms_conditions.dart';
 import 'package:mad_project/widgets/settings_tile.dart';
+
+import '../main.dart';
+import 'auth_pade.dart';
 
 
 class SettingsScreen extends StatefulWidget {
@@ -16,6 +21,72 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+
+  //Fetching data from firestore
+  UserData? userData;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+  }
+
+  Future<void> getUserData() async {
+    UserData? userDetails = await getUserDetails();
+    setState(() {
+      userData = userDetails;
+    });
+  }
+
+  //sign out method
+  void signUserOut(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+          builder: (context) =>
+              AuthPage()), // Replace AuthPage with your authentication page widget
+    );
+  }
+
+  //Alert box
+  void showAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirmation'),
+          content: Text('Do you want to logout?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .pop(false); // Dismiss the dialog and return false
+              },
+              child: Text(
+                'No',
+                style: TextStyle(
+                  color: HexColor("#00B251"),
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                signUserOut(context);
+              },
+              child: Text(
+                'Yes',
+                style: TextStyle(
+                  color: HexColor("#00B251"),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,8 +118,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Denawakage N S M',
+                        Text(
+                          userData != null ? userData!.name : "User Name",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -56,7 +127,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'nsmdenawage@students.nsbm.ac.lk',
+                          userData != null ? userData!.sEmail : 'user@example.com',
                           style: TextStyle(
                             fontSize: 13,
                             color: Colors.grey[600],
@@ -152,37 +223,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(
                 height: 40,
               ),
+
               //logout
-              SettingsTile(
-                color: const Color.fromARGB(255, 214, 247, 221),
-                icon: Ionicons.log_out_outline,
-                title: "Logout",
+              GestureDetector(
                 onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text("Logout"),
-                        content: Text("Are you sure you want to log out?"),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop(); // Close the dialog
-                            },
-                            child: Text("Cancel"),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              // Perform logout action here
-                              Navigator.of(context).pop(); // Close the dialog
-                            },
-                            child: Text("Logout"),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
+                    showAlert(context);
+                  },
+                child: SettingsTile(
+                  color: const Color.fromARGB(255, 214, 247, 221),
+                  icon: Ionicons.log_out_outline,
+                  title: "Logout",
+                  onTap: () {},
+                ),
               ),
             ],
           ),

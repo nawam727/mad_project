@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../pages/notification_page.dart';
 
@@ -44,19 +45,42 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
                 style: TextStyle(color: Colors.black, fontSize: 17),
               ),
     
-              //Notification icon
+             // Notification icon with red indicator
               Padding(
-                padding: const EdgeInsets.only(right:4.0),
-                child: IconButton(
-                  icon: Image.asset(
-                    'assets/icons/notification.png',
-                    width: 24,
-                    height: 24,
-                  ),
-                  onPressed: () {
-                    // Your notification icon onPressed logic here
-                    Navigator.of(context).push(_createRoute());
-                  },
+                padding: const EdgeInsets.only(right: 4.0),
+                child: Stack(
+                  children: [
+                    IconButton(
+                      icon: Image.asset(
+                        'assets/icons/notification.png',
+                        width: 24,
+                        height: 24,
+                      ),
+                      onPressed: () {
+                        // Your notification icon onPressed logic here
+                        Navigator.of(context).push(_createRoute());
+                      },
+                    ),
+                    Positioned(
+                      right: 0,
+                      top: 0,
+                      child: Container(
+                        padding: EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          color: HexColor("00B251"), // Red indicator color
+                          shape: BoxShape.circle,
+                        ),
+                        child: Text(
+                          '1', // You can replace this with the actual notification count
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:mad_project/components/back_dots.dart';
+import 'package:mad_project/components/settings_tile.dart';
 import 'package:mad_project/pages/location_settings.dart';
 import 'package:mad_project/pages/navbar_pages/profile_page.dart';
 import 'package:mad_project/pages/notification_settings.dart';
 import 'package:mad_project/pages/terms_conditions.dart';
-import 'package:mad_project/widgets/settings_tile.dart';
 
 import '../main.dart';
 import 'auth_pade.dart';
-
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -21,14 +20,26 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-
   //Fetching data from firestore
+  String profilePhotoURL = '';
   UserData? userData;
 
   @override
   void initState() {
     super.initState();
     getUserData();
+    displayProfile();
+  }
+
+  Future<void> displayProfile() async {
+    print("Profile Photo URL: $profilePhotoURL");
+    UserData? userData = await getUserDetails();
+    if (userData != null) {
+      String photoURL = userData.photoURL;
+      setState(() {
+        profilePhotoURL = photoURL;
+      });
+    }
   }
 
   Future<void> getUserData() async {
@@ -107,12 +118,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     MaterialPageRoute(builder: (context) => ProfilePage()),
                   );
                 },
-                child: Row( 
+                child: Row(
                   children: [
                     const SizedBox(width: 15),
-                    const CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage('assets/images/profile.jpg'),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 50,
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: profilePhotoURL.isNotEmpty
+                              ? NetworkImage(profilePhotoURL) as ImageProvider
+                              : null,
+                        ),
+                        if (profilePhotoURL.isEmpty)
+                          CircularProgressIndicator(
+                            color: HexColor("00B251"),
+                          ), // Display the CircularProgressIndicator when the image is loading
+                      ],
                     ),
                     const SizedBox(width: 12),
                     Column(
@@ -127,7 +150,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          userData != null ? userData!.sEmail : 'user@example.com',
+                          userData != null
+                              ? userData!.sEmail
+                              : 'user@example.com',
                           style: TextStyle(
                             fontSize: 13,
                             color: Colors.grey[600],
@@ -139,8 +164,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
               const SizedBox(height: 40),
-              
-              
+
               //account
               SettingsTile(
                 color: const Color.fromARGB(255, 214, 247, 221),
@@ -151,16 +175,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(
                 height: 10,
               ),
-              
-              
+
               //notification
               GestureDetector(
                 onTap: () {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => NotificationSettings()),
-                    );
-                  },
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NotificationSettings()),
+                  );
+                },
                 child: SettingsTile(
                   color: const Color.fromARGB(255, 214, 247, 221),
                   icon: Ionicons.notifications_outline,
@@ -171,16 +195,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(
                 height: 10,
               ),
-             
-             
+
               //location
               GestureDetector(
                 onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LocationSettings()),
-                    );
-                  },
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LocationSettings()),
+                  );
+                },
                 child: SettingsTile(
                   color: const Color.fromARGB(255, 214, 247, 221),
                   icon: Ionicons.location_outline,
@@ -191,16 +214,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(
                 height: 10,
               ),
-             
-             
+
               //terms and conditions
               GestureDetector(
                 onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => TermsConditions()),
-                    );
-                  },
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TermsConditions()),
+                  );
+                },
                 child: SettingsTile(
                   color: const Color.fromARGB(255, 214, 247, 221),
                   icon: Ionicons.document_outline,
@@ -211,8 +233,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(
                 height: 10,
               ),
-              
-              
+
               //software update
               SettingsTile(
                 color: const Color.fromARGB(255, 214, 247, 221),
@@ -227,8 +248,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               //logout
               GestureDetector(
                 onTap: () {
-                    showAlert(context);
-                  },
+                  showAlert(context);
+                },
                 child: SettingsTile(
                   color: const Color.fromARGB(255, 214, 247, 221),
                   icon: Ionicons.log_out_outline,
@@ -243,4 +264,3 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 }
-

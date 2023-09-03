@@ -17,14 +17,26 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
-
   //fireStore fetching data
+  String profilePhotoURL = '';
   UserData? userData;
 
   @override
   void initState() {
     super.initState();
     getUserData();
+    displayProfile();
+  }
+
+  Future<void> displayProfile() async {
+    print("Profile Photo URL: $profilePhotoURL");
+    UserData? userData = await getUserDetails();
+    if (userData != null) {
+      String photoURL = userData.photoURL;
+      setState(() {
+        profilePhotoURL = photoURL;
+      });
+    }
   }
 
   Future<void> getUserData() async {
@@ -100,9 +112,21 @@ class _DrawerScreenState extends State<DrawerScreen> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
-                  child: CircleAvatar(
-                    radius: 45,
-                    backgroundImage: AssetImage('assets/images/profile.jpg'),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 45,
+                        backgroundColor: Colors.transparent,
+                        backgroundImage: profilePhotoURL.isNotEmpty
+                            ? NetworkImage(profilePhotoURL) as ImageProvider
+                            : null,
+                      ),
+                      if (profilePhotoURL.isEmpty)
+                        CircularProgressIndicator(
+                          color: HexColor("00B251"),
+                        ), // Display the CircularProgressIndicator when the image is loading
+                    ],
                   ),
                 ),
                 SizedBox(height: 13),
@@ -132,7 +156,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-
               //About
               ListTile(
                 leading: IconButton(
@@ -191,7 +214,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 title: Text('Settings', style: TextStyle(fontSize: 16)),
                 onTap: () {
                   // Replace this with the action you want to perform when the user taps on this item
-                   Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SettingsScreen()),
                   ); // Close the drawer

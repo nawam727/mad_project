@@ -11,12 +11,25 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  String profilePhotoURL = '';
   UserData? userData;
 
   @override
   void initState() {
     super.initState();
     getUserData();
+    displayProfile();
+  }
+
+  Future<void> displayProfile() async {
+    print("Profile Photo URL: $profilePhotoURL");
+    UserData? userData = await getUserDetails();
+    if (userData != null) {
+      String photoURL = userData.photoURL;
+      setState(() {
+        profilePhotoURL = photoURL;
+      });
+    }
   }
 
   Future<void> getUserData() async {
@@ -39,9 +52,21 @@ class _ProfilePageState extends State<ProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 20),
-            CircleAvatar(
-              radius: 60,
-              backgroundImage: AssetImage('assets/images/profile.jpg'),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 60,
+                  backgroundColor: Colors.transparent,
+                  backgroundImage: profilePhotoURL.isNotEmpty
+                      ? NetworkImage(profilePhotoURL) as ImageProvider
+                      : null,
+                ),
+                if (profilePhotoURL.isEmpty)
+                  CircularProgressIndicator(
+                    color: HexColor("00B251"),
+                  ),
+              ],
             ),
             SizedBox(height: 20),
             Text(
@@ -89,8 +114,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   )
                 : CircularProgressIndicator(
-                  color: HexColor("00B251"),
-                ),
+                    color: HexColor("00B251"),
+                  ),
           ],
         ),
       ),

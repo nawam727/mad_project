@@ -82,8 +82,8 @@ class _HomePageState extends State<HomePage> {
                                 prefixIcon: Icon(
                                   Icons.search,
                                 ), // Icon to be displayed before the text field
-                                prefixText:
-                                    'Search: ', // Text to be displayed before the input field
+                                // prefixText:
+                                //     'Search: ', // Text to be displayed before the input field
                                 hintText: 'Search Here',
                               ),
                             ),
@@ -262,7 +262,75 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Container(
-                        //color: HexColor("#FEECEC"),
+                        child: Row(
+                          children: [
+                            // Red left border
+                            Container(
+                              width: 8, // Adjust the width as needed
+                              decoration: BoxDecoration(
+                                color: HexColor('FB9078'), // Red color
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(
+                                      10), // Match your container's borderRadius
+                                  bottomLeft: Radius.circular(
+                                      10), // Match your container's borderRadius
+                                ),
+                              ),
+                            ),
+
+                            // Main content
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Software Quality Assurance",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "9.00 AM - 12.00 PM",
+                                      style: TextStyle(
+                                        color: HexColor("77796B"),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "Mrs. Pavithra Subashini",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomRight,
+                                      child: Text(
+                                        "FOC C1-L-101",
+                                        style: TextStyle(
+                                          color: HexColor("77796B"),
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                         height: 110,
                         decoration: BoxDecoration(
                           color: HexColor("#FEECEC"),

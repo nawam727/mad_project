@@ -16,23 +16,18 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  bool isLoading = false;
 
   void signUserIn(BuildContext context) async {
     String email = usernameController.text;
     String password = passwordController.text;
-
-    showDialog(
-      context: context,
-      builder: (context) {
-        return Center(
-          child: CircularProgressIndicator(
-            color: HexColor("#00B251"),
-          ),
-        );
-      },
-    );
+    
 
     try {
+      setState(() {
+        isLoading = true; // Show the CircularProgressIndicator
+      });
+
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
@@ -43,11 +38,34 @@ class _LoginPageState extends State<LoginPage> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                NavBar()), // Replace HomePage with your actual home page widget
+                NavBar()),
       );
     } catch (e) {
       // Handle any authentication errors here
       print('Error signing in: $e');
+      // Display an error dialog if needed
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Sign-In Error'),
+            content: Text('Incorrect email or password!'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the error dialog
+                },
+                child: Text('Try Again',
+                style: TextStyle(color: HexColor("#00B251")),),
+              ),
+            ],
+          );
+        },
+      );
+    } finally {
+      setState(() {
+        isLoading = false; // Hide the CircularProgressIndicator
+      });
     }
   }
 
@@ -57,84 +75,93 @@ class _LoginPageState extends State<LoginPage> {
     final double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: ListView(
+      body: Stack(
+        alignment: Alignment.center,
         children: [
-          SafeArea(
-            child: Center(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: screenHeight * 0.15,
-                  ),
-                  // Logo
-                  Image.asset(
-                    'assets/images/logo.png',
-                    width: screenWidth * 0.3,
-                    height: screenHeight * 0.15,
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.05,
-                  ),
-                  // Welcome Text
-                  const Text(
-                    "Welcome to N-Side",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.05,
-                  ),
-                  // Login Text
-                  const Text(
-                    "Login",
-                    style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.05,
-                  ),
-                  // Username TextField
-                  MyTextField(
-                    controller: usernameController,
-                    hintText: "Username",
-                    obscureText: false,
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.05,
-                  ),
-                  // Password TextField
-                  MyTextField(
-                    controller: passwordController,
-                    hintText: "Password",
-                    obscureText: true,
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.03,
-                  ),
-                  // Remember Password
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 28),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          "Remember Password",
-                          style: TextStyle(color: HexColor("#959CA3")),
+          ListView(
+            children: [
+              SafeArea(
+                child: Center(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: screenHeight * 0.15,
+                      ),
+                      Image.asset(
+                        'assets/images/logo.png',
+                        width: screenWidth * 0.3,
+                        height: screenHeight * 0.15,
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.05,
+                      ),
+                      const Text(
+                        "Welcome to N-Side",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.05,
+                      ),
+                      const Text(
+                        "Login",
+                        style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.05,
+                      ),
+                      MyTextField(
+                        controller: usernameController,
+                        hintText: "Username",
+                        obscureText: false,
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.05,
+                      ),
+                      MyTextField(
+                        controller: passwordController,
+                        hintText: "Password",
+                        obscureText: true,
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.03,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 28),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "Remember Password",
+                              style: TextStyle(color: HexColor("#959CA3")),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.08,
+                      ),
+                      MyButton(
+                        onTap: () {
+                          signUserIn(context);
+                        },
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    height: screenHeight * 0.08,
-                  ),
-                  // Login Button
-                  MyButton(
-                    onTap: () {
-                      signUserIn(context);
-                    },
-                  ),
-                ],
+                ),
+              ),
+            ],
+          ),
+
+          //Circular Indicator
+          if (isLoading)
+            Container(
+              color: Colors.white.withOpacity(0.7),
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: HexColor("#00B251"),
+                ),
               ),
             ),
-          ),
         ],
       ),
     );

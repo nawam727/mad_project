@@ -82,8 +82,8 @@ class _HomePageState extends State<HomePage> {
                                 prefixIcon: Icon(
                                   Icons.search,
                                 ), // Icon to be displayed before the text field
-                                prefixText:
-                                    'Search: ', // Text to be displayed before the input field
+                                // prefixText:
+                                //     'Search: ', // Text to be displayed before the input field
                                 hintText: 'Search Here',
                               ),
                             ),
@@ -315,11 +315,14 @@ class _HomePageState extends State<HomePage> {
                                     SizedBox(
                                       height: 5,
                                     ),
-                                    Text(
-                                      "FOC C1-L-101",
-                                      style: TextStyle(
-                                        color: HexColor("77796B"),
-                                        fontWeight: FontWeight.bold,
+                                    Align(
+                                      alignment: Alignment.bottomRight,
+                                      child: Text(
+                                        "FOC C1-L-101",
+                                        style: TextStyle(
+                                          color: HexColor("77796B"),
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ],

@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                NavBar()), // Replace NavBar with your actual home page widget
+                NavBar()),
       );
     } catch (e) {
       // Handle any authentication errors here
@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   Navigator.of(context).pop(); // Close the error dialog
                 },
-                child: Text('OK',
+                child: Text('Try Again',
                 style: TextStyle(color: HexColor("#00B251")),),
               ),
             ],

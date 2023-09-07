@@ -42,3 +42,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+/unityLibrary/
+
+android/unityLibrary/
+android/unityLibrary
+
+unity/DemoApp/Builds/
+unity/DemoApp/Library/
+unity/DemoApp/Logs/
+unity/DemoApp/Temp/
+
+mad_project_NEW2/unity/nsideapp/Library/

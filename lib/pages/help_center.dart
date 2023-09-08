@@ -52,7 +52,7 @@ class HelpCenter extends StatelessWidget {
                   child: Image.asset(
                     'assets/images/help.jpg',
                     width: 250,
-                    height: 250, 
+                    height: 250,
                     alignment: Alignment.topCenter,
                     fit: BoxFit.fill,
                   ),

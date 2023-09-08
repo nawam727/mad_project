@@ -382,62 +382,73 @@ class LocationCard extends StatelessWidget {
                 width: 0.5, // Set the border width as needed
               ),
             ),
-            child: Column(
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10), // Top-left corner radius
-                      topRight: Radius.circular(10), // Top-right corner radius
-                    ),
-                    // Adjust this flex value to control the size of the image part
-                    child: Image.asset(
-                      imagePath, // Replace with your image URL
-                      fit: BoxFit.cover,
-                    ),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ModeSelector(),
                   ),
-                ),
-                Expanded(
-                  flex:
-                      2, // Adjust this flex value to control the size of the text part
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            'Auditorium',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          Spacer(),
-                          IconButton(
-                            icon: Icon(
-                              Icons.arrow_circle_right,
-                              color: HexColor("#00B251"),
-                            ), // Replace with your desired icon
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ModeSelector(),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
+                );
+              },
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10), // Top-left corner radius
+                        topRight:
+                            Radius.circular(10), // Top-right corner radius
                       ),
-                      // Text(
-                      //   'Shortest route to Auditorium',
-                      //   style: TextStyle(fontSize: 11),
-                      // ),
-                    ],
+                      // Adjust this flex value to control the size of the image part
+                      child: Image.asset(
+                        imagePath, // Replace with your image URL
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    flex:
+                        2, // Adjust this flex value to control the size of the text part
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Auditorium',
+                              style: TextStyle(fontSize: 12),
+                            ),
+                            Spacer(),
+                            IconButton(
+                              icon: Icon(
+                                Icons.arrow_circle_right,
+                                color: HexColor("#00B251"),
+                              ), // Replace with your desired icon
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ModeSelector(),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                        // Text(
+                        //   'Shortest route to Auditorium',
+                        //   style: TextStyle(fontSize: 11),
+                        // ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

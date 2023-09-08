@@ -15,6 +15,7 @@ import 'package:mad_project/pages/notification_page.dart';
 import 'package:mad_project/pages/auth_pade.dart';
 import 'package:mad_project/pages/get_started.dart';
 import 'package:mad_project/pages/help_center.dart';
+import 'package:mad_project/pages/support_page.dart';
 
 FirebaseAuth _auth = FirebaseAuth.instance;
 FirebaseFirestore _firestore = FirebaseFirestore.instance;

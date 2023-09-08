@@ -46,14 +46,23 @@ class _ModeSelectorState extends State<ModeSelector> {
                   CircularCantainer(
                     nameText: 'Map Mode',
                     imagePath: 'assets/images/mapmode.png',
+                    onPressed: () {
+                      
+                    },
                   ),
                   CircularCantainer(
                     nameText: 'AR Mode',
                     imagePath: 'assets/images/armode.png',
+                    onPressed: () {
+                      
+                    },
                   ),
                   CircularCantainer(
                     nameText: 'Step Mode',
                     imagePath: 'assets/images/stepmode.png',
+                    onPressed: () {
+                      
+                    },
                   ),
                 ],
               ),

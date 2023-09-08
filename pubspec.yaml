@@ -30,15 +30,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_rating_bar: ^4.0.0
   
   #smooth_page_indicator: ^1.1.0
   hexcolor: ^3.0.1
-  
+
+  ionicons: ^0.1.2
 
 
 
 
-  
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -53,7 +54,11 @@ dependencies:
   firebase_core: ^2.15.0
   cloud_firestore: ^4.8.4
   firebase_auth: ^4.7.2
+<<<<<<< HEAD
   scrollable_positioned_list: ^0.3.8
+=======
+  firebase_storage: ^11.2.6
+>>>>>>> 4ccaa27a0d9bd9aee6ce390c0fddcff934c9ab7d
 
 dev_dependencies:
   flutter_test:

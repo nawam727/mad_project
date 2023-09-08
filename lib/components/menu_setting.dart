@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mad_project/pages/settings_page.dart';
 
 class MenuSetting extends StatelessWidget implements PreferredSizeWidget {
   late final Function() onMenuPressed;
@@ -22,7 +23,7 @@ class MenuSetting extends StatelessWidget implements PreferredSizeWidget {
             children: [
               //Menu Icon
               Padding(
-                padding: const EdgeInsets.only(left:4.0),
+                padding: const EdgeInsets.only(left: 4.0),
                 child: IconButton(
                   icon: Image.asset(
                     'assets/icons/menu.png',
@@ -44,7 +45,7 @@ class MenuSetting extends StatelessWidget implements PreferredSizeWidget {
 
               //Notification icon
               Padding(
-                padding: const EdgeInsets.only(right:4.0),
+                padding: const EdgeInsets.only(right: 4.0),
                 child: IconButton(
                   icon: Image.asset(
                     'assets/icons/setting.png',
@@ -53,6 +54,10 @@ class MenuSetting extends StatelessWidget implements PreferredSizeWidget {
                   ),
                   onPressed: () {
                     // Your notification icon onPressed logic here
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SettingsScreen()),
+                    );
                   },
                 ),
               ),

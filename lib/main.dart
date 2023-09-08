@@ -1,13 +1,12 @@
 // ignore_for_file: dead_code
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-//import 'pages/lecturers_availability_page.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/nav_bar.dart';
 import 'package:mad_project/firebase_options.dart';
+import 'package:mad_project/pages/chat_page.dart';
+import 'package:mad_project/pages/feedback_page.dart';
 import 'package:mad_project/pages/hall_availability.dart';
 import 'package:mad_project/pages/login_page.dart';
 import 'package:mad_project/pages/map_navigation_page.dart';
@@ -15,18 +14,41 @@ import 'package:mad_project/pages/notification_page.dart';
 import 'package:mad_project/pages/auth_pade.dart';
 import 'package:mad_project/pages/get_started.dart';
 import 'package:mad_project/pages/help_center.dart';
+<<<<<<< HEAD
 import 'package:mad_project/pages/support_page.dart';
+=======
+import 'package:mad_project/pages/settings_page.dart';
+
+>>>>>>> 4ccaa27a0d9bd9aee6ce390c0fddcff934c9ab7d
 
 FirebaseAuth _auth = FirebaseAuth.instance;
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
 class UserData {
-  final String name;
+  final String batch;
+  final String degree;
   final String email;
+  final String faculty;
+  final String index;
+  final String mobile;
+  final String name;
+  final String nic;
+  final String sEmail;
+  final String photoURL;
 
-  UserData(this.name, this.email);
+  UserData(
+    this.name,
+    this.email,
+    this.faculty,
+    this.batch,
+    this.index,
+    this.nic,
+    this.degree,
+    this.mobile,
+    this.sEmail,
+    this.photoURL,
+  );
 }
-
 
 Future<UserData?> getUserDetails() async {
   User? user = _auth.currentUser;
@@ -34,24 +56,32 @@ Future<UserData?> getUserDetails() async {
   if (user != null) {
     DocumentSnapshot doc =
         await _firestore.collection('students').doc(user.uid).get();
-    Map<String, dynamic> userDataMap = doc.data() as Map<String, dynamic>;
+    Map<String, dynamic>? userDataMap = doc.data() as Map<String, dynamic>?;
 
-    UserData userData = UserData(userDataMap['name'], userDataMap['semail']);
-
-    print('User Name: ${userData.name}');
-    print('User Email: ${userData.email}');
-
-    return userData;
+    if (userDataMap != null) {
+      UserData userData = UserData(
+        userDataMap.containsKey('name') ? userDataMap['name'] : '',
+        userDataMap.containsKey('email') ? userDataMap['email'] : '',
+        userDataMap.containsKey('faculty') ? userDataMap['faculty'] : '',
+        userDataMap.containsKey('batch') ? userDataMap['batch'] : '',
+        userDataMap.containsKey('index') ? userDataMap['index'] : '',
+        userDataMap.containsKey('nic') ? userDataMap['nic'] : '',
+        userDataMap.containsKey('degree') ? userDataMap['degree'] : '',
+        userDataMap.containsKey('mobile') ? userDataMap['mobile'] : '',
+        userDataMap.containsKey('semail') ? userDataMap['semail'] : '',
+        userDataMap.containsKey('photoURL') ? userDataMap['photoURL'] : '',
+      );
+      return userData;
+    }
   }
 
   return null;
 }
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  UserData? userData = await getUserDetails();
+  //UserData? userData = await getUserDetails();
   runApp(const MyApp());
 }
 

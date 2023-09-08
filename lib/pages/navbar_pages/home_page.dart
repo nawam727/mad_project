@@ -6,7 +6,8 @@ import 'package:mad_project/components/menu_home.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 import 'package:mad_project/pages/location_view_page.dart';
 
-import 'mode_selector_page.dart';
+import '../../main.dart';
+import '../mode_selector_page.dart';
 
 class HomePage extends StatefulWidget {
   //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -20,6 +21,22 @@ class HomePage extends StatefulWidget {
 int _currentIndex = 0;
 
 class _HomePageState extends State<HomePage> {
+  //fireStore fetching data
+  UserData? userData;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+  }
+
+  Future<void> getUserData() async {
+    UserData? userDetails = await getUserDetails();
+    setState(() {
+      userData = userDetails;
+    });
+  }
+
   List<String> imageList = [
     'assets/images/slider1.png',
     'assets/images/slider2.png',
@@ -65,8 +82,8 @@ class _HomePageState extends State<HomePage> {
                                 prefixIcon: Icon(
                                   Icons.search,
                                 ), // Icon to be displayed before the text field
-                                prefixText:
-                                    'Search: ', // Text to be displayed before the input field
+                                // prefixText:
+                                //     'Search: ', // Text to be displayed before the input field
                                 hintText: 'Search Here',
                               ),
                             ),
@@ -245,7 +262,75 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Container(
-                        //color: HexColor("#FEECEC"),
+                        child: Row(
+                          children: [
+                            // Red left border
+                            Container(
+                              width: 8, // Adjust the width as needed
+                              decoration: BoxDecoration(
+                                color: HexColor('FB9078'), // Red color
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(
+                                      10), // Match your container's borderRadius
+                                  bottomLeft: Radius.circular(
+                                      10), // Match your container's borderRadius
+                                ),
+                              ),
+                            ),
+
+                            // Main content
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Software Quality Assurance",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "9.00 AM - 12.00 PM",
+                                      style: TextStyle(
+                                        color: HexColor("77796B"),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "Mrs. Pavithra Subashini",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomRight,
+                                      child: Text(
+                                        "FOC C1-L-101",
+                                        style: TextStyle(
+                                          color: HexColor("77796B"),
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                         height: 110,
                         decoration: BoxDecoration(
                           color: HexColor("#FEECEC"),
@@ -339,87 +424,97 @@ class RecentlyViewed extends StatelessWidget {
     double fontlarge = MediaQuery.of(context).size.width * 0.04;
     double fontsmall = MediaQuery.of(context).size.width * 0.028;
 
-    return Container(
-      height: containerHeight,
-      width: containerWidth,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 10,
-            offset: Offset(0, 3), // changes position of shadow
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ModeSelector(),
           ),
-        ],
-        border: Border.all(
-          color: Colors.grey, // Set your desired border color here
-          width: 0.5, // Set the border width as needed
-        ), // Adjust the radius value as needed
-      ),
-      child: Column(
-        children: [
-          Expanded(
-            flex: 2,
-            child: ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10), // Top-left corner radius
-                topRight: Radius.circular(10), // Top-right corner radius
-              ),
-              // Adjust this flex value to control the size of the image part
-              child: Image.asset(
-                imagePath, // Replace with your image URL
-                fit: BoxFit.cover,
+        );
+      },
+      child: Container(
+        height: containerHeight,
+        width: containerWidth,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 10,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+          border: Border.all(
+            color: Colors.grey, // Set your desired border color here
+            width: 0.5, // Set the border width as needed
+          ), // Adjust the radius value as needed
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 2,
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10), // Top-left corner radius
+                  topRight: Radius.circular(10), // Top-right corner radius
+                ),
+                // Adjust this flex value to control the size of the image part
+                child: Image.asset(
+                  imagePath, // Replace with your image URL
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          Expanded(
-            flex:
-                1, // Adjust this flex value to control the size of the text part
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      title,
-                      style: TextStyle(fontSize: fontlarge),
-                    ),
-                    Spacer(),
-                    IconButton(
-                      icon: Icon(
-                        Icons.arrow_circle_right,
-                        color: HexColor("#00B251"),
-                      ), // Replace with your desired icon
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ModeSelector(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Text(
-                      description,
-                      style: TextStyle(fontSize: fontsmall),
+            Expanded(
+              flex:
+                  1, // Adjust this flex value to control the size of the text part
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        title,
+                        style: TextStyle(fontSize: fontlarge),
+                      ),
+                      Spacer(),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_circle_right,
+                          color: HexColor("#00B251"),
+                        ), // Replace with your desired icon
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ModeSelector(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Text(
+                        description,
+                        style: TextStyle(fontSize: fontsmall),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

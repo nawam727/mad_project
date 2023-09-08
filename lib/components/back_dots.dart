@@ -1,14 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:mad_project/pages/support_page.dart';
 
 // ignore: must_be_immutable
-import '../pages/calendar_page.dart';
-import '../pages/home_page.dart';
-import '../pages/profile_page.dart';
-import '../pages/service_page.dart';
+import '../pages/navbar_pages/calendar_page.dart';
+import '../pages/navbar_pages/home_page.dart';
+import '../pages/navbar_pages/profile_page.dart';
+import '../pages/navbar_pages/service_page.dart';
+import '../pages/settings_page.dart';
 
 enum _MenuValues {
-  home,
-  services,
+  setting,
+  support,
   profile,
   timeTable,
 }
@@ -55,15 +58,15 @@ class BackDots extends StatelessWidget implements PreferredSizeWidget {
           ),
           itemBuilder: (BuildContext context) => [
             const PopupMenuItem(
-              value: _MenuValues.home,
-              child: Text("Home"),
+              value: _MenuValues.setting,
+              child: Text("Setting"),
             ),
             const PopupMenuItem(
               value: _MenuValues.timeTable,
-              child: Text("TimeTable"),
+              child: Text("Support"),
             ),
             const PopupMenuItem(
-              value: _MenuValues.services,
+              value: _MenuValues.support,
               child: Text("Services"),
             ),
             const PopupMenuItem(
@@ -73,15 +76,15 @@ class BackDots extends StatelessWidget implements PreferredSizeWidget {
           ],
           onSelected: (value) {
             switch (value) {
-              case _MenuValues.home:
+              case _MenuValues.setting:
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (c) => HomePage()));
+                    .push(MaterialPageRoute(builder: (c) => SettingsScreen()));
                 break;
               case _MenuValues.timeTable:
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (c) => CalendarPage()));
+                    .push(MaterialPageRoute(builder: (c) => SupportPage()));
                 break;
-              case _MenuValues.services:
+              case _MenuValues.support:
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (c) => const ServicePage()));
                 break;

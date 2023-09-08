@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:mad_project/components/menu_calendar.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
-import 'drawer_screen.dart';
+import '../drawer_screen.dart';
 
 class CalendarPage extends StatelessWidget {
   const CalendarPage({super.key});

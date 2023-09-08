@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:mad_project/pages/calendar_page.dart';
-import 'package:mad_project/pages/home_page.dart';
-import 'package:mad_project/pages/profile_page.dart';
-import 'package:mad_project/pages/service_page.dart';
+import 'package:mad_project/pages/navbar_pages/calendar_page.dart';
+import 'package:mad_project/pages/navbar_pages/home_page.dart';
+import 'package:mad_project/pages/navbar_pages/profile_page.dart';
+import 'package:mad_project/pages/navbar_pages/service_page.dart';
 
 import '../pages/navigator_page.dart';
 

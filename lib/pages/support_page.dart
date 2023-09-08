@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_dots.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
+import 'package:mad_project/pages/feedback_page.dart';
 import 'package:mad_project/pages/get_started.dart';
+import 'package:mad_project/pages/help_center.dart';
 
 class SupportPage extends StatelessWidget {
   const SupportPage({super.key});
@@ -133,6 +135,12 @@ class SupportPage extends StatelessWidget {
                           size,
                           () {
                             // Your onTap action here
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HelpCenter(),
+                              ),
+                            );
                             print('Card 2 tapped!');
                           },
                         ),
@@ -156,6 +164,12 @@ class SupportPage extends StatelessWidget {
                           13,
                           size,
                           () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FeedbackPage(),
+                              ),
+                            );
                             // Your onTap action here
                             print('Card 4 tapped!');
                           },

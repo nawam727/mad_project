@@ -3,12 +3,48 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/pages/about_page.dart';
 import 'package:mad_project/pages/privacy_policy.dart';
+import 'package:mad_project/pages/settings_page.dart';
 import 'package:mad_project/pages/support_page.dart';
 
+import '../main.dart';
 import 'auth_pade.dart';
 
-class DrawerScreen extends StatelessWidget {
+class DrawerScreen extends StatefulWidget {
   const DrawerScreen({super.key});
+
+  @override
+  State<DrawerScreen> createState() => _DrawerScreenState();
+}
+
+class _DrawerScreenState extends State<DrawerScreen> {
+  //fireStore fetching data
+  String profilePhotoURL = '';
+  UserData? userData;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+    displayProfile();
+  }
+
+  Future<void> displayProfile() async {
+    print("Profile Photo URL: $profilePhotoURL");
+    UserData? userData = await getUserDetails();
+    if (userData != null) {
+      String photoURL = userData.photoURL;
+      setState(() {
+        profilePhotoURL = photoURL;
+      });
+    }
+  }
+
+  Future<void> getUserData() async {
+    UserData? userDetails = await getUserDetails();
+    setState(() {
+      userData = userDetails;
+    });
+  }
 
   //sign out method
   void signUserOut(BuildContext context) async {
@@ -69,19 +105,31 @@ class DrawerScreen extends StatelessWidget {
             // decoration: BoxDecoration(
             //   color: HexColor("#"),
             // ),
+
+            //DP and Name
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
-                  child: Image.asset(
-                    'assets/images/user.png',
-                    width: 80, // Adjust the width of the image
-                    height: 80, // Adjust the height of the image
-                    fit: BoxFit.cover,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 45,
+                        backgroundColor: Colors.transparent,
+                        backgroundImage: profilePhotoURL.isNotEmpty
+                            ? NetworkImage(profilePhotoURL) as ImageProvider
+                            : null,
+                      ),
+                      if (profilePhotoURL.isEmpty)
+                        CircularProgressIndicator(
+                          color: HexColor("00B251"),
+                        ), // Display the CircularProgressIndicator when the image is loading
+                    ],
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 13),
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Column(
@@ -89,7 +137,7 @@ class DrawerScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'NSM Denawakage',
+                        userData != null ? userData!.name : "User Name",
                         style: TextStyle(
                           fontSize: 24,
                           color: Colors.black,
@@ -99,7 +147,6 @@ class DrawerScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                
               ],
             ),
           ),
@@ -109,6 +156,7 @@ class DrawerScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              //About
               ListTile(
                 leading: IconButton(
                   icon: Image.asset(
@@ -131,6 +179,8 @@ class DrawerScreen extends StatelessWidget {
                   ); // Close the drawer
                 },
               ),
+
+              //Privacy Policy
               ListTile(
                 leading: IconButton(
                   icon: Image.asset(
@@ -149,6 +199,8 @@ class DrawerScreen extends StatelessWidget {
                   );
                 },
               ),
+
+              //Settings
               ListTile(
                 leading: IconButton(
                   icon: Image.asset(
@@ -162,9 +214,14 @@ class DrawerScreen extends StatelessWidget {
                 title: Text('Settings', style: TextStyle(fontSize: 16)),
                 onTap: () {
                   // Replace this with the action you want to perform when the user taps on this item
-                  Navigator.pop(context); // Close the drawer
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SettingsScreen()),
+                  ); // Close the drawer
                 },
               ),
+
+              //Support Page
               ListTile(
                 leading: IconButton(
                   icon: Image.asset(
@@ -187,6 +244,8 @@ class DrawerScreen extends StatelessWidget {
               SizedBox(
                 height: 290,
               ),
+
+              //Log Out
               ListTile(
                 leading: IconButton(
                   icon: Image.asset(

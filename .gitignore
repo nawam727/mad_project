@@ -48,11 +48,6 @@ app.*.map.json
 android/unityLibrary/
 android/unityLibrary
 
-unity/DemoApp/Builds/
-unity/DemoApp/Library/
-unity/DemoApp/Logs/
-unity/DemoApp/Temp/
 
-Flutter_MAD-AR_Development/unity/nsideapp/Library/
 
-Flutter_MAD-AR_Development/unity/nsideapp/Builds/
+

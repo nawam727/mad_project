@@ -14,12 +14,10 @@ import 'package:mad_project/pages/notification_page.dart';
 import 'package:mad_project/pages/auth_pade.dart';
 import 'package:mad_project/pages/get_started.dart';
 import 'package:mad_project/pages/help_center.dart';
-<<<<<<< HEAD
-import 'package:mad_project/pages/support_page.dart';
-=======
-import 'package:mad_project/pages/settings_page.dart';
 
->>>>>>> 4ccaa27a0d9bd9aee6ce390c0fddcff934c9ab7d
+import 'package:mad_project/pages/support_page.dart';
+
+import 'package:mad_project/pages/settings_page.dart';
 
 FirebaseAuth _auth = FirebaseAuth.instance;
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -93,7 +91,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: NavBar(),
+      home: HelpCenter(),
     );
   }
 }

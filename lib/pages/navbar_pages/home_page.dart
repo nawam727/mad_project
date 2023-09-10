@@ -22,20 +22,21 @@ int _currentIndex = 0;
 
 class _HomePageState extends State<HomePage> {
   //fireStore fetching data
-  UserData? userData;
+  LectureData? lectureData;
 
-  @override
-  void initState() {
-    super.initState();
-    getUserData();
-  }
+@override
+void initState() {
+  super.initState();
+  // Call getLectureData from initState
+  getLectureData();
+}
 
-  Future<void> getUserData() async {
-    UserData? userDetails = await getUserDetails();
-    setState(() {
-      userData = userDetails;
-    });
-  }
+Future<void> getLectureData() async {
+  LectureData? lectureDetails = await getLectureDetails();
+  setState(() {
+    lectureData = lectureDetails;
+  });
+}
 
   List<String> imageList = [
     'assets/images/slider1.png',
@@ -286,7 +287,7 @@ class _HomePageState extends State<HomePage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Software Quality Assurance",
+                                      lectureData != null ? lectureData!.lecture : "Lecture",
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -296,7 +297,7 @@ class _HomePageState extends State<HomePage> {
                                       height: 5,
                                     ),
                                     Text(
-                                      "9.00 AM - 12.00 PM",
+                                      lectureData !=null ? lectureData!.time : "Time",
                                       style: TextStyle(
                                         color: HexColor("77796B"),
                                         fontWeight: FontWeight.bold,
@@ -306,7 +307,7 @@ class _HomePageState extends State<HomePage> {
                                       height: 5,
                                     ),
                                     Text(
-                                      "Mrs. Pavithra Subashini",
+                                      lectureData != null ? lectureData!.lecturer : "Lecturer Name",
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -318,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                                     Align(
                                       alignment: Alignment.bottomRight,
                                       child: Text(
-                                        "FOC C1-L-101",
+                                        lectureData != null ? lectureData!.location : "Hall",
                                         style: TextStyle(
                                           color: HexColor("77796B"),
                                           fontWeight: FontWeight.bold,

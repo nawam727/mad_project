@@ -5,6 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:mad_project/components/nav_bar.dart';
 import 'package:mad_project/firebase_options.dart';
 import 'package:mad_project/pages/auth_pade.dart';
+import 'package:mad_project/pages/get_started.dart';
+import 'package:mad_project/pages/help_center.dart';
+
+import 'package:mad_project/pages/support_page.dart';
+
+import 'package:mad_project/pages/settings_page.dart';
 
 FirebaseAuth _auth = FirebaseAuth.instance;
 FirebaseFirestore _firestore = FirebaseFirestore.instance;

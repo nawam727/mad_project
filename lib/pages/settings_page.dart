@@ -51,7 +51,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   //sign out method
   void signUserOut(BuildContext context) async {
-    await FirebaseAuth.instance.signOut();
+   // await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(

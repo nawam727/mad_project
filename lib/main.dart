@@ -10,6 +10,7 @@ import 'package:mad_project/pages/feedback_page.dart';
 import 'package:mad_project/pages/hall_availability.dart';
 import 'package:mad_project/pages/login_page.dart';
 import 'package:mad_project/pages/map_navigation_page.dart';
+import 'package:mad_project/pages/navigator_step.dart';
 import 'package:mad_project/pages/notification_page.dart';
 import 'package:mad_project/pages/auth_pade.dart';
 import 'package:mad_project/pages/get_started.dart';
@@ -91,7 +92,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: HelpCenter(),
+      home: NavigatorStepPage(),
     );
   }
 }

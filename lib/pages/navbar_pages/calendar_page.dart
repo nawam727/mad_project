@@ -4,10 +4,34 @@ import 'package:intl/intl.dart';
 import 'package:mad_project/components/menu_calendar.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
+import '../../main.dart';
 import '../drawer_screen.dart';
 
-class CalendarPage extends StatelessWidget {
+class CalendarPage extends StatefulWidget {
   const CalendarPage({super.key});
+
+  @override
+  State<CalendarPage> createState() => _CalendarPageState();
+}
+
+class _CalendarPageState extends State<CalendarPage> {
+  //fetching data from firebase
+  LectureData? lectureData;
+
+@override
+void initState() {
+  super.initState();
+  // Call getLectureData from initState
+  getLectureData();
+}
+
+Future<void> getLectureData() async {
+  LectureData? lectureDetails = await getLectureDetails();
+  setState(() {
+    lectureData = lectureDetails;
+  });
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -45,28 +69,28 @@ class CalendarPage extends StatelessWidget {
             isFirst: false,
             isLast: false,
             timeText: "9.00",
-            eventText: 'Software Quality Assurance',
+            eventText: lectureData !=null ? lectureData!.lecture : "Lecture",
             eventColor: '#ECEEFE',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "10.00",
-            eventText: '',
+            eventText: lectureData !=null ? lectureData!.time : "Lecture Time",
             eventColor: '#ECEEFE',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "11.00",
-            eventText: '',
+            eventText: lectureData !=null ? lectureData!.lecturer : "Lecturer",
             eventColor: '#ECEEFE',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "12.00",
-            eventText: '',
+            eventText: lectureData !=null ? lectureData!.location : "Hall",
             eventColor: '#ECEEFE',
           ),
           TimeLineTitle(
@@ -74,34 +98,34 @@ class CalendarPage extends StatelessWidget {
             isLast: false,
             timeText: "13.00",
             eventText: '',
-            eventColor: '#ffffff',
+            eventColor: '#f6f6f6',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "14.00",
-            eventText: 'Advanced DBMS',
+            eventText: lectureData !=null ? lectureData!.lecture2 : "Lecture",
             eventColor: '#FEECEC',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "15.00",
-            eventText: '',
+            eventText: lectureData !=null ? lectureData!.time2 : "Lecture Time",
             eventColor: '#FEECEC',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "16.00",
-            eventText: '',
+            eventText: lectureData !=null ? lectureData!.lecturer2 : "Lecturer",
             eventColor: '#FEECEC',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: true,
             timeText: "17.00",
-            eventText: '',
+            eventText: lectureData !=null ? lectureData!.location2 : "Hall",
             eventColor: '#FEECEC',
           ),
         ],

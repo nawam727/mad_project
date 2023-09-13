@@ -53,6 +53,8 @@ dependencies:
   firebase_core: ^2.15.0
   cloud_firestore: ^4.8.4
   firebase_auth: ^4.7.2
+
+  scrollable_positioned_list: ^0.3.8
   firebase_storage: ^11.2.6
   flutter_unity_widget: ^2022.2.0
 

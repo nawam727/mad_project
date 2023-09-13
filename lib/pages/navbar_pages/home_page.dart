@@ -22,20 +22,21 @@ int _currentIndex = 0;
 
 class _HomePageState extends State<HomePage> {
   //fireStore fetching data
-  UserData? userData;
+  LectureData? lectureData;
 
-  @override
-  void initState() {
-    super.initState();
-    getUserData();
-  }
+@override
+void initState() {
+  super.initState();
+  // Call getLectureData from initState
+  getLectureData();
+}
 
-  Future<void> getUserData() async {
-    UserData? userDetails = await getUserDetails();
-    setState(() {
-      userData = userDetails;
-    });
-  }
+Future<void> getLectureData() async {
+  LectureData? lectureDetails = await getLectureDetails();
+  setState(() {
+    lectureData = lectureDetails;
+  });
+}
 
   List<String> imageList = [
     'assets/images/slider1.png',
@@ -286,7 +287,7 @@ class _HomePageState extends State<HomePage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Software Quality Assurance",
+                                      lectureData != null ? lectureData!.lecture : "Lecture",
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -296,7 +297,7 @@ class _HomePageState extends State<HomePage> {
                                       height: 5,
                                     ),
                                     Text(
-                                      "9.00 AM - 12.00 PM",
+                                      lectureData !=null ? lectureData!.time : "Time",
                                       style: TextStyle(
                                         color: HexColor("77796B"),
                                         fontWeight: FontWeight.bold,
@@ -306,7 +307,7 @@ class _HomePageState extends State<HomePage> {
                                       height: 5,
                                     ),
                                     Text(
-                                      "Mrs. Pavithra Subashini",
+                                      lectureData != null ? lectureData!.lecturer : "Lecturer Name",
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -318,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                                     Align(
                                       alignment: Alignment.bottomRight,
                                       child: Text(
-                                        "FOC C1-L-101",
+                                        lectureData != null ? lectureData!.location : "Hall",
                                         style: TextStyle(
                                           color: HexColor("77796B"),
                                           fontWeight: FontWeight.bold,
@@ -378,7 +379,7 @@ class _HomePageState extends State<HomePage> {
                           RecentlyViewed(
                             imagePath: 'assets/images/gate.png',
                             title: 'Main Gate',
-                            description: 'Shortest route to main gate',
+                            //description: 'Shortest route to main gate',
                           ),
                           SizedBox(
                             width: 22,
@@ -386,7 +387,7 @@ class _HomePageState extends State<HomePage> {
                           RecentlyViewed(
                             imagePath: 'assets/images/audi.png',
                             title: 'Auditorium',
-                            description: 'Shortest route to Auditorium',
+                            //description: 'Shortest route to Auditorium',
                           ),
                         ],
                       ),
@@ -408,113 +409,94 @@ class _HomePageState extends State<HomePage> {
 class RecentlyViewed extends StatelessWidget {
   final String imagePath;
   final String title;
-  final String description;
 
   const RecentlyViewed({
     required this.imagePath,
     required this.title,
-    required this.description,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     double containerWidth = MediaQuery.of(context).size.width * 0.43;
-    double containerHeight = 200;
+    double containerHeight = 150;
     double fontlarge = MediaQuery.of(context).size.width * 0.04;
-    double fontsmall = MediaQuery.of(context).size.width * 0.028;
+    //double fontsmall = MediaQuery.of(context).size.width * 0.028;
 
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ModeSelector(),
+    return Container(
+      height: containerHeight,
+      width: containerWidth,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 10,
+            offset: Offset(0, 3), // changes position of shadow
           ),
-        );
-      },
-      child: Container(
-        height: containerHeight,
-        width: containerWidth,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1,
-              blurRadius: 10,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-          border: Border.all(
-            color: Colors.grey, // Set your desired border color here
-            width: 0.5, // Set the border width as needed
-          ), // Adjust the radius value as needed
-        ),
-        child: Column(
-          children: [
-            Expanded(
-              flex: 2,
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), // Top-left corner radius
-                  topRight: Radius.circular(10), // Top-right corner radius
-                ),
-                // Adjust this flex value to control the size of the image part
-                child: Image.asset(
-                  imagePath, // Replace with your image URL
-                  fit: BoxFit.cover,
-                ),
+        ],
+        borderRadius:
+            BorderRadius.circular(10),
+        border: Border.all(
+                color: Colors.grey, // Set your desired border color here
+                width: 0.5, // Set the border width as needed
+              ), // Adjust the radius value as needed
+      ),
+      child: Column(
+        children: [
+          Expanded(
+            flex: 2,
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10), // Top-left corner radius
+                topRight: Radius.circular(10), // Top-right corner radius
+              ),
+              // Adjust this flex value to control the size of the image part
+              child: Image.asset(
+                imagePath, // Replace with your image URL
+                fit: BoxFit.cover,
               ),
             ),
-            Expanded(
-              flex:
-                  1, // Adjust this flex value to control the size of the text part
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        title,
-                        style: TextStyle(fontSize: fontlarge),
-                      ),
-                      Spacer(),
-                      IconButton(
-                        icon: Icon(
-                          Icons.arrow_circle_right,
-                          color: HexColor("#00B251"),
-                        ), // Replace with your desired icon
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ModeSelector(),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        description,
-                        style: TextStyle(fontSize: fontsmall),
-                      ),
+          ),
+          Expanded(
+            flex:
+                1, // Adjust this flex value to control the size of the text part
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 10,
                     ),
-                  ),
-                ],
-              ),
+                    Text(
+                      title,
+                      style: TextStyle(fontSize: fontlarge),
+                    ),
+                    Spacer(),
+                    IconButton(
+                      icon: Icon(
+                        Icons.arrow_circle_right,
+                        color: HexColor("#00B251"),
+                      ), // Replace with your desired icon
+                      onPressed: () {
+                        // Add the desired onPressed action for the IconButton
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ModeSelector(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

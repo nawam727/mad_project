@@ -11,12 +11,17 @@ buildscript {
         classpath 'com.google.gms:google-services:4.3.14'
         // END: FlutterFire Configuration
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        
+
     }
 }
 
+
 allprojects {
     repositories {
+        flatDir {
+            dirs "${project(':unityLibrary').projectDir}/libs"
+        }
+
         google()
         mavenCentral()
     }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 //import 'package:mad_project/components/back_search.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_search.dart';
+import 'package:mad_project/main.dart';
 import 'package:mad_project/pages/mode_selector_page.dart';
 
 class HallAvailability extends StatefulWidget {
@@ -13,6 +14,23 @@ class HallAvailability extends StatefulWidget {
 }
 
 class _HallAvailabilityState extends State<HallAvailability> {
+  //firestore data fetching
+  HallData? hallData;
+
+  @override
+  void initState() {
+    super.initState();
+    getHallData();
+  }
+
+  Future<void> getHallData() async {
+    HallData? hallDetails =
+        await getHallDetails(); // Assuming getHallDetails returns Future<HallData>
+    setState(() {
+      hallData = hallDetails;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,25 +39,61 @@ class _HallAvailabilityState extends State<HallAvailability> {
       ),
       body: ListView(
         children: [
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
-              HexColor("#98C5EE"), const Color.fromARGB(255, 119, 246, 77)),
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
-              HexColor("#98E9EE"), const Color.fromARGB(255, 119, 246, 77)),
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
-              HexColor("#AE98EE"), const Color.fromARGB(255, 119, 246, 77)),
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
-              HexColor("#98EEA0"), const Color.fromARGB(255, 119, 246, 77)),
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
-              HexColor("#D8EE98"), const Color.fromARGB(255, 119, 246, 77)),
-          _buildHallContainer("Hall B1 101", "Basement 1", "150 persons",
-              HexColor("#98C5EE"), const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer(
+              "Hall B1 101",
+              "Basement 1",
+              "150 persons",
+              hallData != null ? hallData!.b1101 : "Status",
+              HexColor("#98C5EE"),
+              const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer(
+              "Hall B1 102",
+              "Basement 1",
+              "150 persons",
+              hallData != null ? hallData!.b1102 : "Status",
+              HexColor("#98E9EE"),
+              const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer(
+              "Hall G 009",
+              "Ground",
+              "300 persons",
+              hallData != null ? hallData!.g009 : "Status",
+              HexColor("#AE98EE"),
+              const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer(
+              "Hall G 002",
+              "Ground",
+              "200 persons",
+              hallData != null ? hallData!.g002 : "Status",
+              HexColor("#98EEA0"),
+              const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer(
+              "Hall G 003",
+              "Ground",
+              "150 persons",
+              hallData != null ? hallData!.g003 : "Status",
+              HexColor("#D8EE98"),
+              const Color.fromARGB(255, 119, 246, 77)),
+          _buildHallContainer(
+              "Hall B1 110",
+              "Basement 1",
+              "150 persons",
+              hallData != null ? hallData!.b1110 : "Status",
+              HexColor("#98C5EE"),
+              const Color.fromARGB(255, 119, 246, 77)),
         ],
       ),
     );
   }
 
-  Widget _buildHallContainer(String hallName, String location, String capacity,
-      Color containerColor, Color availableColor) {
+  Widget _buildHallContainer(
+    String hallName,
+    String location,
+    String capacity,
+    String status,
+    Color containerColor,
+    Color availableColor,
+  ) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
       width: screenWidth * 0.9,
@@ -129,7 +183,7 @@ class _HallAvailabilityState extends State<HallAvailability> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
                   child: Text(
-                    'Available',
+                    status,
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                 ),

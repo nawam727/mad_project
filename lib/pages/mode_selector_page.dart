@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_dots.dart';
+import 'ar_pages/ar_location_page.dart';
 
 //import 'navigator_step.dart';
 
@@ -59,7 +60,12 @@ class _ModeSelectorState extends State<ModeSelector> {
                   CircularCantainer(
                     nameText: 'AR Mode',
                     imagePath: 'assets/images/armode.png',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ArLocation()),
+                      );
+                    },
                   ),
                   CircularCantainer(
                     nameText: 'Step Mode',

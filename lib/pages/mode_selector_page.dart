@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_dots.dart';
 
+//import 'navigator_step.dart';
+
 class ModeSelector extends StatefulWidget {
   const ModeSelector({super.key});
 
@@ -47,22 +49,22 @@ class _ModeSelectorState extends State<ModeSelector> {
                     nameText: 'Map Mode',
                     imagePath: 'assets/images/mapmode.png',
                     onPressed: () {
-                      
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //       builder: (context) => NavigatorStepPage()),
+                      // );
                     },
                   ),
                   CircularCantainer(
                     nameText: 'AR Mode',
                     imagePath: 'assets/images/armode.png',
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () {},
                   ),
                   CircularCantainer(
                     nameText: 'Step Mode',
                     imagePath: 'assets/images/stepmode.png',
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () {},
                   ),
                 ],
               ),

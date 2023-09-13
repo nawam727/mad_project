@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 
+import '../components/back_dots.dart';
+
 class HelpCenter extends StatefulWidget {
   const HelpCenter({super.key});
 
@@ -24,7 +26,9 @@ class _HelpCenterState extends State<HelpCenter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerScreen(),
+      appBar: BackDots(
+        title: "Help Center",
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

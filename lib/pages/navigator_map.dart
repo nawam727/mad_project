@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:mad_project/components/back_dots.dart';
 import 'package:mad_project/components/back_menu.dart';
 import 'package:mad_project/components/back_notify.dart';
 
-class NavigatorStepPage extends StatefulWidget {
-  const NavigatorStepPage({super.key});
+import '../components/back_dots.dart';
+
+class NavigatorMapPage extends StatefulWidget {
+  const NavigatorMapPage({super.key});
 
   @override
-  State<NavigatorStepPage> createState() => _NavigatorStepPageState();
+  State<NavigatorMapPage> createState() => _NavigatorMapPageState();
 }
 
-class _NavigatorStepPageState extends State<NavigatorStepPage> {
+class _NavigatorMapPageState extends State<NavigatorMapPage> {
 
   String? valueChoose;
   String? valueChoose1;
@@ -20,12 +21,19 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: BackDots(title:"Step Mode"),
+      appBar: BackDots(title:"Map Mode"),
       body: Column(
         children: [
           Container(
             height: size.height * 0.17,
-            color: Color.fromARGB(255, 255, 255, 255),
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  width: 1,
+                  color: Colors.transparent,
+                  )),
+              color: Color.fromARGB(255, 255, 255, 255),
+            ),
             child: Padding(
               padding: EdgeInsets.only(top: size.width * 0.028),
               child: Column(
@@ -126,14 +134,14 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                           Expanded(
                             flex: 5,
                             child: DropdownButtonFormField(
-                              decoration: InputDecoration(
+                              decoration:  InputDecoration(
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: BorderSide(
                                       color: HexColor(
                                           "#00B251")), // Border color when focused
                                 ),
-                               border: OutlineInputBorder(
+                                border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: BorderSide(
                                     color:HexColor("#3F3F3F"),
@@ -207,8 +215,11 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                     Container(
                       height: size.width * 0.12,
                       decoration: BoxDecoration(
-                          color: Colors.white70,
-                          border: Border.all(width: 1,color:HexColor("3F3F3F")),
+                          color: Colors.white60,
+                          border: Border.all(
+                            width: 1,
+                            color: HexColor("3F3F3F"),
+                            ),
                           borderRadius:const  BorderRadius.vertical(
                             top: Radius.circular(20),
                           )),
@@ -254,7 +265,9 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
           maxChildSize: 0.5,
           builder: (_, controller) => Container(
             decoration: BoxDecoration(
-              border: Border.all(width: 1,color:HexColor("#3F3F3F")),
+              border: Border.all(
+                width: 1,
+                color:HexColor("#3F3F3F")),
               color: Colors.white,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
@@ -269,7 +282,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                           },
                           icon: const Icon(
                             Icons.expand_more_sharp,
-                            color:Colors.black54
+                            color:Colors.black54,
                           ),
                           iconSize: 50,
                         ),

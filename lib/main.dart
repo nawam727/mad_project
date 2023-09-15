@@ -1,7 +1,20 @@
+// ignore_for_file: dead_code
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'package:mad_project/components/nav_bar.dart';
+import 'package:mad_project/firebase_options.dart';
+import 'package:mad_project/pages/chat_page.dart';
+import 'package:mad_project/pages/feedback_page.dart';
+import 'package:mad_project/pages/hall_availability.dart';
+import 'package:mad_project/pages/help_center.dart';
+import 'package:mad_project/pages/login_page.dart';
+import 'package:mad_project/pages/map_navigation_page.dart';
+import 'package:mad_project/pages/navigator_map.dart';
+import 'package:mad_project/pages/navigator_step.dart';
+import 'package:mad_project/pages/notification_page.dart';
 import 'package:mad_project/pages/auth_pade.dart';
 
 import 'firebase_options.dart';
@@ -116,9 +129,9 @@ Future<LectureData?> getLectureDetails() async {
 
 
 //Map User Data
+
 Future<UserData?> getUserDetails() async {
   User? user = _auth.currentUser;
-  print('User UID2: ${user?.uid}');
 
   if (user != null) {
     DocumentSnapshot doc =
@@ -144,6 +157,7 @@ Future<UserData?> getUserDetails() async {
 
   return null;
 }
+
 
 //Map Hall Data
 Future<HallData?> getHallDetails() async {
@@ -205,7 +219,7 @@ void fetchData() async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  fetchData();
+  //UserData? userData = await getUserDetails();
   runApp(const MyApp());
 }
 
@@ -217,7 +231,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: AuthPage(),
+      home:NavBar(),
     );
   }
 }

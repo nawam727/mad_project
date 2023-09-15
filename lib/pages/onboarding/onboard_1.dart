@@ -7,7 +7,7 @@ class Onboard1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: HexColor("#E6FFF1"),
+      color: HexColor("#ffffff"),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

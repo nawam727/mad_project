@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_dots.dart';
+import 'package:mad_project/pages/chat_page.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 import 'package:mad_project/pages/feedback_page.dart';
 import 'package:mad_project/pages/get_started.dart';
@@ -154,6 +155,12 @@ class SupportPage extends StatelessWidget {
                           15,
                           size,
                           () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChatPage(),
+                              ),
+                            );
                             // Your onTap action here
                             print('Card 3 tapped!');
                           },

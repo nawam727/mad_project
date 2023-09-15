@@ -31,7 +31,7 @@ class BackDots extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
-      elevation: 0, // Remove the shadow
+      elevation: 2.0, // Remove the shadow
       leading: IconButton(
         icon: Image.asset(
           'assets/icons/back.png',

@@ -92,7 +92,7 @@ class _LocationViewState extends State<LocationView> {
                 child: Row(
                   children: [
                     LocationCard(
-                      imagePath: 'assets/images/gate.png',
+                      imagePath: 'assets/images/bank.png',
                       title: 'Bank',
                     ),
                     SizedBox(
@@ -113,14 +113,14 @@ class _LocationViewState extends State<LocationView> {
                 child: Row(
                   children: [
                     LocationCard(
-                      imagePath: 'assets/images/gate.png',
+                      imagePath: 'assets/images/hostel.jpg',
                       title: 'Hostel',
                     ),
                     SizedBox(
                       width: 22,
                     ),
                     LocationCard(
-                      imagePath: 'assets/images/audi.png',
+                      imagePath: 'assets/images/ground1.png',
                       title: 'Ground',
                     ),
                   ],

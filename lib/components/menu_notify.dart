@@ -17,73 +17,76 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          height: preferredSize.height,
-          color: Colors.white, // Customize your background color here
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              //Menu Icon
-              Padding(
-                padding: const EdgeInsets.only(left:4.0),
-                child: IconButton(
-                  icon: Image.asset(
-                    'assets/icons/menu.png',
-                    color: Colors.black,
-                    width: 24,
-                    height: 24,
-                  ),
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                ),
-              ),
-    
-              //Centered text
-              Text(
-                title,
-                style: TextStyle(color: Colors.black, fontSize: 17),
-              ),
-    
-             // Notification icon with red indicator
-              Padding(
-                padding: const EdgeInsets.only(right: 4.0),
-                child: Stack(
-                  children: [
-                    IconButton(
-                      icon: Image.asset(
-                        'assets/icons/notification.png',
-                        width: 24,
-                        height: 24,
-                      ),
-                      onPressed: () {
-                        // Your notification icon onPressed logic here
-                        Navigator.of(context).push(_createRoute());
-                      },
+        child: Material(
+          elevation: 2.0,
+          child: Container(
+            height: preferredSize.height,
+            color: Colors.white, // Customize your background color here
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                //Menu Icon
+                Padding(
+                  padding: const EdgeInsets.only(left:4.0),
+                  child: IconButton(
+                    icon: Image.asset(
+                      'assets/icons/menu.png',
+                      color: Colors.black,
+                      width: 24,
+                      height: 24,
                     ),
-                    Positioned(
-                      right: 0,
-                      top: 0,
-                      child: Container(
-                        padding: EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          color: HexColor("00B251"), // Red indicator color
-                          shape: BoxShape.circle,
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                  ),
+                ),
+            
+                //Centered text
+                Text(
+                  title,
+                  style: TextStyle(color: Colors.black, fontSize: 17),
+                ),
+            
+               // Notification icon with red indicator
+                Padding(
+                  padding: const EdgeInsets.only(right: 4.0),
+                  child: Stack(
+                    children: [
+                      IconButton(
+                        icon: Image.asset(
+                          'assets/icons/notification.png',
+                          width: 24,
+                          height: 24,
                         ),
-                        child: Text(
-                          '1', // You can replace this with the actual notification count
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
+                        onPressed: () {
+                          // Your notification icon onPressed logic here
+                          Navigator.of(context).push(_createRoute());
+                        },
+                      ),
+                      Positioned(
+                        right: 0,
+                        top: 0,
+                        child: Container(
+                          padding: EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: HexColor("00B251"), // Red indicator color
+                            shape: BoxShape.circle,
+                          ),
+                          child: Text(
+                            '1', // You can replace this with the actual notification count
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

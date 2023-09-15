@@ -5,8 +5,6 @@ import 'package:mad_project/pages/navbar_pages/home_page.dart';
 import 'package:mad_project/pages/navbar_pages/profile_page.dart';
 import 'package:mad_project/pages/navbar_pages/service_page.dart';
 
-import '../pages/navigator_page.dart';
-
 class CustomIcon extends StatelessWidget {
   final String imagePath;
   final bool isSelected;
@@ -70,52 +68,55 @@ class _NavBarState extends State<NavBar> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        //fixedColor: Colors.white,
-        items: [
-          BottomNavigationBarItem(
-            icon: CustomIcon(
-              imagePath: 'assets/icons/h.png',
-              isSelected: _selectedIndex == 0,
-              onTap: () => onItemTap(0),
-              padding: EdgeInsets.only(top: 8.0),
+      bottomNavigationBar: Material(
+        elevation: 6.0,
+        child: BottomNavigationBar(
+          //fixedColor: Colors.white,
+          items: [
+            BottomNavigationBarItem(
+              icon: CustomIcon(
+                imagePath: 'assets/icons/h.png',
+                isSelected: _selectedIndex == 0,
+                onTap: () => onItemTap(0),
+                padding: EdgeInsets.only(top: 8.0),
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: CustomIcon(
-              imagePath: 'assets/icons/t.png',
-              isSelected: _selectedIndex == 1,
-              onTap: () => onItemTap(1),
-              padding: EdgeInsets.only(top: 8.0),
+            BottomNavigationBarItem(
+              icon: CustomIcon(
+                imagePath: 'assets/icons/t.png',
+                isSelected: _selectedIndex == 1,
+                onTap: () => onItemTap(1),
+                padding: EdgeInsets.only(top: 8.0),
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: CustomIcon(
-              imagePath: 'assets/icons/a.png',
-              isSelected: _selectedIndex == 2,
-              onTap: () => onItemTap(2),
-              padding: EdgeInsets.only(top: 8.0),
+            BottomNavigationBarItem(
+              icon: CustomIcon(
+                imagePath: 'assets/icons/a.png',
+                isSelected: _selectedIndex == 2,
+                onTap: () => onItemTap(2),
+                padding: EdgeInsets.only(top: 8.0),
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: CustomIcon(
-              imagePath: 'assets/icons/u.png',
-              isSelected: _selectedIndex == 3,
-              onTap: () => onItemTap(3),
-              padding: EdgeInsets.only(top: 8.0),
+            BottomNavigationBarItem(
+              icon: CustomIcon(
+                imagePath: 'assets/icons/u.png',
+                isSelected: _selectedIndex == 3,
+                onTap: () => onItemTap(3),
+                padding: EdgeInsets.only(top: 8.0),
+              ),
+              label: '',
             ),
-            label: '',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: onItemTap,
-        type: BottomNavigationBarType.fixed,
-        selectedFontSize: 10.0, // Adjust this value as needed
-        unselectedFontSize: 10.0, 
-        //selectedItemColor: Colors.blue,
+          ],
+          currentIndex: _selectedIndex,
+          onTap: onItemTap,
+          type: BottomNavigationBarType.fixed,
+          selectedFontSize: 10.0, // Adjust this value as needed
+          unselectedFontSize: 10.0,
+          //selectedItemColor: Colors.blue,
+        ),
       ),
     );
   }

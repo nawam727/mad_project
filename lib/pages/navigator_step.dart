@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_menu.dart';
 import 'package:mad_project/components/back_notify.dart';
 
@@ -23,10 +24,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
         children: [
           Container(
             height: size.height * 0.17,
-            decoration: const BoxDecoration(
-              border: Border(bottom: BorderSide(width: 1)),
-              color: Color.fromARGB(255, 255, 255, 255),
-            ),
+            color: Color.fromARGB(255, 255, 255, 255),
             child: Padding(
               padding: EdgeInsets.only(top: size.width * 0.028),
               child: Column(
@@ -201,7 +199,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                       height: size.width * 0.12,
                       decoration: BoxDecoration(
                           color: Colors.white70,
-                          border: Border.all(width: 1),
+                          border: Border.all(width: 1,color:HexColor("3F3F3F")),
                           borderRadius:const  BorderRadius.vertical(
                             top: Radius.circular(20),
                           )),
@@ -246,7 +244,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
           maxChildSize: 0.5,
           builder: (_, controller) => Container(
             decoration: BoxDecoration(
-              border: Border.all(width: 1),
+              border: Border.all(width: 1,color:HexColor("#3F3F3F")),
               color: Colors.white,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_menu.dart';
 import 'package:mad_project/components/back_notify.dart';
+
+import '../components/back_dots.dart';
 
 class NavigatorMapPage extends StatefulWidget {
   const NavigatorMapPage({super.key});
@@ -18,13 +21,17 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: BackNotify(title:"Map-Step"),
+      appBar: BackDots(title:"Map-Step"),
       body: Column(
         children: [
           Container(
             height: size.height * 0.17,
             decoration: const BoxDecoration(
-              border: Border(bottom: BorderSide(width: 1)),
+              border: Border(
+                bottom: BorderSide(
+                  width: 1,
+                  color: Colors.transparent,
+                  )),
               color: Color.fromARGB(255, 255, 255, 255),
             ),
             child: Padding(
@@ -55,7 +62,8 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                                 decoration: const InputDecoration(
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                        color: Colors.black, width: 1),
+                                        color: Colors.black, width: 1
+                                        ),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -200,8 +208,11 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                     Container(
                       height: size.width * 0.12,
                       decoration: BoxDecoration(
-                          color: Colors.white70,
-                          border: Border.all(width: 1),
+                          color: Colors.white60,
+                          border: Border.all(
+                            width: 1,
+                            color: HexColor("3F3F3F"),
+                            ),
                           borderRadius:const  BorderRadius.vertical(
                             top: Radius.circular(20),
                           )),
@@ -216,6 +227,7 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                           },
                           icon: const Icon(
                             Icons.expand_less_sharp,
+                            color: Colors.black54,
                           ),
                           iconSize: 50,
                         ),
@@ -246,7 +258,9 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
           maxChildSize: 0.5,
           builder: (_, controller) => Container(
             decoration: BoxDecoration(
-              border: Border.all(width: 1),
+              border: Border.all(
+                width: 1,
+                color:HexColor("#3F3F3F")),
               color: Colors.white,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),

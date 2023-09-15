@@ -3,19 +3,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
+
 import 'package:mad_project/components/nav_bar.dart';
 import 'package:mad_project/firebase_options.dart';
-import 'package:mad_project/pages/Navigator_map_page.dart';
 import 'package:mad_project/pages/chat_page.dart';
 import 'package:mad_project/pages/feedback_page.dart';
 import 'package:mad_project/pages/hall_availability.dart';
+import 'package:mad_project/pages/help_center.dart';
 import 'package:mad_project/pages/login_page.dart';
 import 'package:mad_project/pages/map_navigation_page.dart';
+import 'package:mad_project/pages/navigator_map.dart';
 import 'package:mad_project/pages/navigator_step.dart';
 import 'package:mad_project/pages/notification_page.dart';
-=======
->>>>>>> 40ec96fbb4e6a48951a021dd9223bfe8b2e43691
 import 'package:mad_project/pages/auth_pade.dart';
 
 import 'firebase_options.dart';
@@ -49,8 +48,6 @@ class UserData {
   );
 }
 
-<<<<<<< HEAD
-=======
 class LectureData {
   final String lecture;
   final String lecture2;
@@ -132,7 +129,7 @@ Future<LectureData?> getLectureDetails() async {
 
 
 //Map User Data
->>>>>>> 40ec96fbb4e6a48951a021dd9223bfe8b2e43691
+
 Future<UserData?> getUserDetails() async {
   User? user = _auth.currentUser;
 
@@ -161,8 +158,7 @@ Future<UserData?> getUserDetails() async {
   return null;
 }
 
-<<<<<<< HEAD
-=======
+
 //Map Hall Data
 Future<HallData?> getHallDetails() async {
   User? user = _auth.currentUser;
@@ -220,7 +216,6 @@ void fetchData() async {
   }
 }
 
->>>>>>> 40ec96fbb4e6a48951a021dd9223bfe8b2e43691
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -236,11 +231,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
-      home:NavigatorMapPage(),
-=======
-      home: AuthPage(),
->>>>>>> 40ec96fbb4e6a48951a021dd9223bfe8b2e43691
+      home:NavigatorStepPage(),
     );
   }
 }

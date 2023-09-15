@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mad_project/components/back_dots.dart';
 import 'package:mad_project/components/back_menu.dart';
 import 'package:mad_project/pages/TermsService.dart';
+import 'package:mad_project/pages/terms_conditions.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -107,7 +108,7 @@ class _AboutPageState extends State<AboutPage> {
                                 );
                   },
                   child: const Text(
-                    "licenses.",
+                    "Licenses.",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         color: Color.fromARGB(255, 12, 38, 185),
@@ -123,14 +124,23 @@ class _AboutPageState extends State<AboutPage> {
              Align(
               alignment: Alignment.topLeft,
               child: Container(
-                margin: const EdgeInsets.only(top: 20),
-                child: const Text(
-                  "Terms of services",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 12, 38, 185),
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal),
+                margin: const EdgeInsets.only(top: 0),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TermsConditions()),
+                                );
+                  },
+                  child: const Text(
+                    "Terms and Condition",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 12, 38, 185),
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal),
+                  ),
                 ),
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mad_project/components/back_dots.dart';
 import 'package:mad_project/components/back_menu.dart';
 import 'package:mad_project/components/back_notify.dart';
 
@@ -19,7 +20,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: BackNotify(title:"Map-Step"),
+      appBar: BackDots(title:"Step Mode"),
       body: Column(
         children: [
           Container(
@@ -50,15 +51,19 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                             child: Container(
                               color: const Color.fromARGB(255, 255, 255, 255),
                               child: DropdownButtonFormField(
-                                decoration: const InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.black, width: 1),
-                                  ),
+                                decoration:  InputDecoration(
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.black, width: 1),
-                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                      color: HexColor(
+                                          "#00B251")), // Border color when focused
+                                ),
+                                  border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color:HexColor("#3F3F3F"),
+                                  )
+                                ),
                                   filled: true,
                                   fillColor: Color.fromARGB(255, 255, 255, 255),
                                 ),
@@ -114,21 +119,25 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                             child: Text(
                               "To",
                               style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.w500),
+                                  fontSize: 17, fontWeight: FontWeight.w400),
                             ),
                           ),
                           //dropdown list for to
                           Expanded(
                             flex: 5,
                             child: DropdownButtonFormField(
-                              decoration: const InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: Colors.black, width: 1),
-                                ),
+                              decoration: InputDecoration(
                                 focusedBorder: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: Colors.black, width: 1),
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                      color: HexColor(
+                                          "#00B251")), // Border color when focused
+                                ),
+                               border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color:HexColor("#3F3F3F"),
+                                  )
                                 ),
                                 filled: true,
                                 fillColor: Color.fromARGB(255, 255, 255, 255),
@@ -214,6 +223,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                           },
                           icon: const Icon(
                             Icons.expand_less_sharp,
+                            color: Colors.black54,
                           ),
                           iconSize: 50,
                         ),
@@ -259,6 +269,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                           },
                           icon: const Icon(
                             Icons.expand_more_sharp,
+                            color:Colors.black54
                           ),
                           iconSize: 50,
                         ),

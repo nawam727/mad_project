@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/back_dots.dart';
-import 'package:mad_project/components/back_menu.dart';
 
 class PrivacyPolicy extends StatefulWidget {
   const PrivacyPolicy({super.key});

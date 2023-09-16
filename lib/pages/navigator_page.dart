@@ -356,8 +356,6 @@ class LocationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double containerHeight = MediaQuery.of(context).size.height * 0.43;
     double containerWidth = 200;
-    double fontlarge = MediaQuery.of(context).size.height * 0.04;
-    double fontsmall = MediaQuery.of(context).size.height * 0.028;
 
     return Padding(
       padding: const EdgeInsets.only(left: 16.0),

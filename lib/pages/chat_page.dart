@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_dots.dart';
-import 'package:mad_project/components/back_notify.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 
 class ChatPage extends StatefulWidget {

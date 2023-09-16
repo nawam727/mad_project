@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mad_project/components/back_dots.dart';
-import 'package:mad_project/components/back_menu.dart';
 import 'package:mad_project/pages/TermsService.dart';
 import 'package:mad_project/pages/terms_conditions.dart';
 

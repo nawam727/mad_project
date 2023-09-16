@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_dots.dart';
-import 'package:mad_project/components/back_notify.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
 
 class ChatPage extends StatefulWidget {
@@ -13,6 +14,7 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController messageController = TextEditingController();
@@ -40,7 +42,10 @@ class _ChatPageState extends State<ChatPage> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: Text(
+                'OK',
+                style: TextStyle(color: HexColor("#00B251")),
+              ),
             ),
           ],
         );
@@ -60,7 +65,10 @@ class _ChatPageState extends State<ChatPage> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: Text(
+                'OK',
+                style: TextStyle(color: HexColor("#00B251")),
+              ),
             ),
           ],
         );
@@ -70,7 +78,7 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   void dispose() {
-    // Dispose of the text controllers when the widget is disposed
+    nameController.dispose();
     emailController.dispose();
     phoneNumberController.dispose();
     messageController.dispose();
@@ -89,7 +97,8 @@ class _ChatPageState extends State<ChatPage> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.90,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 margin: const EdgeInsets.only(right: 20, left: 20, top: 20),
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 255, 255, 255),
@@ -121,8 +130,8 @@ class _ChatPageState extends State<ChatPage> {
                             ),
                             child: Image.asset(
                               'assets/images/cl.jpeg',
-                              width: MediaQuery.of(context).size.width*0.70,
-                              height: MediaQuery.of(context).size.height*0.26,
+                              width: MediaQuery.of(context).size.width * 0.70,
+                              height: MediaQuery.of(context).size.height * 0.26,
                               alignment: Alignment.topCenter,
                               fit: BoxFit.fill,
                             ),
@@ -138,7 +147,9 @@ class _ChatPageState extends State<ChatPage> {
                             ),
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(height: 8,), // Added spacing below the image
+                          SizedBox(
+                            height: 8,
+                          ), // Added spacing below the image
                           Text(
                             "Get in touch and let us know how can we help you",
                             style: TextStyle(
@@ -154,11 +165,11 @@ class _ChatPageState extends State<ChatPage> {
                   ],
                 ),
               ),
-
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.90,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 margin: const EdgeInsets.only(right: 20, left: 20, top: 20),
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 255, 255, 255),
@@ -176,7 +187,6 @@ class _ChatPageState extends State<ChatPage> {
                     ),
                   ],
                 ),
-
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -207,7 +217,6 @@ class _ChatPageState extends State<ChatPage> {
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
-
                     Padding(
                       padding: EdgeInsets.only(top: 35, bottom: 5),
                       child: Text(
@@ -236,7 +245,6 @@ class _ChatPageState extends State<ChatPage> {
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
-
                     Padding(
                       padding: EdgeInsets.only(top: 35, bottom: 5),
                       child: Text(
@@ -248,7 +256,6 @@ class _ChatPageState extends State<ChatPage> {
                         textAlign: TextAlign.left,
                       ),
                     ),
-
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: TextField(
@@ -267,7 +274,6 @@ class _ChatPageState extends State<ChatPage> {
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
-
                     Padding(
                       padding: EdgeInsets.only(top: 35, bottom: 5),
                       child: Text(
@@ -299,83 +305,132 @@ class _ChatPageState extends State<ChatPage> {
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
+                    Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 40),
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            clearErrorMessages();
+                            successMessage = '';
 
-              Center(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 40),
-                  child: ElevatedButton(
-                    onPressed: () {
+                            // Validate and get input values
+                            String name = nameController.text;
+                            String email = emailController.text;
+                            String phoneNumber = phoneNumberController.text;
+                            String message = messageController.text;
 
-                      clearErrorMessages();
-                      successMessage = '';
+                            // Clear any previous error messages
+                            if (messageController.text.isEmpty) {
+                              showErrorMessage('Please type your message');
+                            } else {
+                              if (emailController.text.isNotEmpty &&
+                                  !isValidEmail(emailController.text)) {
+                                setState(() {
+                                  emailErrorMessage = '';
+                                  showErrorMessage('Invalid email format');
+                                });
+                              }
+                              if (phoneNumberController.text.isNotEmpty &&
+                                  !isValidPhoneNumber(
+                                      phoneNumberController.text)) {
+                                setState(() {
+                                  phoneNumberErrorMessage = '';
+                                  showErrorMessage(
+                                      'Invalid phone number format');
+                                });
+                              }
+                            }
 
-                       // Clear any previous error messages
-                      if (messageController.text.isEmpty) {
-                        showErrorMessage('Please type your message');
-                      } else {
-                        if (emailController.text.isNotEmpty && !isValidEmail(emailController.text)) {
-                          setState(() {
-                            emailErrorMessage = '';
-                            showErrorMessage('Invalid email format');
-                          });
-                        }
-                        if (phoneNumberController.text.isNotEmpty && !isValidPhoneNumber(phoneNumberController.text)) {
-                          setState(() {
-                            phoneNumberErrorMessage = '';
-                            showErrorMessage('Invalid phone number format');
-                          });
-                        }
-                      }
+                            if (((emailController.text.isNotEmpty &&
+                                        isValidEmail(emailController.text)) ||
+                                    (phoneNumberController.text.isNotEmpty &&
+                                        isValidPhoneNumber(
+                                            phoneNumberController.text))) &&
+                                messageController.text.isNotEmpty) {
+                              showSuccessMessage(
+                                  'Success! Your message has been sent.');
+                            } else {
+                              showErrorMessage(
+                                  'Please enter a valid email or phone number');
+                            }
 
-                      if (((emailController.text.isNotEmpty && isValidEmail(emailController.text)) || 
-       (phoneNumberController.text.isNotEmpty && isValidPhoneNumber(phoneNumberController.text))) &&
-      messageController.text.isNotEmpty) {
-    showSuccessMessage('Success! Your message has been sent.');
-  } else {
-    showErrorMessage('Please enter a valid email or phone number');
-  }
+                            // Send the message to Firestore
+                            await sendMessageToFirestore(
+                                name, email, phoneNumber, message);
 
-  setState(() {  }); // Trigger a rebuild to display the success message or error message
-
-                    },
-                    child: Text(
-                      'Send Message',
-                      style: TextStyle(color: Colors.white, fontSize: 16),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: HexColor('00B251'),
-                      elevation: 3,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                        side: BorderSide(
-                          color: HexColor("C4C5C2"),
+                            setState(
+                                () {}); // Trigger a rebuild to display the success message or error message
+                          },
+                          child: Text(
+                            'Send Message',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: HexColor('00B251'),
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              side: BorderSide(
+                                color: HexColor("C4C5C2"),
+                              ),
+                            ),
+                            fixedSize: Size(180, 50),
+                          ),
                         ),
                       ),
-                      fixedSize: Size(180, 50),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ],
           ),
-              ),
-        ],
-      ),
         ],
       ),
     );
   }
 
+  Future<void> sendMessageToFirestore(
+      String name, String email, String phoneNumber, String message) async {
+    try {
+      await FirebaseFirestore.instance.collection('messages').add({
+        'name': name,
+        'email': email,
+        'phoneNumber': phoneNumber,
+        'message': message,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+
+      showSuccessMessage('Success! Your message has been sent.');
+
+      // Clear the text fields or perform any other necessary actions
+      nameController.clear();
+      emailController.clear();
+      phoneNumberController.clear();
+      messageController.clear();
+    } catch (error) {
+      showErrorMessage('Error sending message. Please try again later.');
+    }
+  }
+
+  // ... Your validation functions ...
+
+  // Initialize Firebase in the main.dart or wherever it fits your project structure
+  void initializeFirebase() async {
+    await Firebase.initializeApp();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initializeFirebase(); // Initialize Firebase when the widget is created
+  }
+
   bool isValidEmail(String email) {
-    // You can implement your email validation logic here
-    // For a simple email format check, you can use a regular expression
     final emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
     return emailRegex.hasMatch(email);
   }
 
   bool isValidPhoneNumber(String phoneNumber) {
-    // You can implement your phone number validation logic here
-    // For a simple phone number format check, you can use a regular expression
     final phoneRegex = RegExp(r'^[0-9]{10}$');
     return phoneRegex.hasMatch(phoneNumber);
   }

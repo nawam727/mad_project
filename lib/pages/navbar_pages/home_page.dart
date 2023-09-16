@@ -24,19 +24,19 @@ class _HomePageState extends State<HomePage> {
   //fireStore fetching data
   LectureData? lectureData;
 
-@override
-void initState() {
-  super.initState();
-  // Call getLectureData from initState
-  getLectureData();
-}
+  @override
+  void initState() {
+    super.initState();
+    // Call getLectureData from initState
+    getLectureData();
+  }
 
-Future<void> getLectureData() async {
-  LectureData? lectureDetails = await getLectureDetails();
-  setState(() {
-    lectureData = lectureDetails;
-  });
-}
+  Future<void> getLectureData() async {
+    LectureData? lectureDetails = await getLectureDetails();
+    setState(() {
+      lectureData = lectureDetails;
+    });
+  }
 
   List<String> imageList = [
     'assets/images/slider1.png',
@@ -119,7 +119,7 @@ Future<void> getLectureData() async {
                               height: 200.0,
                               viewportFraction: 1,
                               enlargeCenterPage: true,
-                              autoPlay: false,
+                              autoPlay: true,
                               autoPlayInterval: Duration(seconds: 3),
                               autoPlayAnimationDuration:
                                   Duration(milliseconds: 800),
@@ -287,7 +287,9 @@ Future<void> getLectureData() async {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      lectureData != null ? lectureData!.lecture : "Lecture",
+                                      lectureData != null
+                                          ? lectureData!.lecture
+                                          : "Lecture",
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -297,7 +299,9 @@ Future<void> getLectureData() async {
                                       height: 5,
                                     ),
                                     Text(
-                                      lectureData !=null ? lectureData!.time : "Time",
+                                      lectureData != null
+                                          ? lectureData!.time
+                                          : "Time",
                                       style: TextStyle(
                                         color: HexColor("77796B"),
                                         fontWeight: FontWeight.bold,
@@ -307,7 +311,9 @@ Future<void> getLectureData() async {
                                       height: 5,
                                     ),
                                     Text(
-                                      lectureData != null ? lectureData!.lecturer : "Lecturer Name",
+                                      lectureData != null
+                                          ? lectureData!.lecturer
+                                          : "Lecturer Name",
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -319,7 +325,9 @@ Future<void> getLectureData() async {
                                     Align(
                                       alignment: Alignment.bottomRight,
                                       child: Text(
-                                        lectureData != null ? lectureData!.location : "Hall",
+                                        lectureData != null
+                                            ? lectureData!.location
+                                            : "Hall",
                                         style: TextStyle(
                                           color: HexColor("77796B"),
                                           fontWeight: FontWeight.bold,
@@ -436,12 +444,11 @@ class RecentlyViewed extends StatelessWidget {
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],
-        borderRadius:
-            BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(
-                color: Colors.grey, // Set your desired border color here
-                width: 0.5, // Set the border width as needed
-              ), // Adjust the radius value as needed
+          color: Colors.grey, // Set your desired border color here
+          width: 0.5, // Set the border width as needed
+        ), // Adjust the radius value as needed
       ),
       child: Column(
         children: [

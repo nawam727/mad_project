@@ -4,6 +4,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/my_button.dart';
 import 'package:mad_project/components/nav_bar.dart';
 import 'package:mad_project/components/text_field.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,11 +18,42 @@ class _LoginPageState extends State<LoginPage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   bool isLoading = false;
+  bool rememberCredentials = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Load the stored value for rememberCredentials
+    loadRememberCredentials();
+  }
+
+  void loadRememberCredentials() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      rememberCredentials = prefs.getBool('rememberCredentials') ?? false;
+      if (rememberCredentials) {
+        // Load and autofill saved email and password if rememberCredentials is true
+        usernameController.text = prefs.getString('email') ?? '';
+        passwordController.text = prefs.getString('password') ?? '';
+      }
+    });
+  }
+
+  void saveRememberCredentials() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('rememberCredentials', rememberCredentials);
+    if (rememberCredentials) {
+      prefs.setString('email', usernameController.text);
+      prefs.setString('password', passwordController.text);
+    } else {
+      prefs.remove('email');
+      prefs.remove('password');
+    }
+  }
 
   void signUserIn(BuildContext context) async {
     String email = usernameController.text;
     String password = passwordController.text;
-    
 
     try {
       setState(() {
@@ -33,12 +65,17 @@ class _LoginPageState extends State<LoginPage> {
         password: password,
       );
 
+      // Save credentials if the checkbox is checked
+      if (rememberCredentials) {
+        saveRememberCredentials();
+      }
+
       // Authentication successful, navigate to the home page
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) =>
-                NavBar()),
+          builder: (context) => NavBar(),
+        ),
       );
     } catch (e) {
       // Handle any authentication errors here
@@ -55,8 +92,10 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   Navigator.of(context).pop(); // Close the error dialog
                 },
-                child: Text('Try Again',
-                style: TextStyle(color: HexColor("#00B251")),),
+                child: Text(
+                  'Try Again',
+                  style: TextStyle(color: HexColor("#00B251")),
+                ),
               ),
             ],
           );
@@ -104,7 +143,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const Text(
                         "Login",
-                        style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 38, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
                         height: screenHeight * 0.05,
@@ -125,20 +165,36 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(
                         height: screenHeight * 0.03,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 28),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "Remember Password",
-                              style: TextStyle(color: HexColor("#959CA3")),
-                            ),
-                          ],
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 13),
+                          child: Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment.start, // Change to start
+                            children: [
+                              Checkbox(
+                                value: rememberCredentials,
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    rememberCredentials = newValue!;
+                                  });
+                                  if (rememberCredentials) {
+                                    saveRememberCredentials();
+                                  }
+                                },
+                                activeColor: HexColor("#00B251"),
+                              ),
+                              Text(
+                                "Remember Password",
+                                style: TextStyle(color: HexColor("#959CA3")),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(
-                        height: screenHeight * 0.08,
+                        height: screenHeight * 0.04,
                       ),
                       MyButton(
                         onTap: () {

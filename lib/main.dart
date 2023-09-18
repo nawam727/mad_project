@@ -10,12 +10,14 @@ import 'package:mad_project/pages/chat_page.dart';
 import 'package:mad_project/pages/feedback_page.dart';
 import 'package:mad_project/pages/hall_availability.dart';
 import 'package:mad_project/pages/help_center.dart';
+import 'package:mad_project/pages/location_settings.dart';
 import 'package:mad_project/pages/login_page.dart';
 import 'package:mad_project/pages/map_navigation_page.dart';
 import 'package:mad_project/pages/navigator_map.dart';
 import 'package:mad_project/pages/navigator_step.dart';
 import 'package:mad_project/pages/notification_page.dart';
 import 'package:mad_project/pages/auth_pade.dart';
+import 'package:mad_project/pages/notification_settings.dart';
 
 import 'firebase_options.dart';
 

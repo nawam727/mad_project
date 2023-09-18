@@ -16,7 +16,7 @@ class _HelpCenterState extends State<HelpCenter> {
   final itemKey3 = GlobalKey();
   final itemKey4 = GlobalKey();
 
-  Future scrollToItem(final context,GlobalKey itemKey) async {
+  Future scrollToItem(final context, GlobalKey itemKey) async {
     final context = itemKey.currentContext!;
     await Scrollable.ensureVisible(context,
         alignment: 0.8, duration: Duration(seconds: 1));
@@ -196,20 +196,25 @@ class _HelpCenterState extends State<HelpCenter> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 20),
+                            horizontal: 8, vertical: 20),
                         child: TextField(
                           decoration: InputDecoration(
                             prefixIcon: Icon(
                               Icons.search,
                             ),
-                            // Text to be displayed before the input field
                             hintText: 'Enter your search term....',
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
                                   color: HexColor("#00B251") //border color
                                   ),
                             ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide:
+                                  BorderSide(color: HexColor("#00B251")),
+                            ),
+                            contentPadding: EdgeInsets.symmetric(vertical: 15),
                           ),
                         ),
                       ),
@@ -226,50 +231,47 @@ class _HelpCenterState extends State<HelpCenter> {
                               color: HexColor('#FFFFFF'),
                               borderRadius: BorderRadius.circular(24),
                               border: Border.all(
-                                color: HexColor(
-                                    "#959CA3"), // Set your desired border color here
-                                width: 0.3, // Set the border width as needed
+                                color: HexColor("#959CA3"),
+                                width: 0.3,
                               ),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 2,
                                   blurRadius: 10,
-                                  offset: Offset(
-                                      0, 3), // changes position of shadow
+                                  offset: Offset(0, 3),
                                 ),
                               ],
                             ),
+
                             //genaral question card
-                            child: Container(
-                              margin: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.stretch, // add this
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(8.0),
-                                      topRight: Radius.circular(8.0),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          top:
-                                              10), // Add padding to move the text down
-                                      child: Image.asset(
-                                        'assets/images/human.png',
-                                        width: 100,
-                                        height: 50,
-                                        alignment: Alignment.center,
-                                        //fit:BoxFit.fill
+                            child: GestureDetector(
+                              onTap: () => scrollToItem(context, itemKey),
+                              child: Container(
+                                margin: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch, // add this
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(8.0),
+                                        topRight: Radius.circular(8.0),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Image.asset(
+                                          'assets/images/human.png',
+                                          width: 100,
+                                          height: 50,
+                                          alignment: Alignment.center,
+                                          //fit:BoxFit.fill
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 50),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 8),
-                                    child: TextButton(
-                                      onPressed: () => scrollToItem(context, itemKey),
+                                    const SizedBox(width: 50),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 26),
                                       child: Text(
                                         'General Questions',
                                         style: TextStyle(
@@ -279,8 +281,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -295,48 +297,46 @@ class _HelpCenterState extends State<HelpCenter> {
                               color: HexColor('FFFFFF'),
                               borderRadius: BorderRadius.circular(24),
                               border: Border.all(
-                                color: HexColor(
-                                    "#959CA3"), // Set your desired border color here
-                                width: 0.3, // Set the border width as needed
+                                color: HexColor("#959CA3"),
+                                width: 0.3,
                               ),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 2,
                                   blurRadius: 10,
-                                  offset: Offset(
-                                      0, 3), // changes position of shadow
+                                  offset: Offset(0, 3),
                                 ),
                               ],
                             ),
                             //Manage your account card
-                            child: Container(
-                              margin: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.stretch, // add this
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(8.0),
-                                      topRight: Radius.circular(8.0),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(top: 0),
-                                      child: Image.asset(
-                                        'assets/images/u.png',
-                                        width: 100,
-                                        height: 70,
-                                        alignment: Alignment.center,
-                                        //fit:BoxFit.fill
+                            child: GestureDetector(
+                              onTap: () => scrollToItem(context, itemKey3),
+                              child: Container(
+                                margin: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch, // add this
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(8.0),
+                                        topRight: Radius.circular(8.0),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(top: 0),
+                                        child: Image.asset(
+                                          'assets/images/u.png',
+                                          width: 100,
+                                          height: 70,
+                                          alignment: Alignment.center,
+                                          //fit:BoxFit.fill
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 50),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 0),
-                                    child: TextButton(
-                                      onPressed: () => scrollToItem(context, itemKey3),
+                                    const SizedBox(width: 50),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 20),
                                       child: Text(
                                         'Manage your Account',
                                         style: TextStyle(
@@ -346,8 +346,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -381,33 +381,33 @@ class _HelpCenterState extends State<HelpCenter> {
                               ],
                             ),
                             //FAQ card
-                            child: Container(
-                              margin: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.stretch, // add this
-                                children: <Widget>[
-                                  ClipRRect(
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(8.0),
-                                      topRight: Radius.circular(8.0),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(top: 10),
-                                      child: Image.asset(
-                                        'assets/images/faq.png',
-                                        width: 100,
-                                        height: 50,
-                                        alignment: Alignment.center,
-                                        //fit:BoxFit.fill
+                            child: GestureDetector(
+                              onTap: () => scrollToItem(context, itemKey2),
+                              child: Container(
+                                margin: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch, // add this
+                                  children: <Widget>[
+                                    ClipRRect(
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(8.0),
+                                        topRight: Radius.circular(8.0),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Image.asset(
+                                          'assets/images/faq.png',
+                                          width: 100,
+                                          height: 50,
+                                          alignment: Alignment.center,
+                                          //fit:BoxFit.fill
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 50),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 8),
-                                    child: TextButton(
-                                      onPressed: () => scrollToItem(context, itemKey2),
+                                    const SizedBox(width: 50),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 26),
                                       child: Text(
                                         'FAQ',
                                         style: TextStyle(
@@ -417,8 +417,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -432,9 +432,8 @@ class _HelpCenterState extends State<HelpCenter> {
                               color: HexColor('#FFFFFF'),
                               borderRadius: BorderRadius.circular(24),
                               border: Border.all(
-                                color: HexColor(
-                                    "#959CA3"), // Set your desired border color here
-                                width: 0.3, // Set the border width as needed
+                                color: HexColor("#959CA3"),
+                                width: 0.3,
                               ),
                               boxShadow: [
                                 BoxShadow(
@@ -447,33 +446,33 @@ class _HelpCenterState extends State<HelpCenter> {
                               ],
                             ),
                             //Education Plan
-                            child: Container(
-                              margin: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.stretch, // add this
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(8.0),
-                                      topRight: Radius.circular(8.0),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(top: 10),
-                                      child: Image.asset(
-                                        'assets/images/plan.png',
-                                        width: 100,
-                                        height: 50,
-                                        alignment: Alignment.center,
-                                        //fit:BoxFit.fill
+                            child: GestureDetector(
+                              onTap: () => scrollToItem(context, itemKey4),
+                              child: Container(
+                                margin: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch, // add this
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(8.0),
+                                        topRight: Radius.circular(8.0),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Image.asset(
+                                          'assets/images/plan.png',
+                                          width: 100,
+                                          height: 50,
+                                          alignment: Alignment.center,
+                                          //fit:BoxFit.fill
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 100),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 6),
-                                    child: TextButton(
-                                      onPressed: () =>scrollToItem(context, itemKey4), // Add padding to move the text down
+                                    const SizedBox(width: 100),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 26),
                                       child: Text(
                                         'Education plan',
                                         style: TextStyle(
@@ -483,8 +482,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -496,7 +495,7 @@ class _HelpCenterState extends State<HelpCenter> {
 
                 //1st general question page
                 Container(
-                   key: itemKey,
+                  key: itemKey,
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.90,
                   padding:
@@ -794,9 +793,9 @@ class _HelpCenterState extends State<HelpCenter> {
 
                 //next question page
                 Container(
-                  key:itemKey2,
+                  key: itemKey2,
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.838,
+                  height: MediaQuery.of(context).size.height * 0.847,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   margin: const EdgeInsets.only(right: 20, left: 20, top: 20),
@@ -822,7 +821,7 @@ class _HelpCenterState extends State<HelpCenter> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 10, left: 10, bottom: 10),
+                              top: 6, left: 10, bottom: 10),
                           // Add padding to move the text down
                           child: Text(
                             'Frequently Asked Questions',
@@ -896,8 +895,7 @@ class _HelpCenterState extends State<HelpCenter> {
                               border: Border.all(
                                 color: HexColor("#AFB0AB"),
                                 width: 0.3,
-                              ), // Adding a border
-
+                              ),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey.withOpacity(0.5),
@@ -1127,7 +1125,7 @@ class _HelpCenterState extends State<HelpCenter> {
                   ),
                   //profile page
                   child: Container(
-                    key:itemKey3,
+                    key: itemKey3,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
@@ -1150,12 +1148,10 @@ class _HelpCenterState extends State<HelpCenter> {
                                 color: Colors.grey.withOpacity(0.5),
                                 spreadRadius: 2,
                                 blurRadius: 10,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
+                                offset: Offset(0, 3),
                               ),
                             ],
                           ),
-                          
                           child: Row(
                             //text and image
                             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1168,7 +1164,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                                 child: Image.asset(
                                   'assets/images/u2.png',
-                                  width: MediaQuery.of(context).size.width * 0.20,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.20,
                                   height:
                                       MediaQuery.of(context).size.height * 0.20,
                                   alignment: Alignment.centerLeft,
@@ -1213,7 +1210,7 @@ class _HelpCenterState extends State<HelpCenter> {
                           child: Row(
                             //text and image
                             crossAxisAlignment: CrossAxisAlignment.stretch,
-                  
+
                             children: [
                               ClipRRect(
                                 borderRadius: const BorderRadius.only(
@@ -1222,7 +1219,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                                 child: Image.asset(
                                   'assets/images/up.png',
-                                  width: MediaQuery.of(context).size.width * 0.07,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.07,
                                   height:
                                       MediaQuery.of(context).size.height * 0.07,
                                   alignment: Alignment.centerLeft,
@@ -1230,7 +1228,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                               ),
                               //Spacer()
-                  
+
                               SizedBox(width: 15),
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),
@@ -1278,7 +1276,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                                 child: Image.asset(
                                   'assets/images/t.png',
-                                  width: MediaQuery.of(context).size.width * 0.07,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.07,
                                   height:
                                       MediaQuery.of(context).size.height * 0.07,
                                   alignment: Alignment.centerLeft,
@@ -1286,7 +1285,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                               ),
                               //Spacer()
-                  
+
                               SizedBox(width: 15),
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),
@@ -1334,7 +1333,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                                 child: Image.asset(
                                   'assets/images/n.png',
-                                  width: MediaQuery.of(context).size.width * 0.07,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.07,
                                   height:
                                       MediaQuery.of(context).size.height * 0.07,
                                   alignment: Alignment.centerLeft,
@@ -1342,7 +1342,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                               ),
                               //Spacer()
-                  
+
                               SizedBox(width: 15),
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),
@@ -1398,7 +1398,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                                 child: Image.asset(
                                   'assets/images/d.png',
-                                  width: MediaQuery.of(context).size.width * 0.07,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.07,
                                   height:
                                       MediaQuery.of(context).size.height * 0.07,
                                   alignment: Alignment.centerLeft,
@@ -1406,7 +1407,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                               ),
                               //Spacer()
-                  
+
                               SizedBox(width: 15),
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),
@@ -1462,7 +1463,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                                 child: Image.asset(
                                   'assets/images/t1.png',
-                                  width: MediaQuery.of(context).size.width * 0.08,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.08,
                                   height:
                                       MediaQuery.of(context).size.height * 0.08,
                                   alignment: Alignment.centerLeft,
@@ -1470,7 +1472,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                               ),
                               //Spacer()
-                  
+
                               SizedBox(width: 15),
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),
@@ -1526,7 +1528,8 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                                 child: Image.asset(
                                   'assets/images/i.png',
-                                  width: MediaQuery.of(context).size.width * 0.07,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.07,
                                   height:
                                       MediaQuery.of(context).size.height * 0.07,
                                   alignment: Alignment.centerLeft,
@@ -1534,7 +1537,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 ),
                               ),
                               //Spacer()
-                  
+
                               SizedBox(width: 15),
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),

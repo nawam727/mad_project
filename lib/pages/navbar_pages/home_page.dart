@@ -4,14 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/menu_home.dart';
 import 'package:mad_project/pages/drawer_screen.dart';
+import 'package:mad_project/pages/hall_availability.dart';
+import 'package:mad_project/pages/lecture_cabin_state_page.dart';
+import 'package:mad_project/pages/lecturers_availability_page.dart';
 import 'package:mad_project/pages/location_view_page.dart';
+import 'package:mad_project/pages/navbar_pages/calendar_page.dart';
+import 'package:mad_project/pages/navbar_pages/profile_page.dart';
+import 'package:mad_project/pages/settings_page.dart';
 
 import '../../main.dart';
 import '../mode_selector_page.dart';
+import '../navigator_page.dart';
 
 class HomePage extends StatefulWidget {
-  //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   HomePage({super.key});
 
   @override
@@ -21,6 +26,37 @@ class HomePage extends StatefulWidget {
 int _currentIndex = 0;
 
 class _HomePageState extends State<HomePage> {
+  final TextEditingController _searchController = TextEditingController();
+
+  // Creating a map to map page names to their routes.
+  final Map<String, Widget> pageRoutes = {
+    'Lectures': LecturerAvailabilityPage(),
+    'Hall': HallAvailability(),
+    'Cabin': CabinState(),
+    'Settings' : SettingsScreen(),
+    'Profile' : ProfilePage(),
+    'Locations' : LocationView(),
+  };
+
+  void navigateToPage(String pageName) {
+  // Convert the entered pageName to lowercase.
+    final lowerPageName = pageName.toLowerCase();
+
+    // Check if a matching page name (case-insensitive) exists in the map.
+    final matchingKey = pageRoutes.keys.firstWhere(
+      (key) => key.toLowerCase() == lowerPageName,
+      orElse: () => '',
+    );
+
+    if (matchingKey.isNotEmpty) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => pageRoutes[matchingKey]!));
+      
+      // Clear the search bar.
+      _searchController.clear();
+    }
+  }
+
+
   //fireStore fetching data
   LectureData? lectureData;
 
@@ -43,6 +79,13 @@ class _HomePageState extends State<HomePage> {
     'assets/images/slider2.png',
     'assets/images/slider3.png',
     'assets/images/slider4.png',
+  ];
+
+  List<Widget> destinationRoutes = [
+    NavigatorPage(),
+    CalendarPage(),
+    LecturerAvailabilityPage(),
+    HallAvailability(),
   ];
 
   @override
@@ -68,6 +111,11 @@ class _HomePageState extends State<HomePage> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 16, right: 5),
                             child: TextField(
+                              controller: _searchController,
+                              onSubmitted: (value) {
+                                navigateToPage(
+                                    value);
+                              },
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -82,9 +130,7 @@ class _HomePageState extends State<HomePage> {
                                     EdgeInsets.symmetric(vertical: 15),
                                 prefixIcon: Icon(
                                   Icons.search,
-                                ), // Icon to be displayed before the text field
-                                // prefixText:
-                                //     'Search: ', // Text to be displayed before the input field
+                                ),
                                 hintText: 'Search Here',
                               ),
                             ),
@@ -131,15 +177,33 @@ class _HomePageState extends State<HomePage> {
                               },
                             ),
                             items: imageList.map((imageUrl) {
+                              int currentIndex = imageList
+                                  .indexOf(imageUrl); // Get the current index
                               return Builder(
                                 builder: (BuildContext context) {
-                                  return Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 5.0),
-                                    child: Image.asset(
-                                      imageUrl,
-                                      fit: BoxFit.contain,
+                                  return GestureDetector(
+                                    onTap: () {
+                                      // Navigate to the corresponding destination when the image is tapped
+                                      if (currentIndex >= 0 &&
+                                          currentIndex <
+                                              destinationRoutes.length) {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                destinationRoutes[currentIndex],
+                                          ),
+                                        );
+                                      }
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      child: Image.asset(
+                                        imageUrl,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                   );
                                 },

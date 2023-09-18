@@ -87,9 +87,10 @@ class SupportPage extends StatelessWidget {
                   ),
                 ),
               ),
+
               //search bar
               Padding(
-                padding: EdgeInsets.all(size.width * 0.05),
+                padding: EdgeInsets.only(left: 21, right: 21),
                 child: Center(
                   child: TextField(
                     decoration: InputDecoration(
@@ -103,6 +104,13 @@ class SupportPage extends StatelessWidget {
                         borderSide:
                             BorderSide(color: HexColor("#00B251") //border color
                                 ),
+                      ),
+                      contentPadding: EdgeInsets.symmetric(vertical: 15),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                            color: HexColor(
+                                "#00B251")), // Border color when focused
                       ),
                     ),
                   ),

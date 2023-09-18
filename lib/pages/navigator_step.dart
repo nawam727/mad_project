@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_dots.dart';
-import 'package:mad_project/components/back_menu.dart';
-import 'package:mad_project/components/back_notify.dart';
 
 import 'map_pages/map_page.dart';
 

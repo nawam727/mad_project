@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:mad_project/components/back_menu.dart';
-import 'package:mad_project/components/back_notify.dart';
 
 import '../components/back_dots.dart';
 

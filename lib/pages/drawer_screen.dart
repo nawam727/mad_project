@@ -101,11 +101,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
+          SizedBox(height: 20),
           DrawerHeader(
-            // decoration: BoxDecoration(
-            //   color: HexColor("#"),
-            // ),
-
             //DP and Name
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,21 +112,33 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      CircleAvatar(
-                        radius: 45,
-                        backgroundColor: Colors.transparent,
-                        backgroundImage: profilePhotoURL.isNotEmpty
-                            ? NetworkImage(profilePhotoURL) as ImageProvider
-                            : null,
+                      Container(
+                        padding:
+                            EdgeInsets.all(2), // Adjust the padding as needed
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: HexColor(
+                                "00B251"), // Change the color to your desired border color
+                            width: 2.0, // Adjust the border width as needed
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 45,
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: profilePhotoURL.isNotEmpty
+                              ? NetworkImage(profilePhotoURL) as ImageProvider
+                              : null,
+                        ),
                       ),
                       if (profilePhotoURL.isEmpty)
                         CircularProgressIndicator(
                           color: HexColor("00B251"),
-                        ), // Display the CircularProgressIndicator when the image is loading
+                        ),
                     ],
                   ),
                 ),
-                SizedBox(height: 13),
+                SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Column(
@@ -151,7 +160,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 18,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,

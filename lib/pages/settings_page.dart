@@ -50,7 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   //sign out method
   void signUserOut(BuildContext context) async {
-   // await FirebaseAuth.instance.signOut();
+    // await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -123,17 +123,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     Stack(
                       alignment: Alignment.center,
                       children: [
-                        CircleAvatar(
-                          radius: 50,
-                          backgroundColor: Colors.transparent,
-                          backgroundImage: profilePhotoURL.isNotEmpty
-                              ? NetworkImage(profilePhotoURL) as ImageProvider
-                              : null,
+                        Container(
+                          padding: EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: HexColor("00B251"),
+                              width: 2.0,
+                            ),
+                          ),
+                          child: CircleAvatar(
+                            radius: 50,
+                            backgroundColor: Colors.transparent,
+                            backgroundImage: profilePhotoURL.isNotEmpty
+                                ? NetworkImage(profilePhotoURL) as ImageProvider
+                                : null,
+                          ),
                         ),
                         if (profilePhotoURL.isEmpty)
                           CircularProgressIndicator(
                             color: HexColor("00B251"),
-                          ), // Display the CircularProgressIndicator when the image is loading
+                          ),
                       ],
                     ),
                     const SizedBox(width: 12),

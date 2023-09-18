@@ -57,6 +57,7 @@ dependencies:
   google_maps_flutter: ^2.5.0
   flutter_polyline_points: ^1.0.0
   dio: ^5.3.2
+  dropdown_model_list: ^1.1.1
 
 
 dev_dependencies:

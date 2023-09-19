@@ -3,23 +3,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
-import 'package:mad_project/components/nav_bar.dart';
+import 'package:mad_project/api/firebase_api.dart';
 import 'package:mad_project/firebase_options.dart';
-import 'package:mad_project/pages/chat_page.dart';
-import 'package:mad_project/pages/feedback_page.dart';
-import 'package:mad_project/pages/hall_availability.dart';
-import 'package:mad_project/pages/help_center.dart';
-import 'package:mad_project/pages/location_settings.dart';
-import 'package:mad_project/pages/login_page.dart';
-import 'package:mad_project/pages/map_navigation_page.dart';
-import 'package:mad_project/pages/navigator_map.dart';
-import 'package:mad_project/pages/navigator_step.dart';
 import 'package:mad_project/pages/notification_page.dart';
 import 'package:mad_project/pages/auth_pade.dart';
-import 'package:mad_project/pages/notification_settings.dart';
-
-import 'firebase_options.dart';
 
 FirebaseAuth _auth = FirebaseAuth.instance;
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -129,7 +116,6 @@ Future<LectureData?> getLectureDetails() async {
   return null;
 }
 
-
 //Map User Data
 
 Future<UserData?> getUserDetails() async {
@@ -159,7 +145,6 @@ Future<UserData?> getUserDetails() async {
 
   return null;
 }
-
 
 //Map Hall Data
 Future<HallData?> getHallDetails() async {
@@ -221,9 +206,12 @@ void fetchData() async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  //UserData? userData = await getUserDetails();
+  await FirebaseApi().initNotification();
+  fetchData();
   runApp(const MyApp());
 }
+
+final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -233,7 +221,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home:NavBar(),
+      home: AuthPage(),
+      navigatorKey: navigatorKey,
+      routes: {
+        '/notification_screen': (context) => NotificationPage(),
+      },
     );
   }
 }

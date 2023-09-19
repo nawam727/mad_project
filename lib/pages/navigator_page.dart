@@ -356,8 +356,6 @@ class LocationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double containerHeight = MediaQuery.of(context).size.height * 0.43;
     double containerWidth = 200;
-    double fontlarge = MediaQuery.of(context).size.height * 0.04;
-    double fontsmall = MediaQuery.of(context).size.height * 0.028;
 
     return Padding(
       padding: const EdgeInsets.only(left: 16.0),
@@ -367,14 +365,6 @@ class LocationCard extends StatelessWidget {
             height: containerHeight,
             width: containerWidth,
             decoration: BoxDecoration(
-              // boxShadow: [
-              //   BoxShadow(
-              //     color: Colors.grey.withOpacity(0.5),
-              //     spreadRadius: 1,
-              //     blurRadius: 10,
-              //     offset: Offset(0, 3), // changes position of shadow
-              //   ),
-              // ],
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(

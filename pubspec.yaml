@@ -57,6 +57,8 @@ dependencies:
 
   scrollable_positioned_list: ^0.3.8
   firebase_storage: ^11.2.6
+  firebase_messaging: ^14.6.7
+  shared_preferences: ^2.2.1
 
 dev_dependencies:
   flutter_test:

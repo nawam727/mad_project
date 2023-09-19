@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mad_project/api/firebase_api.dart';
 import 'package:mad_project/firebase_options.dart';
+import 'package:mad_project/pages/Calendar.dart';
 import 'package:mad_project/pages/auth_pade.dart';
 import 'package:mad_project/pages/notification_page.dart';
 
@@ -221,7 +222,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: AuthPage(),
+      home: CalendarPage(),
       navigatorKey: navigatorKey,
       routes: {
         '/notification_screen': (context) => NotificationPage(),

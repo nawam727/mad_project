@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/Calendar.dart';
+
 class MenuCalendar extends StatelessWidget implements PreferredSizeWidget {
   //late final Function() onMenuPressed;
   final String title;
@@ -54,7 +56,10 @@ class MenuCalendar extends StatelessWidget implements PreferredSizeWidget {
                       height: 24,
                     ),
                     onPressed: () {
-                      
+                          Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Calendar(),),
+                      );
                     },
                   ),
                 ),

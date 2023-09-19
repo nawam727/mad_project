@@ -11,7 +11,6 @@ import 'package:mad_project/pages/location_view_page.dart';
 import 'package:mad_project/pages/navbar_pages/calendar_page.dart';
 import 'package:mad_project/pages/navbar_pages/profile_page.dart';
 import 'package:mad_project/pages/settings_page.dart';
-
 import '../../main.dart';
 import '../mode_selector_page.dart';
 import '../navigator_page.dart';

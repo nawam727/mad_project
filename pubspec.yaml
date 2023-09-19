@@ -59,10 +59,12 @@ dependencies:
   firebase_storage: ^11.2.6
   firebase_messaging: ^14.6.7
   shared_preferences: ^2.2.1
+  table_calendar: ^3.0.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_switch: ^0.3.2
   intl: ^0.17.0
 
   # The "flutter_lints" package below contains a set of recommended lints to

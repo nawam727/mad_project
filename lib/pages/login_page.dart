@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
       );
     } finally {
       setState(() {
-        isLoading = false; // Hide the CircularProgressIndicator
+        isLoading = false;
       });
     }
   }

@@ -153,7 +153,7 @@ class _HelpCenterState extends State<HelpCenter> {
                               spreadRadius: 2,
                               blurRadius: 10,
                               offset:
-                                  Offset(0, 3), // changes position of shadow
+                                  Offset(0, 3), 
                             ),
                           ],
                         ),
@@ -367,8 +367,8 @@ class _HelpCenterState extends State<HelpCenter> {
                               borderRadius: BorderRadius.circular(24),
                               border: Border.all(
                                 color: HexColor(
-                                    "#959CA3"), // Set your desired border color here
-                                width: 0.3, // Set the border width as needed
+                                    "#959CA3"), 
+                                width: 0.3, 
                               ),
                               boxShadow: [
                                 BoxShadow(
@@ -376,7 +376,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                   spreadRadius: 2,
                                   blurRadius: 10,
                                   offset: Offset(
-                                      0, 3), // changes position of shadow
+                                      0, 3),
                                 ),
                               ],
                             ),
@@ -441,7 +441,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                   spreadRadius: 2,
                                   blurRadius: 10,
                                   offset: Offset(
-                                      0, 3), // changes position of shadow
+                                      0, 3),
                                 ),
                               ],
                             ),
@@ -1234,7 +1234,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 padding: const EdgeInsets.only(top: 0),
                                 child: TextButton(
                                   onPressed:
-                                      () {}, // Add padding to move the text down
+                                      () {},
                                   child: Text(
                                     'Update profile picture',
                                     style: TextStyle(
@@ -1291,7 +1291,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 padding: const EdgeInsets.only(top: 0),
                                 child: TextButton(
                                   onPressed:
-                                      () {}, // Add padding to move the text down
+                                      () {},
                                   child: Text(
                                     'Change mobile number',
                                     style: TextStyle(
@@ -1348,7 +1348,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 padding: const EdgeInsets.only(top: 0),
                                 child: TextButton(
                                   onPressed:
-                                      () {}, // Add padding to move the text down
+                                      () {}, 
                                   child: Text(
                                     'Notifications',
                                     style: TextStyle(
@@ -1377,14 +1377,6 @@ class _HelpCenterState extends State<HelpCenter> {
                               color: HexColor("#FFFFFF"),
                               width: 0.3,
                             ),
-                            /*boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 10,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                                  ],*/
                           ),
                           child: Row(
                             //text and image
@@ -1413,7 +1405,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 padding: const EdgeInsets.only(top: 0),
                                 child: TextButton(
                                   onPressed:
-                                      () {}, // Add padding to move the text down
+                                      () {},
                                   child: Text(
                                     'Backup / restore',
                                     style: TextStyle(
@@ -1442,14 +1434,6 @@ class _HelpCenterState extends State<HelpCenter> {
                               color: HexColor("#FFFFFF"),
                               width: 0.3,
                             ),
-                            /*boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 10,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                                  ],*/
                           ),
                           child: Row(
                             //text and image
@@ -1507,14 +1491,6 @@ class _HelpCenterState extends State<HelpCenter> {
                               color: HexColor("#FFFFFF"),
                               width: 0.3,
                             ),
-                            /*boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 10,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                                  ],*/
                           ),
                           child: Row(
                             //text and image
@@ -1543,7 +1519,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                 padding: const EdgeInsets.only(top: 0),
                                 child: TextButton(
                                   onPressed:
-                                      () {}, // Add padding to move the text down
+                                      () {},
                                   child: Text(
                                     'Help',
                                     style: TextStyle(

@@ -25,7 +25,7 @@ class _HallAvailabilityState extends State<HallAvailability> {
 
   Future<void> getHallData() async {
     HallData? hallDetails =
-        await getHallDetails(); // Assuming getHallDetails returns Future<HallData>
+        await getHallDetails(); 
     setState(() {
       hallData = hallDetails;
     });

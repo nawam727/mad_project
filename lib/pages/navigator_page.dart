@@ -181,16 +181,16 @@ class NavigatorPage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     children: [
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
-                        title: 'Main Gate',
+                        imagePath: 'assets/images/audi.png',
+                        title: 'Auditorium',
                       ),
                       LocationCard(
                         imagePath: 'assets/images/gate.png',
                         title: 'Main Gate',
                       ),
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
-                        title: 'Main Gate',
+                        imagePath: 'assets/images/fob.png',
+                        title: 'FOB',
                       ),
                     ],
                   ),
@@ -226,8 +226,8 @@ class NavigatorPage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     children: [
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
-                        title: 'Main Gate',
+                        imagePath: 'assets/images/foc.png',
+                        title: 'FOC',
                       ),
                       LocationCard(
                         imagePath: 'assets/images/gate.png',
@@ -271,8 +271,8 @@ class NavigatorPage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     children: [
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
-                        title: 'Main Gate',
+                        imagePath: 'assets/images/fob.png',
+                        title: 'FOB',
                       ),
                       LocationCard(
                         imagePath: 'assets/images/gate.png',
@@ -368,8 +368,8 @@ class LocationCard extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: Colors.grey, // Set your desired border color here
-                width: 0.5, // Set the border width as needed
+                color: Colors.grey,
+                width: 0.5,
               ),
             ),
             child: GestureDetector(
@@ -387,20 +387,17 @@ class LocationCard extends StatelessWidget {
                     flex: 3,
                     child: ClipRRect(
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10), // Top-left corner radius
-                        topRight:
-                            Radius.circular(10), // Top-right corner radius
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
                       ),
-                      // Adjust this flex value to control the size of the image part
                       child: Image.asset(
-                        imagePath, // Replace with your image URL
+                        imagePath,
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
                   Expanded(
-                    flex:
-                        2, // Adjust this flex value to control the size of the text part
+                    flex: 2,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -410,7 +407,7 @@ class LocationCard extends StatelessWidget {
                               width: 10,
                             ),
                             Text(
-                              'Auditorium',
+                              title,
                               style: TextStyle(fontSize: 12),
                             ),
                             Spacer(),

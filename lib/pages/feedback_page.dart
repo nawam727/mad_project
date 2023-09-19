@@ -16,7 +16,7 @@ class FeedbackPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 30.0),
             child: Column(
               crossAxisAlignment:
-                  CrossAxisAlignment.start, // Align text to the left
+                  CrossAxisAlignment.start,
               children: [
                 Align(
                   alignment: Alignment.center,
@@ -46,12 +46,12 @@ class FeedbackPage extends StatelessWidget {
                 Center(
                   child: RatingBar.builder(
                     initialRating:
-                        3.5, // You can set an initial rating if needed
+                        3.5, 
                     minRating: 0,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
-                    itemSize: 45, // Adjust the size of the stars as needed
+                    itemSize: 45,
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
                       color: Colors.amber,
@@ -82,7 +82,7 @@ class FeedbackPage extends StatelessWidget {
                   padding: EdgeInsets.only(
                       top: 10,
                       bottom: 10,
-                      left: 30), // Add padding to move text down
+                      left: 30),
                   child: Text(
                     "Do you have thoughts, you'd like to share?",
                     style: TextStyle(
@@ -145,7 +145,6 @@ class FeedbackPage extends StatelessWidget {
                 padding: EdgeInsets.only(top: 18, right: 40),
                 child: ElevatedButton(
                   onPressed: () {
-                    // Add your cancel button action here
                   },
                   child: Text(
                     'Cancel',
@@ -153,13 +152,13 @@ class FeedbackPage extends StatelessWidget {
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
-                        HexColor("FFFFFF"), // You can set the desired color
+                        HexColor("FFFFFF"), 
                     elevation: 3,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
                       side: BorderSide(
                         color:
-                            HexColor("C4C5C2"), // Change the border color here
+                            HexColor("C4C5C2"), 
                       ),
                     ),
                     fixedSize: Size(120, 45),

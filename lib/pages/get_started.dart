@@ -61,7 +61,7 @@ class GetStarted extends StatelessWidget {
                             ),
                           ),
 
-                          SizedBox(height: 0), // Added spacing below the image
+                          SizedBox(height: 0),
                           Text(
                             "Let's get started",
                             style: TextStyle(
@@ -73,7 +73,7 @@ class GetStarted extends StatelessWidget {
                           ),
                           SizedBox(
                             height: 8,
-                          ), // Added spacing below the image
+                          ), 
                           Text(
                             "Get a Seamless User Experience through Account Creation and User-Friendly Interface",
                             style: TextStyle(

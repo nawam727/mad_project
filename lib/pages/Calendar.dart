@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:mad_project/components/back_dots.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class CalendarPage extends StatefulWidget {
-  const CalendarPage({Key? key}) : super(key: key);
+class Calendar extends StatefulWidget {
+  const Calendar({Key? key}) : super(key: key);
 
   @override
-  State<CalendarPage> createState() => _CalendarPageState();
+  State<Calendar> createState() => _CalendarState();
 }
 
-class _CalendarPageState extends State<CalendarPage> {
+class _CalendarState extends State<Calendar> {
   DateTime today = DateTime.now();
   Map<DateTime, List<String>> events = {}; // Map to store events
 
@@ -69,9 +70,7 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text("Time Table")),
-      ),
+      appBar: BackDots(title: "Calender"),
       body: content(),
     );
   }

@@ -59,6 +59,7 @@ dependencies:
   firebase_storage: ^11.2.6
   firebase_messaging: ^14.6.7
   shared_preferences: ^2.2.1
+  table_calendar: ^3.0.8
 
 dev_dependencies:
   flutter_test:

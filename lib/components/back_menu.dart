@@ -7,7 +7,7 @@ class BackMenu extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      const Size.fromHeight(55); // Specify the preferred height of your app bar
+      const Size.fromHeight(55);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class BackMenu extends StatelessWidget implements PreferredSizeWidget {
       body: SafeArea(
         child: Container(
           height: preferredSize.height,
-          color: Colors.white, // Customize your background color here
+          color: Colors.white,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

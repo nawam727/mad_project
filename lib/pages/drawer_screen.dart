@@ -53,7 +53,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
       context,
       MaterialPageRoute(
           builder: (context) =>
-              AuthPage()), // Replace AuthPage with your authentication page widget
+              AuthPage()),
     );
   }
 
@@ -69,7 +69,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             TextButton(
               onPressed: () {
                 Navigator.of(context)
-                    .pop(false); // Dismiss the dialog and return false
+                    .pop(false);
               },
               child: Text(
                 'No',
@@ -114,13 +114,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     children: [
                       Container(
                         padding:
-                            EdgeInsets.all(2), // Adjust the padding as needed
+                            EdgeInsets.all(2), 
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: HexColor(
-                                "00B251"), // Change the color to your desired border color
-                            width: 2.0, // Adjust the border width as needed
+                                "00B251"), 
+                            width: 2.0, 
                           ),
                         ),
                         child: CircleAvatar(
@@ -181,7 +181,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   style: TextStyle(fontSize: 16),
                 ),
                 onTap: () {
-                  // Replace this with the action you want to perform when the user taps on this item
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => AboutPage()),
@@ -222,7 +221,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
                 title: Text('Settings', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  // Replace this with the action you want to perform when the user taps on this item
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SettingsScreen()),
@@ -243,7 +241,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
                 title: Text('Support', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  // Replace this with the action you want to perform when the user taps on this item
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SupportPage()),
@@ -269,7 +266,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
                 title: Text('Log Out', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  // Replace this with the action you want to perform when the user taps on this item
                   showAlert(context); // Close the drawer
                 },
               ),

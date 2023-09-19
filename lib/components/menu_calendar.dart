@@ -8,7 +8,7 @@ class MenuCalendar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      Size.fromHeight(55); // Specify the preferred height of your app bar
+      Size.fromHeight(55);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MenuCalendar extends StatelessWidget implements PreferredSizeWidget {
           elevation: 2.0,
           child: Container(
             height: preferredSize.height,
-            color: Colors.white, // Customize your background color here
+            color: Colors.white,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -54,7 +54,7 @@ class MenuCalendar extends StatelessWidget implements PreferredSizeWidget {
                       height: 24,
                     ),
                     onPressed: () {
-                      // Your notification icon onPressed logic here
+                      
                     },
                   ),
                 ),

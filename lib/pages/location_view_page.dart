@@ -99,7 +99,7 @@ class _LocationViewState extends State<LocationView> {
                       width: 22,
                     ),
                     LocationCard(
-                      imagePath: 'assets/images/audi.png',
+                      imagePath: 'assets/images/salon.png',
                       title: 'Saloon',
                     ),
                   ],
@@ -149,7 +149,6 @@ class LocationCard extends StatelessWidget {
     double containerWidth = MediaQuery.of(context).size.width * 0.43;
     double containerHeight = 150;
     double fontlarge = MediaQuery.of(context).size.width * 0.04;
-    //double fontsmall = MediaQuery.of(context).size.width * 0.028;
 
     return Container(
       height: containerHeight,
@@ -161,15 +160,14 @@ class LocationCard extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 1,
             blurRadius: 10,
-            offset: Offset(0, 3), // changes position of shadow
+            offset: Offset(0, 3),
           ),
         ],
-        borderRadius:
-            BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(
-                color: Colors.grey, // Set your desired border color here
-                width: 0.5, // Set the border width as needed
-              ), // Adjust the radius value as needed
+          color: Colors.grey,
+          width: 0.5,
+        ),
       ),
       child: Column(
         children: [
@@ -177,19 +175,17 @@ class LocationCard extends StatelessWidget {
             flex: 2,
             child: ClipRRect(
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10), // Top-left corner radius
-                topRight: Radius.circular(10), // Top-right corner radius
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
               ),
-              // Adjust this flex value to control the size of the image part
               child: Image.asset(
-                imagePath, // Replace with your image URL
+                imagePath,
                 fit: BoxFit.cover,
               ),
             ),
           ),
           Expanded(
-            flex:
-                1, // Adjust this flex value to control the size of the text part
+            flex: 1,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -208,9 +204,8 @@ class LocationCard extends StatelessWidget {
                       icon: Icon(
                         Icons.arrow_circle_right,
                         color: HexColor("#00B251"),
-                      ), // Replace with your desired icon
+                      ),
                       onPressed: () {
-                        // Add the desired onPressed action for the IconButton
                         Navigator.push(
                           context,
                           MaterialPageRoute(

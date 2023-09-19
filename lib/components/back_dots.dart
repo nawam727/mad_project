@@ -20,13 +20,13 @@ class BackDots extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      Size.fromHeight(55); // Specify the preferred height of your app bar
+      Size.fromHeight(55);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
-      elevation: 2.0, // Remove the shadow
+      elevation: 2.0,
       leading: IconButton(
         icon: Image.asset(
           'assets/icons/back.png',
@@ -46,10 +46,9 @@ class BackDots extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         PopupMenuButton<_MenuValues>(
-          //color: Colors.black,
           icon: Icon(
-            Icons.more_vert, // or your preferred icon
-            color: Colors.black, // Set the color you want for the icon
+            Icons.more_vert,
+            color: Colors.black,
           ),
           itemBuilder: (BuildContext context) => [
             const PopupMenuItem(

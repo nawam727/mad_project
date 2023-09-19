@@ -151,7 +151,7 @@ class ProfileInfoItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 150, // Adjust the width as needed
+                width: 150,
                 child: Text(
                   '$title',
                   style: TextStyle(
@@ -161,7 +161,7 @@ class ProfileInfoItem extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 16), // Adjust the spacing as needed
+              SizedBox(width: 16), 
               Flexible(
                 child: Text(
                   value,

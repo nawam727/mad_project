@@ -17,7 +17,7 @@ class MyButton extends StatelessWidget {
           color: HexColor("#00B251"),
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: Colors.black, // Set your desired border color here
+            color: Colors.black, 
             width: 0.3,
           ),
         ),

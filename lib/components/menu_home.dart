@@ -106,7 +106,7 @@ class _MenuHomeState extends State<MenuHome> {
                             shape: BoxShape.circle,
                           ),
                           child: Text(
-                            '1',
+                            '0',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 11,

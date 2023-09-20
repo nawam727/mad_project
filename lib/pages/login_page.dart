@@ -52,61 +52,67 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void signUserIn(BuildContext context) async {
-    String email = usernameController.text;
-    String password = passwordController.text;
+  String email = usernameController.text.trim();
+  String password = passwordController.text;
 
-    try {
-      setState(() {
-        isLoading = true; // Show the CircularProgressIndicator
-      });
-
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-
-      // Save credentials if the checkbox is checked
-      if (rememberCredentials) {
-        saveRememberCredentials();
-      }
-
-      // Authentication successful, navigate to the home page
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => NavBar(),
-        ),
-      );
-    } catch (e) {
-      // Handle any authentication errors here
-      print('Error signing in: $e');
-      // Display an error dialog if needed
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Sign-In Error'),
-            content: Text('Incorrect email or password!'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop(); // Close the error dialog
-                },
-                child: Text(
-                  'Try Again',
-                  style: TextStyle(color: HexColor("#00B251")),
-                ),
-              ),
-            ],
-          );
-        },
-      );
-    } finally {
-      setState(() {
-        isLoading = false;
-      });
-    }
+  // Check if the email contains "@"
+  if (!email.contains('@')) {
+    // If it doesn't have "@" add "@gmail.com"
+    email += '@gmail.com';
   }
+
+  try {
+    setState(() {
+      isLoading = true;
+    });
+
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+
+    // Save credentials if the checkbox is checked
+    if (rememberCredentials) {
+      saveRememberCredentials();
+    }
+
+    // Authentication successful, navigate to the home page
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => NavBar(),
+      ),
+    );
+  } catch (e) {
+    print('Error signing in: $e');
+    // Display an error dialog if needed
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Sign-In Error'),
+          content: Text('Incorrect email or password!'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                'Try Again',
+                style: TextStyle(color: HexColor("#00B251")),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  } finally {
+    setState(() {
+      isLoading = false;
+    });
+  }
+}
+
 
   @override
   Widget build(BuildContext context) {

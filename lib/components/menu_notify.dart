@@ -10,8 +10,7 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
   MenuNotify({required this.title});
 
   @override
-  Size get preferredSize =>
-      Size.fromHeight(55);
+  Size get preferredSize => Size.fromHeight(55);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
               children: [
                 //Menu Icon
                 Padding(
-                  padding: const EdgeInsets.only(left:4.0),
+                  padding: const EdgeInsets.only(left: 4.0),
                   child: IconButton(
                     icon: Image.asset(
                       'assets/icons/menu.png',
@@ -40,14 +39,14 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
                     },
                   ),
                 ),
-            
+
                 //Centered text
                 Text(
                   title,
                   style: TextStyle(color: Colors.black, fontSize: 17),
                 ),
-            
-               // Notification icon with red indicator
+
+                // Notification icon with red indicator
                 Padding(
                   padding: const EdgeInsets.only(right: 4.0),
                   child: Stack(
@@ -66,16 +65,16 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
                         right: 0,
                         top: 0,
                         child: Container(
-                          padding: EdgeInsets.all(4),
+                          padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                             color: HexColor("00B251"),
                             shape: BoxShape.circle,
                           ),
                           child: Text(
-                            '1',
+                            '0',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 12,
+                              fontSize: 11,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

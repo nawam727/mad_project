@@ -55,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       context,
       MaterialPageRoute(
           builder: (context) =>
-              AuthPage()), // Replace AuthPage with your authentication page widget
+              AuthPage()),
     );
   }
 
@@ -71,7 +71,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             TextButton(
               onPressed: () {
                 Navigator.of(context)
-                    .pop(false); // Dismiss the dialog and return false
+                    .pop(false);
               },
               child: Text(
                 'No',

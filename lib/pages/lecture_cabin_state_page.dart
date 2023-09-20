@@ -15,6 +15,9 @@ class CabinState extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: [
+            SizedBox(
+              height: 10,
+            ),
             Padding(
               padding: EdgeInsets.only(
                   left: size.width * 0.06, right: size.width * 0.06),
@@ -55,7 +58,7 @@ class CabinState extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             //card details of the lecturer and cabin status
             Padding(
               padding: EdgeInsets.only(

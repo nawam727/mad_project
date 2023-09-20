@@ -62,7 +62,13 @@ class _ModeSelectorState extends State<ModeSelector> {
                   CircularCantainer(
                     nameText: 'AR Mode',
                     imagePath: 'assets/images/armode.png',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NavigatorStepPage()),
+                      );
+                    },
                   ),
                   CircularCantainer(
                     nameText: 'Step Mode',

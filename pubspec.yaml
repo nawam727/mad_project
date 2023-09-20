@@ -31,10 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_rating_bar: ^4.0.0
-  
+
   #smooth_page_indicator: ^1.1.0
   hexcolor: ^3.0.1
-
   ionicons: ^0.1.2
 
 
@@ -44,7 +43,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  google_fonts: ^5.1.0
   smooth_page_indicator: ^1.0.0
   flutter_inner_drawer: ^1.0.0+1
   carousel_slider: ^4.2.1
@@ -54,14 +52,22 @@ dependencies:
   firebase_core: ^2.15.0
   cloud_firestore: ^4.8.4
   firebase_auth: ^4.7.2
-
-  scrollable_positioned_list: ^0.3.8
   firebase_storage: ^11.2.6
+  #flutter_unity_widget: ^2022.2.0
+  google_maps_flutter: ^2.5.0
+  flutter_polyline_points: ^1.0.0
+  dio: ^5.3.2
+  dropdown_model_list: ^1.1.1
   firebase_messaging: ^14.6.7
   shared_preferences: ^2.2.1
+  dropdown_search: ^5.0.6
   table_calendar: ^3.0.8
+
+  scrollable_positioned_list: ^0.3.8
+
   permission_handler: ^11.0.0
   flutter_local_notifications: ^15.1.1
+
 
 dev_dependencies:
   flutter_test:
@@ -91,7 +97,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-  
+    - assets/JSON/steps.json
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

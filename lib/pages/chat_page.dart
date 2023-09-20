@@ -214,6 +214,7 @@ class _ChatPageState extends State<ChatPage> {
                             borderSide: BorderSide.none,
                           ),
                         ),
+                        controller: nameController,
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
@@ -411,8 +412,6 @@ class _ChatPageState extends State<ChatPage> {
       showErrorMessage('Error sending message. Please try again later.');
     }
   }
-
-  // ... Your validation functions ...
 
   // Initialize Firebase in the main.dart or wherever it fits your project structure
   void initializeFirebase() async {

@@ -51,9 +51,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
     await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(
-          builder: (context) =>
-              AuthPage()),
+      MaterialPageRoute(builder: (context) => AuthPage()),
     );
   }
 
@@ -68,8 +66,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
           actions: <Widget>[
             TextButton(
               onPressed: () {
-                Navigator.of(context)
-                    .pop(false);
+                Navigator.of(context).pop(false);
               },
               child: Text(
                 'No',
@@ -101,7 +98,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           DrawerHeader(
             //DP and Name
             child: Column(
@@ -113,14 +110,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     alignment: Alignment.center,
                     children: [
                       Container(
-                        padding:
-                            EdgeInsets.all(2), 
+                        padding: EdgeInsets.all(2),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: HexColor(
-                                "00B251"), 
-                            width: 2.0, 
+                            color: HexColor("00B251"),
+                            width: 2.0,
                           ),
                         ),
                         child: CircleAvatar(
@@ -148,7 +143,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       Text(
                         userData != null ? userData!.name : "User Name",
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 20,
                           color: Colors.black,
                         ),
                       ),
@@ -158,6 +153,11 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
               ],
             ),
+          ),
+          Divider(
+            color: Color.fromRGBO(0, 178, 86, 1),
+            height: 0,
+            thickness: 2,
           ),
           SizedBox(
             height: 18,

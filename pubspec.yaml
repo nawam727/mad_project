@@ -60,6 +60,8 @@ dependencies:
   firebase_messaging: ^14.6.7
   shared_preferences: ^2.2.1
   table_calendar: ^3.0.8
+  permission_handler: ^11.0.0
+  flutter_local_notifications: ^15.1.1
 
 dev_dependencies:
   flutter_test:

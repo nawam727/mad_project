@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mad_project/components/back_dots.dart';
 
-import '../components/back_dots.dart';
+import 'map_pages/map_page.dart';
 
 class NavigatorMapPage extends StatefulWidget {
   const NavigatorMapPage({super.key});
@@ -12,26 +13,29 @@ class NavigatorMapPage extends StatefulWidget {
 
 class _NavigatorMapPageState extends State<NavigatorMapPage> {
 
-  String? valueChoose;
-  String? valueChoose1;
-  List listItem = ["Main Gate", "Canteen", "Toilet", "Lecture hall"];
+  int? valueChoose;
+  int? valueChoose1;
+  int selectedIndex = 0;
+  int selectedIndex1 = 0;
+
+  //int? xp1 = int.tryParse(valueChoose);
+  //int? xp2 = int.tryParse(valueChoose1);
+
+  List listItem = ["Main Gate", "Canteen", "Com.Faculty", "Busi.Faculty"];
+  List listx = ['6.821344287173196','6.82124768770943','6.820235027249114','6.820639973882668'];
+  List listy = ['80.04157259862674','80.03782705843815','80.03953120216208','80.03901295034026'];
+
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: BackDots(title:"Map Mode"),
+      appBar: BackDots(title:"Step Mode"),
       body: Column(
         children: [
           Container(
             height: size.height * 0.17,
-            decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  width: 1,
-                  color: Colors.transparent,
-                  )),
-              color: Color.fromARGB(255, 255, 255, 255),
-            ),
+            color: Color.fromARGB(255, 255, 255, 255),
             child: Padding(
               padding: EdgeInsets.only(top: size.width * 0.028),
               child: Column(
@@ -59,17 +63,17 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                               child: DropdownButtonFormField(
                                 decoration:  InputDecoration(
                                   focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                      color: HexColor(
-                                          "#00B251")), // Border color when focused
-                                ),
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                        color: HexColor(
+                                            "#00B251")), // Border color when focused
+                                  ),
                                   border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                    color:HexColor("#3F3F3F"),
-                                  )
-                                ),
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color:HexColor("#3F3F3F"),
+                                      )
+                                  ),
                                   filled: true,
                                   fillColor: Color.fromARGB(255, 255, 255, 255),
                                 ),
@@ -93,7 +97,14 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                                 value: valueChoose,
                                 onChanged: (newValue) {
                                   setState(() {
-                                    valueChoose = newValue as String?;
+                                    // Find the index of the selected item in the listItem list
+                                    selectedIndex = listItem.indexOf(newValue as String);
+
+                                    // Now, selectedIndex contains the index of the selected item.
+                                    // You can use it as needed.
+
+                                    // Update valueChoose1 with the index
+                                    valueChoose = selectedIndex;
                                   });
                                 },
                                 items: listItem.map((valueItem) {
@@ -132,7 +143,7 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                           Expanded(
                             flex: 5,
                             child: DropdownButtonFormField(
-                              decoration:  InputDecoration(
+                              decoration: InputDecoration(
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: BorderSide(
@@ -140,10 +151,10 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                                           "#00B251")), // Border color when focused
                                 ),
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                    color:HexColor("#3F3F3F"),
-                                  )
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color:HexColor("#3F3F3F"),
+                                    )
                                 ),
                                 filled: true,
                                 fillColor: Color.fromARGB(255, 255, 255, 255),
@@ -165,7 +176,17 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                               value: valueChoose1,
                               onChanged: (newValue1) {
                                 setState(() {
-                                  valueChoose1 = newValue1 as String?;
+                                  // Find the index of the selected item in the listItem list
+                                  selectedIndex1 = listItem.indexOf(newValue1 as String);
+
+                                  // Now, selectedIndex contains the index of the selected item.
+                                  // You can use it as needed.
+
+                                  // Update valueChoose1 with the index
+                                  valueChoose1 = selectedIndex1;
+                                  print('------------------');
+
+                                  print(selectedIndex1);
                                 });
                               },
                               items: listItem.map((valueItem) {
@@ -198,26 +219,21 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
           //background image
           Expanded(
             child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/Map.png"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
                 child: Column(
                   children: [
                     Expanded(
+                        child:MapScreen(x1: listx[selectedIndex], y1: listy[selectedIndex],x2: listx[2], y2: listy[2])
+                    ),
+                    //bottom container that has popup function
+                    Container(
                       child: Container(),
                     ),
                     //bottom container that has popup function
                     Container(
                       height: size.width * 0.12,
                       decoration: BoxDecoration(
-                          color: Colors.white60,
-                          border: Border.all(
-                            width: 1,
-                            color: HexColor("3F3F3F"),
-                            ),
+                          color: Colors.white70,
+                          border: Border.all(width: 1,color:HexColor("3F3F3F")),
                           borderRadius:const  BorderRadius.vertical(
                             top: Radius.circular(20),
                           )),
@@ -256,42 +272,41 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
 
 //popup container
   Widget buildSheet() => makeDismissible(
-    
-        child: DraggableScrollableSheet(
-          initialChildSize: 0.3,
-          minChildSize: 0.2,
-          maxChildSize: 0.5,
-          builder: (_, controller) => Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 1,
-                color:HexColor("#3F3F3F")),
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: ListView(
-                controller: controller,
-                children:  [
-                  IconButton(
-                          onPressed: () {
-                             Navigator.of(context).pop();
-                          },
-                          icon: const Icon(
-                            Icons.expand_more_sharp,
-                            color:Colors.black54,
-                          ),
-                          iconSize: 50,
-                        ),
-                  Text(
-                      "Dolore esse duis Lorem amet id do aute dolor eiusmod tempor aliquip exercitation. Eiusmod esse exercitation nulla fugiat labore eiusmod ad laborum velit ut pariatur laboris occaecat esse. Deserunt nulla elit reprehenderit exercitation dolore ea ex mollit. Deserunt consequat minim Lorem tempor officia proident sunt culpa sunt fugiat aute ex nostrud. Laborum duis dolor voluptate ea deserunt amet velit proident labore deserunt mollit cillum. Proident tempor ipsum officia non officia ipsum anim."),
-                  Text(
-                      "Officia laboris aute irure ipsum dolore Lorem proident. Officia ex elit ad consequat fugiat sunt mollit dolor eu adipisicing. Adipisicing qui proident tempor id duis do qui minim minim ullamco adipisicing ipsum. Adipisicing sit fugiat irure laborum do. Laboris Lorem tempor et deserunt aute esse ad cillum. Pariatur sunt sunt commodo elit.")
-                ],
+
+    child: DraggableScrollableSheet(
+      initialChildSize: 0.3,
+      minChildSize: 0.2,
+      maxChildSize: 0.5,
+      builder: (_, controller) => Container(
+        decoration: BoxDecoration(
+          border: Border.all(width: 1,color:HexColor("#3F3F3F")),
+          color: Colors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: ListView(
+            controller: controller,
+            children:  [
+              IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const Icon(
+                    Icons.expand_more_sharp,
+                    color:Colors.black54
+                ),
+                iconSize: 50,
               ),
-            ),
+              Text(
+                  "Dolore esse duis Lorem amet id do aute dolor eiusmod tempor aliquip exercitation. Eiusmod esse exercitation nulla fugiat labore eiusmod ad laborum velit ut pariatur laboris occaecat esse. Deserunt nulla elit reprehenderit exercitation dolore ea ex mollit. Deserunt consequat minim Lorem tempor officia proident sunt culpa sunt fugiat aute ex nostrud. Laborum duis dolor voluptate ea deserunt amet velit proident labore deserunt mollit cillum. Proident tempor ipsum officia non officia ipsum anim."),
+              Text(
+                  "Officia laboris aute irure ipsum dolore Lorem proident. Officia ex elit ad consequat fugiat sunt mollit dolor eu adipisicing. Adipisicing qui proident tempor id duis do qui minim minim ullamco adipisicing ipsum. Adipisicing sit fugiat irure laborum do. Laboris Lorem tempor et deserunt aute esse ad cillum. Pariatur sunt sunt commodo elit.")
+            ],
           ),
         ),
-      );
+      ),
+    ),
+  );
 }
+

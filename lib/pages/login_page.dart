@@ -7,6 +7,7 @@ import 'package:mad_project/components/text_field.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:google_fonts/google_fonts.dart';
 
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -27,6 +28,8 @@ class _LoginPageState extends State<LoginPage> {
     loadRememberCredentials();
   }
 
+  
+
   void loadRememberCredentials() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -46,73 +49,82 @@ class _LoginPageState extends State<LoginPage> {
       prefs.setString('email', usernameController.text);
       prefs.setString('password', passwordController.text);
     } else {
-      prefs.remove('email');
-      prefs.remove('password');
+      // Only remove the credentials if "Remember Password" is unchecked
+      if (!rememberCredentials) {
+        prefs.remove('email');
+        prefs.remove('password');
+      }
     }
   }
 
+  void clearSavedCredentials() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('email');
+    prefs.remove('password');
+  }
+
+  //Sign User in
   void signUserIn(BuildContext context) async {
-  String email = usernameController.text.trim();
-  String password = passwordController.text;
+    String email = usernameController.text.trim();
+    String password = passwordController.text;
 
-  // Check if the email contains "@"
-  if (!email.contains('@')) {
-    // If it doesn't have "@" add "@gmail.com"
-    email += '@gmail.com';
-  }
-
-  try {
-    setState(() {
-      isLoading = true;
-    });
-
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-
-    // Save credentials if the checkbox is checked
-    if (rememberCredentials) {
-      saveRememberCredentials();
+    // Check if the email contains "@"
+    if (!email.contains('@')) {
+      // If it doesn't have "@" add "@gmail.com"
+      email += '@gmail.com';
     }
 
-    // Authentication successful, navigate to the home page
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => NavBar(),
-      ),
-    );
-  } catch (e) {
-    print('Error signing in: $e');
-    // Display an error dialog if needed
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('Sign-In Error'),
-          content: Text('Incorrect email or password!'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(
-                'Try Again',
-                style: TextStyle(color: HexColor("#00B251")),
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  } finally {
-    setState(() {
-      isLoading = false;
-    });
-  }
-}
+    try {
+      setState(() {
+        isLoading = true;
+      });
 
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Save credentials if the checkbox is checked
+      if (rememberCredentials) {
+        saveRememberCredentials();
+      }
+
+      // Authentication successful, navigate to the home page
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => NavBar(),
+        ),
+      );
+    } catch (e) {
+      print('Error signing in: $e');
+      // Display an error dialog if needed
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Sign-In Error'),
+            content: Text('Incorrect email or password!'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  'Try Again',
+                  style: TextStyle(color: HexColor("#00B251")),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -177,16 +189,19 @@ class _LoginPageState extends State<LoginPage> {
                           padding: const EdgeInsets.symmetric(horizontal: 13),
                           child: Row(
                             mainAxisAlignment:
-                                MainAxisAlignment.start, // Change to start
+                                MainAxisAlignment.start,
                             children: [
                               Checkbox(
                                 value: rememberCredentials,
                                 onChanged: (newValue) {
                                   setState(() {
-                                    rememberCredentials = newValue!;
+                                    rememberCredentials = newValue ??
+                                        false;
                                   });
-                                  if (rememberCredentials) {
+                                  if (newValue ?? false) {
                                     saveRememberCredentials();
+                                  } else {
+                                    clearSavedCredentials();
                                   }
                                 },
                                 activeColor: HexColor("#00B251"),

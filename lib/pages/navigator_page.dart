@@ -192,6 +192,14 @@ class NavigatorPage extends StatelessWidget {
                         imagePath: 'assets/images/fob.png',
                         title: 'FOB',
                       ),
+                      LocationCard(
+                        imagePath: 'assets/images/foc.png',
+                        title: 'FOC',
+                      ),
+                      LocationCard(
+                        imagePath: 'assets/images/engineering.png',
+                        title: 'FOE',
+                      ),
                     ],
                   ),
                 ),
@@ -231,11 +239,11 @@ class NavigatorPage extends StatelessWidget {
                       ),
                       LocationCard(
                         imagePath: 'assets/images/gate.png',
-                        title: 'Main Gate',
+                        title: '009 Hall',
                       ),
                       LocationCard(
                         imagePath: 'assets/images/gate.png',
-                        title: 'Main Gate',
+                        title: '002 Hall',
                       ),
                     ],
                   ),
@@ -316,7 +324,7 @@ class NavigatorPage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     children: [
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
+                        imagePath: 'assets/images/engineering.png',
                         title: 'Main Gate',
                       ),
                       LocationCard(

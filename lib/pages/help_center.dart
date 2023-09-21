@@ -152,8 +152,7 @@ class _HelpCenterState extends State<HelpCenter> {
                               color: Colors.grey.withOpacity(0.5),
                               spreadRadius: 2,
                               blurRadius: 10,
-                              offset:
-                                  Offset(0, 3), 
+                              offset: Offset(0, 3),
                             ),
                           ],
                         ),
@@ -366,17 +365,15 @@ class _HelpCenterState extends State<HelpCenter> {
                               color: HexColor('FFFFFF'),
                               borderRadius: BorderRadius.circular(24),
                               border: Border.all(
-                                color: HexColor(
-                                    "#959CA3"), 
-                                width: 0.3, 
+                                color: HexColor("#959CA3"),
+                                width: 0.3,
                               ),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 2,
                                   blurRadius: 10,
-                                  offset: Offset(
-                                      0, 3),
+                                  offset: Offset(0, 3),
                                 ),
                               ],
                             ),
@@ -440,8 +437,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 2,
                                   blurRadius: 10,
-                                  offset: Offset(
-                                      0, 3),
+                                  offset: Offset(0, 3),
                                 ),
                               ],
                             ),
@@ -1233,8 +1229,7 @@ class _HelpCenterState extends State<HelpCenter> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),
                                 child: TextButton(
-                                  onPressed:
-                                      () {},
+                                  onPressed: () {},
                                   child: Text(
                                     'Update profile picture',
                                     style: TextStyle(
@@ -1290,8 +1285,7 @@ class _HelpCenterState extends State<HelpCenter> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),
                                 child: TextButton(
-                                  onPressed:
-                                      () {},
+                                  onPressed: () {},
                                   child: Text(
                                     'Change mobile number',
                                     style: TextStyle(
@@ -1347,8 +1341,7 @@ class _HelpCenterState extends State<HelpCenter> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),
                                 child: TextButton(
-                                  onPressed:
-                                      () {}, 
+                                  onPressed: () {},
                                   child: Text(
                                     'Notifications',
                                     style: TextStyle(
@@ -1404,8 +1397,7 @@ class _HelpCenterState extends State<HelpCenter> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),
                                 child: TextButton(
-                                  onPressed:
-                                      () {},
+                                  onPressed: () {},
                                   child: Text(
                                     'Backup / restore',
                                     style: TextStyle(
@@ -1518,8 +1510,7 @@ class _HelpCenterState extends State<HelpCenter> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 0),
                                 child: TextButton(
-                                  onPressed:
-                                      () {},
+                                  onPressed: () {},
                                   child: Text(
                                     'Help',
                                     style: TextStyle(
@@ -1538,8 +1529,9 @@ class _HelpCenterState extends State<HelpCenter> {
                     ),
                   ),
                 ),
-
+                //Whats new container
                 Container(
+                  key: itemKey4,
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.90,
                   padding:
@@ -1569,8 +1561,7 @@ class _HelpCenterState extends State<HelpCenter> {
                       children: [
                         SizedBox(height: 0),
                         Padding(
-                          padding: const EdgeInsets.only(
-                              top: 15),
+                          padding: const EdgeInsets.only(top: 15),
                           // Add padding to move the text down
                           child: Text(
                             "What's New",
@@ -1586,7 +1577,8 @@ class _HelpCenterState extends State<HelpCenter> {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.90,
                               height: MediaQuery.of(context).size.height * 0.12,
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 10),
                               margin: const EdgeInsets.only(top: 15),
                               decoration: BoxDecoration(
                                 color: HexColor('F4F4F4'),
@@ -1594,192 +1586,236 @@ class _HelpCenterState extends State<HelpCenter> {
                                 border: Border.all(
                                   color: HexColor("#FFFFFF"),
                                   width: 0.3,
-                        ),
+                                ),
                               ),
                               child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8.0),
-                    topRight: Radius.circular(8.0),
-                  ),
-                  child: Image.asset(
-                    'assets/images/b1.png',
-                    width: MediaQuery.of(context).size.width * 0.08,
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    alignment: Alignment.centerLeft,
-                    //fit: BoxFit.fill,
-                  ),
-                ),
-                SizedBox(width: 16),
-                Expanded(
-                    child: Text(
-                      'Directions span the entire university',
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: HexColor('000000'),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  ],
-                ),
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(8.0),
+                                      topRight: Radius.circular(8.0),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/b1.png',
+                                      width: MediaQuery.of(context).size.width *
+                                          0.08,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.08,
+                                      alignment: Alignment.centerLeft,
+                                      //fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  SizedBox(width: 16),
+                                  Expanded(
+                                    child: Text(
+                                      'Directions span the entire university',
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                        color: HexColor('000000'),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                  Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.90,
-                              height: MediaQuery.of(context).size.height * 0.15,
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                              margin: const EdgeInsets.only(top: 15),
-                              decoration: BoxDecoration(
-                                color: HexColor('F4F4F4'),
-                                borderRadius: BorderRadius.circular(24),
-                                border: Border.all(
-                                  color: HexColor("#FFFFFF"),
-                                  width: 0.3,
-                        ),
-                              ),
-                              child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8.0),
-                    topRight: Radius.circular(8.0),
-                  ),
-                  child: Image.asset(
-                    'assets/images/b1.png',
-                    width: MediaQuery.of(context).size.width * 0.08,
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    alignment: Alignment.centerLeft,
-                    //fit: BoxFit.fill,
-                  ),
-                ),
-                SizedBox(width: 16),
-                Expanded(
-                    child: Text(
-                      'Get detailed schedule details for all university departments',
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: HexColor('000000'),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-              ],
-                  ),
+                            Column(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.90,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.15,
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  margin: const EdgeInsets.only(top: 15),
+                                  decoration: BoxDecoration(
+                                    color: HexColor('F4F4F4'),
+                                    borderRadius: BorderRadius.circular(24),
+                                    border: Border.all(
+                                      color: HexColor("#FFFFFF"),
+                                      width: 0.3,
+                                    ),
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(8.0),
+                                          topRight: Radius.circular(8.0),
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/b1.png',
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.08,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.08,
+                                          alignment: Alignment.centerLeft,
+                                          //fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                      SizedBox(width: 16),
+                                      Expanded(
+                                        child: Text(
+                                          'Get detailed schedule details for all university departments',
+                                          style: TextStyle(
+                                            fontSize: 17,
+                                            color: HexColor('000000'),
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.90,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.15,
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10, vertical: 10),
+                                      margin: const EdgeInsets.only(top: 15),
+                                      decoration: BoxDecoration(
+                                        color: HexColor('F4F4F4'),
+                                        borderRadius: BorderRadius.circular(24),
+                                        border: Border.all(
+                                          color: HexColor("#FFFFFF"),
+                                          width: 0.3,
+                                        ),
+                                      ),
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                              topLeft: Radius.circular(8.0),
+                                              topRight: Radius.circular(8.0),
+                                            ),
+                                            child: Image.asset(
+                                              'assets/images/b1.png',
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.08,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.08,
+                                              alignment: Alignment.centerLeft,
+                                              //fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                          SizedBox(width: 16),
+                                          Expanded(
+                                            child: Text(
+                                              'Get detailed cabin details for all university departments',
+                                              style: TextStyle(
+                                                fontSize: 17,
+                                                color: HexColor('000000'),
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Column(
+                                      children: [
+                                        Container(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.90,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.18,
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 10, vertical: 10),
+                                          margin:
+                                              const EdgeInsets.only(top: 15),
+                                          decoration: BoxDecoration(
+                                            color: HexColor('F4F4F4'),
+                                            borderRadius:
+                                                BorderRadius.circular(24),
+                                            border: Border.all(
+                                              color: HexColor("#FFFFFF"),
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    const BorderRadius.only(
+                                                  topLeft: Radius.circular(8.0),
+                                                  topRight:
+                                                      Radius.circular(8.0),
+                                                ),
+                                                child: Image.asset(
+                                                  'assets/images/b1.png',
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.08,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.08,
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  //fit: BoxFit.fill,
+                                                ),
+                                              ),
+                                              SizedBox(width: 16),
+                                              Expanded(
+                                                child: Text(
+                                                  'Get detailed information about lecturers in all departments of the university',
+                                                  style: TextStyle(
+                                                    fontSize: 17,
+                                                    color: HexColor('000000'),
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                  textAlign: TextAlign.left,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.90,
-                              height: MediaQuery.of(context).size.height * 0.15,
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                              margin: const EdgeInsets.only(top: 15),
-                              decoration: BoxDecoration(
-                                color: HexColor('F4F4F4'),
-                                borderRadius: BorderRadius.circular(24),
-                                border: Border.all(
-                                  color: HexColor("#FFFFFF"),
-                                  width: 0.3,
+                          ],
                         ),
-                              ),
-                              child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8.0),
-                    topRight: Radius.circular(8.0),
-                  ),
-                  child: Image.asset(
-                    'assets/images/b1.png',
-                    width: MediaQuery.of(context).size.width * 0.08,
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    alignment: Alignment.centerLeft,
-                    //fit: BoxFit.fill,
-                  ),
-                ),
-                SizedBox(width: 16),
-                Expanded(
-                    child: Text(
-                      'Get detailed cabin details for all university departments',
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: HexColor('000000'),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-              ],
-                  ),
-                            ),
-                Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.90,
-                              height: MediaQuery.of(context).size.height * 0.18,
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                              margin: const EdgeInsets.only(top: 15),
-                              decoration: BoxDecoration(
-                                color: HexColor('F4F4F4'),
-                                borderRadius: BorderRadius.circular(24),
-                                border: Border.all(
-                                  color: HexColor("#FFFFFF"),
-                                  width: 0.3,
-                        ),
-                              ),
-                              child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8.0),
-                    topRight: Radius.circular(8.0),
-                  ),
-                  child: Image.asset(
-                    'assets/images/b1.png',
-                    width: MediaQuery.of(context).size.width * 0.08,
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    alignment: Alignment.centerLeft,
-                    //fit: BoxFit.fill,
-                  ),
-                ),
-                SizedBox(width: 16),
-                Expanded(  
-                    child: Text(
-                      'Get detailed information about lecturers in all departments of the university',
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: HexColor('000000'),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),         
                       ],
+                    ),
                   ),
-                            ),
-                      ],
                 ),
               ],
             ),
           ],
-        ),
-        ],
-        ),
-        ],
-      ),
-      ),
-      ),
-      ],
-            ),
-      ],
         ),
       ),
     );

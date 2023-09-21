@@ -11,7 +11,6 @@ class NavigatorStepPage extends StatefulWidget {
 }
 
 class _NavigatorStepPageState extends State<NavigatorStepPage> {
-
   String? valueChoose;
   String? valueChoose1;
   List listItem = ["Main Gate", "Canteen", "Toilet", "Lecture hall"];
@@ -19,7 +18,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: BackDots(title:"Map Mode"),
+      appBar: BackDots(title: "Step Mode"),
       body: Column(
         children: [
           Container(
@@ -27,9 +26,9 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
             decoration: const BoxDecoration(
               border: Border(
                   bottom: BorderSide(
-                    width: 1,
-                    color: Colors.transparent,
-                  )),
+                width: 1,
+                color: Colors.transparent,
+              )),
               color: Color.fromARGB(255, 255, 255, 255),
             ),
             child: Padding(
@@ -39,7 +38,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                   Padding(
                     padding: EdgeInsets.only(left: size.width * 0.05),
                     child: SizedBox(
-                      height: size.height*0.061,
+                      height: size.height * 0.061,
                       //from and drop down list Row
                       child: Row(
                         children: [
@@ -57,7 +56,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                             child: Container(
                               color: const Color.fromARGB(255, 255, 255, 255),
                               child: DropdownButtonFormField(
-                                decoration:  InputDecoration(
+                                decoration: InputDecoration(
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: BorderSide(
@@ -67,9 +66,8 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                       borderSide: BorderSide(
-                                        color:HexColor("#3F3F3F"),
-                                      )
-                                  ),
+                                        color: HexColor("#3F3F3F"),
+                                      )),
                                   filled: true,
                                   fillColor: Color.fromARGB(255, 255, 255, 255),
                                 ),
@@ -115,7 +113,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                   ),
                   //to , dropdown list and search icon Row
                   SizedBox(
-                    height: size.height*0.061,
+                    height: size.height * 0.061,
                     child: Padding(
                       padding: EdgeInsets.only(left: size.width * 0.05),
                       child: Row(
@@ -132,7 +130,7 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                           Expanded(
                             flex: 5,
                             child: DropdownButtonFormField(
-                              decoration:  InputDecoration(
+                              decoration: InputDecoration(
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: BorderSide(
@@ -142,9 +140,8 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: BorderSide(
-                                      color:HexColor("#3F3F3F"),
-                                    )
-                                ),
+                                      color: HexColor("#3F3F3F"),
+                                    )),
                                 filled: true,
                                 fillColor: Color.fromARGB(255, 255, 255, 255),
                               ),
@@ -198,41 +195,42 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
           //background image
           Expanded(
               child: Column(
-                children: [
-                  Expanded(
-                    child: StepsPage(),
-                  ),
-                  //bottom container that has popup function
-                  Container(
-                    height: size.width * 0.12,
-                    decoration: BoxDecoration(
-                        color: Colors.white60,
-                        border: Border.all(
-                          width: 1,
-                          color: HexColor("3F3F3F"),
-                        ),
-                        borderRadius:const  BorderRadius.vertical(
-                          top: Radius.circular(20),
-                        )),
-                    child: Center(
-                      child: IconButton(
-                        onPressed: () {
-                          showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              context: context,
-                              builder: (context) => buildSheet());
-                        },
-                        icon: const Icon(
-                          Icons.expand_less_sharp,
-                          color: Colors.black54,
-                        ),
-                        iconSize: 50,
-                      ),
+            children: [
+              Expanded(
+                //child: Container(),
+                child: StepsPage(),
+              ),
+              //bottom container that has popup function
+              Container(
+                height: size.width * 0.12,
+                decoration: BoxDecoration(
+                    color: Colors.white60,
+                    border: Border.all(
+                      width: 1,
+                      color: HexColor("3F3F3F"),
                     ),
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(20),
+                    )),
+                child: Center(
+                  child: IconButton(
+                    onPressed: () {
+                      showModalBottomSheet(
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          context: context,
+                          builder: (context) => buildSheet());
+                    },
+                    icon: const Icon(
+                      Icons.expand_less_sharp,
+                      color: Colors.black54,
+                    ),
+                    iconSize: 50,
                   ),
-                ],
-              )),
+                ),
+              ),
+            ],
+          )),
         ],
       ),
     );
@@ -248,42 +246,39 @@ class _NavigatorStepPageState extends State<NavigatorStepPage> {
 
 //popup container
   Widget buildSheet() => makeDismissible(
-
-    child: DraggableScrollableSheet(
-      initialChildSize: 0.3,
-      minChildSize: 0.2,
-      maxChildSize: 0.5,
-      builder: (_, controller) => Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-              width: 1,
-              color:HexColor("#3F3F3F")),
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: ListView(
-            controller: controller,
-            children:  [
-              IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: const Icon(
-                  Icons.expand_more_sharp,
-                  color:Colors.black54,
-                ),
-                iconSize: 50,
+        child: DraggableScrollableSheet(
+          initialChildSize: 0.3,
+          minChildSize: 0.2,
+          maxChildSize: 0.5,
+          builder: (_, controller) => Container(
+            decoration: BoxDecoration(
+              border: Border.all(width: 1, color: HexColor("#3F3F3F")),
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: ListView(
+                controller: controller,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Icons.expand_more_sharp,
+                      color: Colors.black54,
+                    ),
+                    iconSize: 50,
+                  ),
+                  Text(
+                      "Dolore esse duis Lorem amet id do aute dolor eiusmod tempor aliquip exercitation. Eiusmod esse exercitation nulla fugiat labore eiusmod ad laborum velit ut pariatur laboris occaecat esse. Deserunt nulla elit reprehenderit exercitation dolore ea ex mollit. Deserunt consequat minim Lorem tempor officia proident sunt culpa sunt fugiat aute ex nostrud. Laborum duis dolor voluptate ea deserunt amet velit proident labore deserunt mollit cillum. Proident tempor ipsum officia non officia ipsum anim."),
+                  Text(
+                      "Officia laboris aute irure ipsum dolore Lorem proident. Officia ex elit ad consequat fugiat sunt mollit dolor eu adipisicing. Adipisicing qui proident tempor id duis do qui minim minim ullamco adipisicing ipsum. Adipisicing sit fugiat irure laborum do. Laboris Lorem tempor et deserunt aute esse ad cillum. Pariatur sunt sunt commodo elit.")
+                ],
               ),
-              Text(
-                  "Dolore esse duis Lorem amet id do aute dolor eiusmod tempor aliquip exercitation. Eiusmod esse exercitation nulla fugiat labore eiusmod ad laborum velit ut pariatur laboris occaecat esse. Deserunt nulla elit reprehenderit exercitation dolore ea ex mollit. Deserunt consequat minim Lorem tempor officia proident sunt culpa sunt fugiat aute ex nostrud. Laborum duis dolor voluptate ea deserunt amet velit proident labore deserunt mollit cillum. Proident tempor ipsum officia non officia ipsum anim."),
-              Text(
-                  "Officia laboris aute irure ipsum dolore Lorem proident. Officia ex elit ad consequat fugiat sunt mollit dolor eu adipisicing. Adipisicing qui proident tempor id duis do qui minim minim ullamco adipisicing ipsum. Adipisicing sit fugiat irure laborum do. Laboris Lorem tempor et deserunt aute esse ad cillum. Pariatur sunt sunt commodo elit.")
-            ],
+            ),
           ),
         ),
-      ),
-    ),
-  );
+      );
 }

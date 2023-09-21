@@ -38,24 +38,27 @@ class _StepsPageState extends State<StepsPage> {
             ),
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Center(
-              child: DropdownButton<int>(
-                value: selectedPathIndex,
-                items: paths.map((path) {
-                  return DropdownMenuItem<int>(
-                    value: paths.indexOf(path),
-                    child: Text(path.name),
-                  );
-                }).toList(),
-                onChanged: (int? newIndex) {
-                  setState(() {
-                    selectedPathIndex = newIndex ?? 0;
-                  });
-                },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  child: DropdownButton<int>(
+                    value: selectedPathIndex,
+                    items: paths.map((path) {
+                      return DropdownMenuItem<int>(
+                        value: paths.indexOf(path),
+                        child: Text(path.name),
+                      );
+                    }).toList(),
+                    onChanged: (int? newIndex) {
+                      setState(() {
+                        selectedPathIndex = newIndex ?? 0;
+                      });
+                    },
+                  ),
+                ),
               ),
             ),
           ),
-
-
           Expanded(
             child: ListView.builder(
               itemCount: paths[selectedPathIndex].steps.length,

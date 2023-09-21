@@ -10,8 +10,7 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
   MenuNotify({required this.title});
 
   @override
-  Size get preferredSize =>
-      Size.fromHeight(55); // Specify the preferred height of your app bar
+  Size get preferredSize => Size.fromHeight(55);
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +20,13 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
           elevation: 2.0,
           child: Container(
             height: preferredSize.height,
-            color: Colors.white, // Customize your background color here
+            color: Colors.white,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //Menu Icon
                 Padding(
-                  padding: const EdgeInsets.only(left:4.0),
+                  padding: const EdgeInsets.only(left: 4.0),
                   child: IconButton(
                     icon: Image.asset(
                       'assets/icons/menu.png',
@@ -40,14 +39,14 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
                     },
                   ),
                 ),
-            
+
                 //Centered text
                 Text(
                   title,
                   style: TextStyle(color: Colors.black, fontSize: 17),
                 ),
-            
-               // Notification icon with red indicator
+
+                // Notification icon with red indicator
                 Padding(
                   padding: const EdgeInsets.only(right: 4.0),
                   child: Stack(
@@ -59,7 +58,6 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
                           height: 24,
                         ),
                         onPressed: () {
-                          // Your notification icon onPressed logic here
                           Navigator.of(context).push(_createRoute());
                         },
                       ),
@@ -67,16 +65,16 @@ class MenuNotify extends StatelessWidget implements PreferredSizeWidget {
                         right: 0,
                         top: 0,
                         child: Container(
-                          padding: EdgeInsets.all(4),
+                          padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: HexColor("00B251"), // Red indicator color
+                            color: HexColor("00B251"),
                             shape: BoxShape.circle,
                           ),
                           child: Text(
-                            '1', // You can replace this with the actual notification count
+                            '0',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 12,
+                              fontSize: 11,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

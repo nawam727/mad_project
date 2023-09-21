@@ -137,7 +137,7 @@ class _ChatPageState extends State<ChatPage> {
                             ),
                           ),
 
-                          SizedBox(height: 0), // Added spacing below the image
+                          SizedBox(height: 0),
                           Text(
                             "Let's chat",
                             style: TextStyle(
@@ -149,7 +149,7 @@ class _ChatPageState extends State<ChatPage> {
                           ),
                           SizedBox(
                             height: 8,
-                          ), // Added spacing below the image
+                          ),
                           Text(
                             "Get in touch and let us know how can we help you",
                             style: TextStyle(
@@ -214,6 +214,7 @@ class _ChatPageState extends State<ChatPage> {
                             borderSide: BorderSide.none,
                           ),
                         ),
+                        controller: nameController,
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
@@ -359,7 +360,7 @@ class _ChatPageState extends State<ChatPage> {
                                 name, email, phoneNumber, message);
 
                             setState(
-                                () {}); // Trigger a rebuild to display the success message or error message
+                                () {});
                           },
                           child: Text(
                             'Send Message',
@@ -411,8 +412,6 @@ class _ChatPageState extends State<ChatPage> {
       showErrorMessage('Error sending message. Please try again later.');
     }
   }
-
-  // ... Your validation functions ...
 
   // Initialize Firebase in the main.dart or wherever it fits your project structure
   void initializeFirebase() async {

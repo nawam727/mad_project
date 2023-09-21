@@ -25,7 +25,7 @@ class LecturerAvailabilityPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color:
-                  HexColor("#00B251"), // Set your desired border color here
+                  HexColor("#00B251"),
               width: 0.1,
             ),
           ),
@@ -232,7 +232,7 @@ class LecturerAvailabilityPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(7),
               border: Border.all(
                 color:
-                    HexColor("#00B251"), // Set your desired border color here
+                    HexColor("#00B251"),
                 width: 0.1,
               ),
             ),

@@ -14,7 +14,7 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   PageController _controller = PageController();
-  int currentPage = 0; // Track the current page index
+  int currentPage = 0; 
   List<Widget> onboardingScreens = [
     Onboard1(),
     Onboard2(),
@@ -36,7 +36,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             controller: _controller,
             onPageChanged: (index) {
               setState(() {
-                currentPage = index; // Update the current page index
+                currentPage = index;
               });
             },
             children: onboardingScreens,

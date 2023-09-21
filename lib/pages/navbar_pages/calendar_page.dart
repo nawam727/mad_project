@@ -47,9 +47,9 @@ Future<void> getLectureData() async {
             height: 10,
           ),
           Container(
-            height: 80, // Adjust the height as needed
+            height: 80,
             child: ListView.builder(
-              scrollDirection: Axis.horizontal, // Display items horizontally
+              scrollDirection: Axis.horizontal,
               itemCount: daysOfTheWeek.length,
               itemBuilder: (context, index) {
                 DateTime day = daysOfTheWeek[index];
@@ -175,13 +175,13 @@ class TimeLineTitle extends StatelessWidget {
             thickness: 1,
           ),
           indicatorStyle: IndicatorStyle(
-            width: 40, // Adjust width as needed
-            padding: EdgeInsets.all(8), // Adjust padding as needed
+            width: 40,
+            padding: EdgeInsets.all(8),
             indicator: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius:
-                    BorderRadius.circular(5), // Adjust border radius as needed
+                    BorderRadius.circular(5),
               ),
               child: Text(
                 timeText,
@@ -191,7 +191,6 @@ class TimeLineTitle extends StatelessWidget {
               ),
             ),
           ),
-          // Add the event text to the tile's content
           endChild: Padding(
             padding: const EdgeInsets.only(right:16.0),
             child: Container(
@@ -244,7 +243,7 @@ class DayofCalendar extends StatelessWidget {
         children: [
           Container(
             child: Text(
-              formattedDayText, // Use the formatted day name
+              formattedDayText,
               style: TextStyle(fontSize: fontSize, color: textColor),
             ),
           ),
@@ -276,3 +275,6 @@ class DayofCalendar extends StatelessWidget {
         currentDate.day == today.day;
   }
 }
+
+
+

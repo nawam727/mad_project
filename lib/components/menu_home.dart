@@ -37,7 +37,6 @@ class _MenuHomeState extends State<MenuHome> {
           child: Container(
             height: widget.preferredSize.height,
             color: Colors.white,
-            //decoration: BoxDecoration(),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -68,13 +67,11 @@ class _MenuHomeState extends State<MenuHome> {
                         ),
                         SizedBox(
                             width:
-                                3), // Adjust the spacing between the text and image
-                        // Add your image here, for example:
+                                3),
                         Image.asset(
-                          'assets/icons/wave.png', // Replace with your image path
+                          'assets/icons/wave.png',
                           width: 20,
                           height: 20,
-                          // You can customize the width, height, and other properties of the image
                         ),
                       ],
                     ),
@@ -96,7 +93,6 @@ class _MenuHomeState extends State<MenuHome> {
                           height: 24,
                         ),
                         onPressed: () {
-                          // Your notification icon onPressed logic here
                           Navigator.of(context).push(_createRoute());
                         },
                       ),
@@ -106,11 +102,11 @@ class _MenuHomeState extends State<MenuHome> {
                         child: Container(
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: HexColor("00B251"), // green indicator color
+                            color: HexColor("00B251"),
                             shape: BoxShape.circle,
                           ),
                           child: Text(
-                            '1', // You can replace this with the actual notification count
+                            '0',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 11,

@@ -11,7 +11,6 @@ import 'package:mad_project/pages/location_view_page.dart';
 import 'package:mad_project/pages/navbar_pages/calendar_page.dart';
 import 'package:mad_project/pages/navbar_pages/profile_page.dart';
 import 'package:mad_project/pages/settings_page.dart';
-
 import '../../main.dart';
 import '../mode_selector_page.dart';
 import '../navigator_page.dart';
@@ -33,13 +32,13 @@ class _HomePageState extends State<HomePage> {
     'Lectures': LecturerAvailabilityPage(),
     'Hall': HallAvailability(),
     'Cabin': CabinState(),
-    'Settings' : SettingsScreen(),
-    'Profile' : ProfilePage(),
-    'Locations' : LocationView(),
+    'Settings': SettingsScreen(),
+    'Profile': ProfilePage(),
+    'Locations': LocationView(),
   };
 
   void navigateToPage(String pageName) {
-  // Convert the entered pageName to lowercase.
+    // Convert the entered pageName to lowercase.
     final lowerPageName = pageName.toLowerCase();
 
     // Check if a matching page name (case-insensitive) exists in the map.
@@ -49,13 +48,13 @@ class _HomePageState extends State<HomePage> {
     );
 
     if (matchingKey.isNotEmpty) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => pageRoutes[matchingKey]!));
-      
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => pageRoutes[matchingKey]!));
+
       // Clear the search bar.
       _searchController.clear();
     }
   }
-
 
   //fireStore fetching data
   LectureData? lectureData;
@@ -63,7 +62,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    // Call getLectureData from initState
     getLectureData();
   }
 
@@ -113,8 +111,7 @@ class _HomePageState extends State<HomePage> {
                             child: TextField(
                               controller: _searchController,
                               onSubmitted: (value) {
-                                navigateToPage(
-                                    value);
+                                navigateToPage(value);
                               },
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -123,8 +120,8 @@ class _HomePageState extends State<HomePage> {
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: BorderSide(
-                                      color: HexColor(
-                                          "#00B251")), // Border color when focused
+                                    color: HexColor("#00B251"),
+                                  ),
                                 ),
                                 contentPadding:
                                     EdgeInsets.symmetric(vertical: 15),
@@ -141,7 +138,6 @@ class _HomePageState extends State<HomePage> {
                           child: IconButton(
                             icon: Image.asset(
                               'assets/icons/filter.png',
-                              //color: Colors.black,
                               width: 28,
                               height: 28,
                             ),
@@ -183,7 +179,6 @@ class _HomePageState extends State<HomePage> {
                                 builder: (BuildContext context) {
                                   return GestureDetector(
                                     onTap: () {
-                                      // Navigate to the corresponding destination when the image is tapped
                                       if (currentIndex >= 0 &&
                                           currentIndex <
                                               destinationRoutes.length) {
@@ -267,7 +262,6 @@ class _HomePageState extends State<HomePage> {
                               nameText: "Toilet",
                               imagePath: 'assets/images/toilet.png',
                               onPressed: () {
-                                // Your onPressed logic here
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -331,14 +325,14 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             // Red left border
                             Container(
-                              width: 8, // Adjust the width as needed
+                              width: 8,
                               decoration: BoxDecoration(
                                 color: HexColor('FB9078'), // Red color
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(
-                                      10), // Match your container's borderRadius
+                                      10),
                                   bottomLeft: Radius.circular(
-                                      10), // Match your container's borderRadius
+                                      10),
                                 ),
                               ),
                             ),
@@ -414,7 +408,7 @@ class _HomePageState extends State<HomePage> {
                               spreadRadius: 1,
                               blurRadius: 10,
                               offset:
-                                  Offset(0, 3), // changes position of shadow
+                                  Offset(0, 3),
                             ),
                           ],
                         ),
@@ -510,9 +504,9 @@ class RecentlyViewed extends StatelessWidget {
         ],
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: Colors.grey, // Set your desired border color here
-          width: 0.5, // Set the border width as needed
-        ), // Adjust the radius value as needed
+          color: Colors.grey,
+          width: 0.5, 
+        ), 
       ),
       child: Column(
         children: [
@@ -520,19 +514,18 @@ class RecentlyViewed extends StatelessWidget {
             flex: 2,
             child: ClipRRect(
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10), // Top-left corner radius
-                topRight: Radius.circular(10), // Top-right corner radius
+                topLeft: Radius.circular(10), 
+                topRight: Radius.circular(10), 
               ),
-              // Adjust this flex value to control the size of the image part
               child: Image.asset(
-                imagePath, // Replace with your image URL
+                imagePath, 
                 fit: BoxFit.cover,
               ),
             ),
           ),
           Expanded(
             flex:
-                1, // Adjust this flex value to control the size of the text part
+                1, 
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -551,9 +544,8 @@ class RecentlyViewed extends StatelessWidget {
                       icon: Icon(
                         Icons.arrow_circle_right,
                         color: HexColor("#00B251"),
-                      ), // Replace with your desired icon
+                      ),
                       onPressed: () {
-                        // Add the desired onPressed action for the IconButton
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -606,12 +598,12 @@ class CircularCantainer extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 1,
                       blurRadius: 20,
-                      offset: Offset(0, 3), // changes position of shadow
+                      offset: Offset(0, 3),
                     ),
                   ],
                 ),
                 child: Image.asset(
-                  imagePath, // Provide the image asset path here
+                  imagePath,
                   fit: BoxFit.cover,
                 ),
               ),

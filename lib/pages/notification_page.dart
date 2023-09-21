@@ -16,24 +16,26 @@ class NotificationPage extends StatelessWidget {
         appBar: BackNotify(title: "Notification"),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                message.notification?.title ?? '',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  message.notification?.title ?? '',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              SizedBox(height: 8),
-              Text(
-                message.notification?.body ?? '',
-                style: TextStyle(
-                  fontSize: 16,
+                SizedBox(height: 8),
+                Text(
+                  message.notification?.body ?? '',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       );

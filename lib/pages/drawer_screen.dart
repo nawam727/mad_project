@@ -51,9 +51,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
     await FirebaseAuth.instance.signOut();
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(
-          builder: (context) =>
-              AuthPage()), // Replace AuthPage with your authentication page widget
+      MaterialPageRoute(builder: (context) => AuthPage()),
     );
   }
 
@@ -68,8 +66,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
           actions: <Widget>[
             TextButton(
               onPressed: () {
-                Navigator.of(context)
-                    .pop(false); // Dismiss the dialog and return false
+                Navigator.of(context).pop(false);
               },
               child: Text(
                 'No',
@@ -101,7 +98,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           DrawerHeader(
             //DP and Name
             child: Column(
@@ -113,14 +110,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     alignment: Alignment.center,
                     children: [
                       Container(
-                        padding:
-                            EdgeInsets.all(2), // Adjust the padding as needed
+                        padding: EdgeInsets.all(2),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: HexColor(
-                                "00B251"), // Change the color to your desired border color
-                            width: 2.0, // Adjust the border width as needed
+                            color: HexColor("00B251"),
+                            width: 2.0,
                           ),
                         ),
                         child: CircleAvatar(
@@ -148,7 +143,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       Text(
                         userData != null ? userData!.name : "User Name",
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 20,
                           color: Colors.black,
                         ),
                       ),
@@ -158,6 +153,11 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
               ],
             ),
+          ),
+          Divider(
+            color: Color.fromRGBO(0, 178, 86, 1),
+            height: 0,
+            thickness: 2,
           ),
           SizedBox(
             height: 18,
@@ -181,7 +181,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   style: TextStyle(fontSize: 16),
                 ),
                 onTap: () {
-                  // Replace this with the action you want to perform when the user taps on this item
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => AboutPage()),
@@ -222,7 +221,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
                 title: Text('Settings', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  // Replace this with the action you want to perform when the user taps on this item
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SettingsScreen()),
@@ -243,7 +241,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
                 title: Text('Support', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  // Replace this with the action you want to perform when the user taps on this item
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SupportPage()),
@@ -269,7 +266,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
                 title: Text('Log Out', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  // Replace this with the action you want to perform when the user taps on this item
                   showAlert(context); // Close the drawer
                 },
               ),

@@ -71,7 +71,6 @@ class _NavBarState extends State<NavBar> {
       bottomNavigationBar: Material(
         elevation: 6.0,
         child: BottomNavigationBar(
-          //fixedColor: Colors.white,
           items: [
             BottomNavigationBarItem(
               icon: CustomIcon(
@@ -113,9 +112,8 @@ class _NavBarState extends State<NavBar> {
           currentIndex: _selectedIndex,
           onTap: onItemTap,
           type: BottomNavigationBarType.fixed,
-          selectedFontSize: 10.0, // Adjust this value as needed
+          selectedFontSize: 10.0,
           unselectedFontSize: 10.0,
-          //selectedItemColor: Colors.blue,
         ),
       ),
     );

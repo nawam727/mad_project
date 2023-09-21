@@ -25,7 +25,7 @@ class _HallAvailabilityState extends State<HallAvailability> {
 
   Future<void> getHallData() async {
     HallData? hallDetails =
-        await getHallDetails(); // Assuming getHallDetails returns Future<HallData>
+        await getHallDetails(); 
     setState(() {
       hallData = hallDetails;
     });
@@ -40,47 +40,47 @@ class _HallAvailabilityState extends State<HallAvailability> {
       body: ListView(
         children: [
           _buildHallContainer(
-              "Hall B1 101",
+              "FOC-C1-L-101",
               "Basement 1",
               "150 persons",
               hallData != null ? hallData!.b1101 : "Status",
-              HexColor("#98C5EE"),
-              const Color.fromARGB(255, 119, 246, 77)),
+              HexColor("#d3e7f8"),
+              Color.fromARGB(255,0, 178, 81)),
           _buildHallContainer(
-              "Hall B1 102",
+              "FOC-C1-L-102",
               "Basement 1",
               "150 persons",
               hallData != null ? hallData!.b1102 : "Status",
               HexColor("#98E9EE"),
-              const Color.fromARGB(255, 119, 246, 77)),
+              const Color.fromARGB(255, 0, 178, 81)),
           _buildHallContainer(
-              "Hall G 009",
-              "Ground",
+              "FOC-C-L-009",
+              "Ground Floor",
               "300 persons",
               hallData != null ? hallData!.g009 : "Status",
-              HexColor("#AE98EE"),
-              const Color.fromARGB(255, 119, 246, 77)),
+              HexColor("#EFE3FB"),
+              const Color.fromARGB(255,0, 178, 81)),
           _buildHallContainer(
-              "Hall G 002",
-              "Ground",
+              "FOC-C-L-002",
+              "Ground Floor",
               "200 persons",
               hallData != null ? hallData!.g002 : "Status",
-              HexColor("#98EEA0"),
-              const Color.fromARGB(255, 119, 246, 77)),
+              HexColor("#d3f8d7"),
+              const Color.fromARGB(255, 0, 178, 81)),
           _buildHallContainer(
-              "Hall G 003",
-              "Ground",
+              "FOC-C-L-003",
+              "Ground Floor",
               "150 persons",
               hallData != null ? hallData!.g003 : "Status",
-              HexColor("#D8EE98"),
-              const Color.fromARGB(255, 119, 246, 77)),
+              HexColor("#e7f4bd"),
+              const Color.fromARGB(255, 0, 178, 81)),
           _buildHallContainer(
-              "Hall B1 110",
+              "FOC-C1-L-110",
               "Basement 1",
               "150 persons",
               hallData != null ? hallData!.b1110 : "Status",
-              HexColor("#98C5EE"),
-              const Color.fromARGB(255, 119, 246, 77)),
+              HexColor("#FEE5E0"),
+              const Color.fromARGB(255, 0, 178, 81)),
         ],
       ),
     );
@@ -162,6 +162,7 @@ class _HallAvailabilityState extends State<HallAvailability> {
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 1),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
@@ -184,7 +185,7 @@ class _HallAvailabilityState extends State<HallAvailability> {
                   padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
                   child: Text(
                     status,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white,),
                   ),
                 ),
               ),

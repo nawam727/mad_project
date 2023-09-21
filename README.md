@@ -58,7 +58,7 @@ Find out which halls are currently available for your group discussions, team me
   - **UI/UX Designer / Flutter Developer:** Contributing to UI/UX design and Flutter development, ensuring a delightful user experience.
 
 - **Moksha Dilshan** ([MokshaDill](https://github.com/MokshaDill))
-  - **Flutter & AR Navigation Developer:** Pioneering the AR navigation feature, integrating it into the app for accurate indoor navigation.
+  - **Flutter & AR,Backend Developer:** Pioneering the AR navigation feature using unity game engine, integrating it into the app for accurate indoor navigation.
 
 ---
 

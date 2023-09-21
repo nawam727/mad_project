@@ -69,63 +69,59 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                             flex: 5,
                             child: Container(
                               color: const Color.fromARGB(255, 255, 255, 255),
-                              child: DropdownButtonFormField(
-                                decoration: InputDecoration(
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                        color: HexColor(
-                                            "#00B251")), // Border color when focused
-                                  ),
-                                  border: OutlineInputBorder(
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 16),
+                                child: DropdownButtonFormField(
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.all(8),
+                                    focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                       borderSide: BorderSide(
-                                        color: HexColor("#3F3F3F"),
-                                      )),
-                                  filled: true,
-                                  fillColor: Color.fromARGB(255, 255, 255, 255),
-                                ),
-                                hint: const Padding(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    "Select Location",
-                                    style: TextStyle(fontSize: 15),
+                                          color: HexColor(
+                                              "#00B251")), // Border color when focused
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(
+                                          color: HexColor("#3F3F3F"),
+                                        )),
+                                    filled: true,
+                                    fillColor:
+                                        Color.fromARGB(255, 255, 255, 255),
                                   ),
+                                  hint: const Padding(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      "Select Location",
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                  ),
+                                  dropdownColor: Colors.white,
+                                  icon: const Padding(
+                                    padding: EdgeInsets.only(left: 100),
+                                    child: Icon(Icons.expand_more),
+                                  ),
+                                  iconSize: 30,
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                  value: valueChoose,
+                                  onChanged: (newValue) {
+                                    setState(() {
+                                      valueChoose = newValue as String?;
+                                    });
+                                  },
+                                  items: listItem.map((valueItem) {
+                                    return DropdownMenuItem(
+                                      value: valueItem,
+                                      child: Text(valueItem),
+                                    );
+                                  }).toList(),
                                 ),
-                                dropdownColor: Colors.white,
-                                icon: const Padding(
-                                  padding: EdgeInsets.only(left: 100),
-                                  child: Icon(Icons.expand_more),
-                                ),
-                                iconSize: 30,
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                ),
-                                value: valueChoose,
-                                onChanged: (newValue) {
-                                  setState(() {
-                                    // Find the index of the selected item in the listItem list
-                                    // selectedIndex =
-                                    //     listItem.indexOf(newValue as String);
-
-                                    // Now, selectedIndex contains the index of the selected item.
-                                    // You can use it as needed.
-                                    valueChoose = newValue as String?;
-                                    // Update valueChoose1 with the index
-                                    //valueChoose = selectedIndex;
-                                  });
-                                },
-                                items: listItem.map((valueItem) {
-                                  return DropdownMenuItem(
-                                    value: valueItem,
-                                    child: Text(valueItem),
-                                  );
-                                }).toList(),
                               ),
                             ),
                           ),
-                          const Expanded(child: SizedBox())
                         ],
                       ),
                     ),
@@ -151,85 +147,52 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                           //dropdown list for to
                           Expanded(
                             flex: 5,
-                            child: DropdownButtonFormField(
-                              decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                      color: HexColor(
-                                          "#00B251")), // Border color when focused
-                                ),
-                                border: OutlineInputBorder(
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 16),
+                              child: DropdownButtonFormField(
+                                decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.all(8),
+                                  focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: BorderSide(
-                                      color: HexColor("#3F3F3F"),
-                                    )),
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 255, 255, 255),
+                                        color: HexColor(
+                                            "#00B251")), // Border color when focused
+                                  ),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: HexColor("#3F3F3F"),
+                                      )),
+                                  filled: true,
+                                  fillColor: Color.fromARGB(255, 255, 255, 255),
+                                ),
+                                hint: const Padding(
+                                  padding: EdgeInsets.only(left: 8),
+                                  child: Text("Select Location"),
+                                ),
+                                dropdownColor: Colors.white,
+                                icon: const Padding(
+                                  padding: EdgeInsets.only(left: 100),
+                                  child: Icon(Icons.expand_more),
+                                ),
+                                iconSize: 30,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                                value: valueChoose1,
+                                onChanged: (newValue1) {
+                                  setState(() {
+                                    valueChoose1 = newValue1 as String?;
+                                  });
+                                },
+                                items: listItem.map((valueItem) {
+                                  return DropdownMenuItem(
+                                    value: valueItem,
+                                    child: Text(valueItem),
+                                  );
+                                }).toList(),
                               ),
-                              hint: const Padding(
-                                padding: EdgeInsets.only(left: 8),
-                                child: Text("Select Location"),
-                              ),
-                              dropdownColor: Colors.white,
-                              icon: const Padding(
-                                padding: EdgeInsets.only(left: 100),
-                                child: Icon(Icons.expand_more),
-                              ),
-                              iconSize: 30,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                              value: valueChoose1,
-                              onChanged: (newValue1) {
-                                setState(() {
-                                  // Find the index of the selected item in the listItem list
-                                  // selectedIndex1 =
-                                  //     listItem.indexOf(newValue1 as String);
-
-                                  // Now, selectedIndex contains the index of the selected item.
-                                  // You can use it as needed.
-                                  valueChoose1 = newValue1 as String?;
-                                  // Update valueChoose1 with the index
-                                  //valueChoose1 = selectedIndex1;
-                                  // print('------------------');
-
-                                  // print(selectedIndex1);
-                                });
-                              },
-                              items: listItem.map((valueItem) {
-                                return DropdownMenuItem(
-                                  value: valueItem,
-                                  child: Text(valueItem),
-                                );
-                              }).toList(),
-                            ),
-                          ),
-                          // Search icon
-                          Expanded(
-                            flex: 1,
-                            child: IconButton(
-                              icon: Image.asset(
-                                'assets/icons/search.png',
-                                height: size.width * 0.04,
-                              ),
-                              onPressed: () {
-                                //////////////////////////
-                                ///my work//////////////
-                                // for (int i = 0; i < 4; i++) {
-                                //   if (listItem[i] == valueChoose) {
-                                //     x1Index = listx[i];
-                                //     y1Index = listy[i];
-                                //   }
-                                //   if (listItem[i] == valueChoose1) {
-                                //     x2Index = listx[i];
-                                //     y2Index = listy[i];
-                                //   }
-                                // }
-
-                                ///end///
-                              },
                             ),
                           ),
                         ],

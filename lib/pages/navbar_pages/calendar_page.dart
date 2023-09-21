@@ -18,20 +18,19 @@ class _CalendarPageState extends State<CalendarPage> {
   //fetching data from firebase
   LectureData? lectureData;
 
-@override
-void initState() {
-  super.initState();
-  // Call getLectureData from initState
-  getLectureData();
-}
+  @override
+  void initState() {
+    super.initState();
+    // Call getLectureData from initState
+    getLectureData();
+  }
 
-Future<void> getLectureData() async {
-  LectureData? lectureDetails = await getLectureDetails();
-  setState(() {
-    lectureData = lectureDetails;
-  });
-}
-
+  Future<void> getLectureData() async {
+    LectureData? lectureDetails = await getLectureDetails();
+    setState(() {
+      lectureData = lectureDetails;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,28 +68,28 @@ Future<void> getLectureData() async {
             isFirst: false,
             isLast: false,
             timeText: "9.00",
-            eventText: lectureData !=null ? lectureData!.lecture : "Lecture",
+            eventText: lectureData != null ? lectureData!.lecture : "Lecture",
             eventColor: '#ECEEFE',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "10.00",
-            eventText: lectureData !=null ? lectureData!.time : "Lecture Time",
+            eventText: lectureData != null ? lectureData!.time : "Lecture Time",
             eventColor: '#ECEEFE',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "11.00",
-            eventText: lectureData !=null ? lectureData!.lecturer : "Lecturer",
+            eventText: lectureData != null ? lectureData!.lecturer : "Lecturer",
             eventColor: '#ECEEFE',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "12.00",
-            eventText: lectureData !=null ? lectureData!.location : "Hall",
+            eventText: lectureData != null ? lectureData!.location : "Hall",
             eventColor: '#ECEEFE',
           ),
           TimeLineTitle(
@@ -98,34 +97,36 @@ Future<void> getLectureData() async {
             isLast: false,
             timeText: "13.00",
             eventText: '',
-            eventColor: '#f6f6f6',
+            eventColor: '#00FFFFFF',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "14.00",
-            eventText: lectureData !=null ? lectureData!.lecture2 : "Lecture",
+            eventText: lectureData != null ? lectureData!.lecture2 : "Lecture",
             eventColor: '#FEECEC',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "15.00",
-            eventText: lectureData !=null ? lectureData!.time2 : "Lecture Time",
+            eventText:
+                lectureData != null ? lectureData!.time2 : "Lecture Time",
             eventColor: '#FEECEC',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: false,
             timeText: "16.00",
-            eventText: lectureData !=null ? lectureData!.lecturer2 : "Lecturer",
+            eventText:
+                lectureData != null ? lectureData!.lecturer2 : "Lecturer",
             eventColor: '#FEECEC',
           ),
           TimeLineTitle(
             isFirst: false,
             isLast: true,
             timeText: "17.00",
-            eventText: lectureData !=null ? lectureData!.location2 : "Hall",
+            eventText: lectureData != null ? lectureData!.location2 : "Hall",
             eventColor: '#FEECEC',
           ),
         ],
@@ -180,8 +181,7 @@ class TimeLineTitle extends StatelessWidget {
             indicator: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(5),
               ),
               child: Text(
                 timeText,
@@ -192,7 +192,7 @@ class TimeLineTitle extends StatelessWidget {
             ),
           ),
           endChild: Padding(
-            padding: const EdgeInsets.only(right:16.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: Container(
               color: HexColor(eventColor),
               padding: EdgeInsets.symmetric(horizontal: 60),
@@ -275,6 +275,3 @@ class DayofCalendar extends StatelessWidget {
         currentDate.day == today.day;
   }
 }
-
-
-

@@ -57,7 +57,7 @@ class _LocationViewState extends State<LocationView> {
                       width: 22,
                     ),
                     LocationCard(
-                      imagePath: 'assets/images/audi.png',
+                      imagePath: 'assets/images/scenter.png',
                       title: 'S Center',
                     ),
                   ],

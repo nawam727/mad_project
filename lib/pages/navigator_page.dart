@@ -238,12 +238,12 @@ class NavigatorPage extends StatelessWidget {
                         title: 'FOC',
                       ),
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
-                        title: '009 Hall',
+                        imagePath: 'assets/images/C2-009.png',
+                        title: 'C2-009',
                       ),
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
-                        title: '002 Hall',
+                        imagePath: 'assets/images/C2-002.png',
+                        title: 'C2-002',
                       ),
                     ],
                   ),
@@ -283,12 +283,12 @@ class NavigatorPage extends StatelessWidget {
                         title: 'FOB',
                       ),
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
-                        title: 'Main Gate',
+                        imagePath: 'assets/images/C2-L-101.png',
+                        title: 'C2-L-101',
                       ),
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
-                        title: 'Main Gate',
+                        imagePath: 'assets/images/C2-L-102.png',
+                        title: 'C2-L-102',
                       ),
                     ],
                   ),
@@ -325,15 +325,15 @@ class NavigatorPage extends StatelessWidget {
                     children: [
                       LocationCard(
                         imagePath: 'assets/images/engineering.png',
-                        title: 'Main Gate',
+                        title: 'FOE',
                       ),
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
-                        title: 'Main Gate',
+                        imagePath: 'assets/images/C2-L-101.png',
+                        title: 'C2-L-101',
                       ),
                       LocationCard(
-                        imagePath: 'assets/images/gate.png',
-                        title: 'Main Gate',
+                        imagePath: 'assets/images/C2-L-102.png',
+                        title: 'C2-L-102',
                       ),
                     ],
                   ),

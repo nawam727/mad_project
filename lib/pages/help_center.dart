@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mad_project/main.dart';
 
 import '../components/back_dots.dart';
 
@@ -15,6 +16,34 @@ class _HelpCenterState extends State<HelpCenter> {
   final itemKey2 = GlobalKey();
   final itemKey3 = GlobalKey();
   final itemKey4 = GlobalKey();
+
+  String profilePhotoURL = '';
+  UserData? userData;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+    displayProfile();
+  }
+
+  Future<void> displayProfile() async {
+    print("Profile Photo URL: $profilePhotoURL");
+    UserData? userData = await getUserDetails();
+    if (userData != null) {
+      String photoURL = userData.photoURL;
+      setState(() {
+        profilePhotoURL = photoURL;
+      });
+    }
+  }
+
+  Future<void> getUserData() async {
+    UserData? userDetails = await getUserDetails();
+    setState(() {
+      userData = userDetails;
+    });
+  }
 
   Future scrollToItem(final context, GlobalKey itemKey) async {
     final context = itemKey.currentContext!;
@@ -1133,7 +1162,7 @@ class _HelpCenterState extends State<HelpCenter> {
                           margin:
                               const EdgeInsets.only(right: 0, left: 0, top: 20),
                           decoration: BoxDecoration(
-                            color: HexColor('02B251'),
+                            color: HexColor('ffffff'),
                             borderRadius: BorderRadius.circular(24),
                             border: Border.all(
                               color: HexColor("#02B251"),
@@ -1158,14 +1187,23 @@ class _HelpCenterState extends State<HelpCenter> {
                                   topLeft: Radius.circular(8.0),
                                   topRight: Radius.circular(8.0),
                                 ),
-                                child: Image.asset(
-                                  'assets/images/u2.png',
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.20,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.20,
-                                  alignment: Alignment.centerLeft,
-                                  //fit: BoxFit.fill,
+                                child: Container(
+                                  padding: EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: HexColor("00B251"),
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                  child: CircleAvatar(
+                                    radius: 45,
+                                    backgroundColor: Colors.transparent,
+                                    backgroundImage: profilePhotoURL.isNotEmpty
+                                        ? NetworkImage(profilePhotoURL)
+                                            as ImageProvider
+                                        : null,
+                                  ),
                                 ),
                               ),
                               //Spacer(),
@@ -1174,7 +1212,9 @@ class _HelpCenterState extends State<HelpCenter> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Hi, GNYS Silva',
+                                      userData != null
+                                          ? userData!.name
+                                          : "User Name",
                                       style: TextStyle(
                                         fontSize: 20,
                                         color: HexColor('3F3F3F'),

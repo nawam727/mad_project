@@ -462,7 +462,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                       child: Padding(
                                         padding: const EdgeInsets.only(top: 10),
                                         child: Image.asset(
-                                          'assets/images/plan.png',
+                                          'assets/images/loudspeaker.png',
                                           width: 100,
                                           height: 50,
                                           alignment: Alignment.center,
@@ -474,7 +474,7 @@ class _HelpCenterState extends State<HelpCenter> {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 26),
                                       child: Text(
-                                        'Education plan',
+                                        'Updates',
                                         style: TextStyle(
                                             fontSize: 15,
                                             color: Colors.black,
@@ -1561,10 +1561,225 @@ class _HelpCenterState extends State<HelpCenter> {
                       ),
                     ],
                   ),
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                        left: 8.0, right: 8, top: 10, bottom: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        SizedBox(height: 0),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 15),
+                          // Add padding to move the text down
+                          child: Text(
+                            "What's New",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Color.fromARGB(255, 91, 91, 91),
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.90,
+                              height: MediaQuery.of(context).size.height * 0.12,
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                              margin: const EdgeInsets.only(top: 15),
+                              decoration: BoxDecoration(
+                                color: HexColor('F4F4F4'),
+                                borderRadius: BorderRadius.circular(24),
+                                border: Border.all(
+                                  color: HexColor("#FFFFFF"),
+                                  width: 0.3,
+                        ),
+                              ),
+                              child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(8.0),
+                    topRight: Radius.circular(8.0),
+                  ),
+                  child: Image.asset(
+                    'assets/images/b1.png',
+                    width: MediaQuery.of(context).size.width * 0.08,
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    alignment: Alignment.centerLeft,
+                    //fit: BoxFit.fill,
+                  ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                    child: Text(
+                      'Directions span the entire university',
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: HexColor('000000'),
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  ],
+                ),
+                            ),
+                  Column(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.90,
+                              height: MediaQuery.of(context).size.height * 0.15,
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                              margin: const EdgeInsets.only(top: 15),
+                              decoration: BoxDecoration(
+                                color: HexColor('F4F4F4'),
+                                borderRadius: BorderRadius.circular(24),
+                                border: Border.all(
+                                  color: HexColor("#FFFFFF"),
+                                  width: 0.3,
+                        ),
+                              ),
+                              child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(8.0),
+                    topRight: Radius.circular(8.0),
+                  ),
+                  child: Image.asset(
+                    'assets/images/b1.png',
+                    width: MediaQuery.of(context).size.width * 0.08,
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    alignment: Alignment.centerLeft,
+                    //fit: BoxFit.fill,
+                  ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                    child: Text(
+                      'Get detailed schedule details for all university departments',
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: HexColor('000000'),
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+              ],
+                  ),
+                            ),
+                Column(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.90,
+                              height: MediaQuery.of(context).size.height * 0.15,
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                              margin: const EdgeInsets.only(top: 15),
+                              decoration: BoxDecoration(
+                                color: HexColor('F4F4F4'),
+                                borderRadius: BorderRadius.circular(24),
+                                border: Border.all(
+                                  color: HexColor("#FFFFFF"),
+                                  width: 0.3,
+                        ),
+                              ),
+                              child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(8.0),
+                    topRight: Radius.circular(8.0),
+                  ),
+                  child: Image.asset(
+                    'assets/images/b1.png',
+                    width: MediaQuery.of(context).size.width * 0.08,
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    alignment: Alignment.centerLeft,
+                    //fit: BoxFit.fill,
+                  ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                    child: Text(
+                      'Get detailed cabin details for all university departments',
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: HexColor('000000'),
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+              ],
+                  ),
+                            ),
+                Column(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.90,
+                              height: MediaQuery.of(context).size.height * 0.18,
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                              margin: const EdgeInsets.only(top: 15),
+                              decoration: BoxDecoration(
+                                color: HexColor('F4F4F4'),
+                                borderRadius: BorderRadius.circular(24),
+                                border: Border.all(
+                                  color: HexColor("#FFFFFF"),
+                                  width: 0.3,
+                        ),
+                              ),
+                              child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(8.0),
+                    topRight: Radius.circular(8.0),
+                  ),
+                  child: Image.asset(
+                    'assets/images/b1.png',
+                    width: MediaQuery.of(context).size.width * 0.08,
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    alignment: Alignment.centerLeft,
+                    //fit: BoxFit.fill,
+                  ),
+                ),
+                SizedBox(width: 16),
+                Expanded(  
+                    child: Text(
+                      'Get detailed information about lecturers in all departments of the university',
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: HexColor('000000'),
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),         
+                      ],
+                  ),
+                            ),
+                      ],
                 ),
               ],
             ),
           ],
+        ),
+        ],
+        ),
+        ],
+      ),
+      ),
+      ),
+      ],
+            ),
+      ],
         ),
       ),
     );

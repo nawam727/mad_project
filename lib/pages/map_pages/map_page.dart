@@ -36,7 +36,7 @@ class _MapScreenState extends State<MapScreen> {
         _destination = Marker(
           markerId: MarkerId('destination'),
           position: LatLng(double.parse(x2), double.parse(y2)),
-  );
+        );
 
 
 

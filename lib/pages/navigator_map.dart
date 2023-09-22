@@ -13,10 +13,10 @@ class NavigatorMapPage extends StatefulWidget {
 class _NavigatorMapPageState extends State<NavigatorMapPage> {
   String? valueChoose;
   String? valueChoose1;
-  String x1Index = '0';
-  String x2Index = '0';
-  String y1Index = '0';
-  String y2Index = '0';
+  String x1Index = '6.821132058916255';
+  String x2Index = '6.821132058916255';
+  String y1Index = '80.04029152192247';
+  String y2Index = '80.04029152192247';
 
   //int? xp1 = int.tryParse(valueChoose);
   //int? xp2 = int.tryParse(valueChoose1);
@@ -184,18 +184,7 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                               value: valueChoose1,
                               onChanged: (newValue1) {
                                 setState(() {
-                                  // Find the index of the selected item in the listItem list
-                                  // selectedIndex1 =
-                                  //     listItem.indexOf(newValue1 as String);
-
-                                  // Now, selectedIndex contains the index of the selected item.
-                                  // You can use it as needed.
                                   valueChoose1 = newValue1 as String?;
-                                  // Update valueChoose1 with the index
-                                  //valueChoose1 = selectedIndex1;
-                                  // print('------------------');
-
-                                  // print(selectedIndex1);
                                 });
                               },
                               items: listItem.map((valueItem) {
@@ -215,27 +204,20 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                                 height: size.width * 0.04,
                               ),
                               onPressed: () {
-                                //////////////////////////
-                                ///my work//////////////
-                                // for (int i = 0; i < 4; i++) {
-                                //   if (listItem[i] == valueChoose) {
-                                //     x1Index = listx[i];
-                                //     y1Index = listy[i];
-                                //   }
-                                //   if (listItem[i] == valueChoose1) {
-                                //     x2Index = listx[i];
-                                //     y2Index = listy[i];
-                                //   }
-                                // }
 
-                                ///end///
+                                onTap: () {
+                                  Navigator.of(context).pop();
+                                };
+
                               },
                             ),
                           ),
+
                         ],
                       ),
                     ),
                   ),
+
                 ],
               ),
             ),
@@ -288,7 +270,7 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                             backgroundColor: Colors.transparent,
                             context: context,
                             builder: (context) =>
-                                buildSheet(x1Index, y1Index, x2Index, y2Index));
+                                buildSheet(x1Index, y1Index, x2Index, y2Index,size));
                       },
                       icon: const Icon(
                         Icons.expand_less_sharp,
@@ -316,12 +298,12 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
 
 //popup container
   Widget buildSheet(
-          String x1index, String y1index, String x2index, String y2index) =>
+          String x1index, String y1index, String x2index, String y2index,Size size) =>
       makeDismissible(
         child: DraggableScrollableSheet(
-          initialChildSize: 0.3,
+          initialChildSize: 0.8,
           minChildSize: 0.2,
-          maxChildSize: 0.5,
+          maxChildSize: 0.8,
           builder: (_, controller) => Container(
             decoration: BoxDecoration(
               border: Border.all(width: 1, color: HexColor("#3F3F3F")),
@@ -333,27 +315,47 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
               child: ListView(
                 controller: controller,
                 children: [
-                  IconButton(
+                  TextButton(
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    icon: const Icon(Icons.expand_more_sharp,
-                        color: Colors.black54),
-                    iconSize: 50,
+                    style: TextButton.styleFrom(
+                      primary: Colors.black54, // Text color
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.expand_more_sharp,
+                          color: Colors.black54,
+                          size: 50,
+                        ),
+                        Text(
+                          'Your Path', // Replace 'Your Text' with the desired text
+                          style: TextStyle(
+                            fontSize: 16, // Adjust the font size as needed
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  Text("$x1Index"),
-                  Text("$y1Index"),
-                  Text("$x2Index"),
-                  Text("$y2Index"),
+                  // Text("$x1Index"),
+                  // Text("$y1Index"),
+                  // Text("$x2Index"),
+                  // Text("$y2Index"),
                   Container(
-                      child: MapScreen(
-                          x1: "$x1index",
-                          y1: "$y1index",
-                          x2: "$x2index",
-                          y2: "$y2index")),
+                    width: double.infinity,
+                    height: size.height * 0.8,
+                    child: MapScreen(
+                      x1: x1index,
+                      y1: y1index,
+                      x2: x2index,
+                      y2: y2index,
+                    ),
+                  ),
                 ],
               ),
-            ),
+            )
+
           ),
         ),
       );

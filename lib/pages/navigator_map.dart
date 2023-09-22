@@ -75,7 +75,6 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                                   decoration: InputDecoration(
                                     contentPadding: EdgeInsets.all(8),
                                     focusedBorder: OutlineInputBorder(
-<<<<<<< HEAD
                                       borderRadius: BorderRadius.circular(10),
                                       borderSide: BorderSide(
                                           color: HexColor(
@@ -120,125 +119,6 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                                     );
                                   }).toList(),
                                 ),
-=======
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                          color: HexColor(
-                                              "#00B251")), // Border color when focused
-                                    ),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: BorderSide(
-                                          color: HexColor("#3F3F3F"),
-                                        )),
-                                    filled: true,
-                                    fillColor:
-                                        Color.fromARGB(255, 255, 255, 255),
-                                  ),
-                                  hint: const Padding(
-                                    padding: EdgeInsets.only(left: 5),
-                                    child: Text(
-                                      "Select Location",
-                                      style: TextStyle(fontSize: 15),
-                                    ),
-                                  ),
-                                  dropdownColor: Colors.white,
-                                  icon: const Padding(
-                                    padding: EdgeInsets.only(left: 100),
-                                    child: Icon(Icons.expand_more),
-                                  ),
-                                  iconSize: 30,
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                  ),
-                                  value: valueChoose,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      valueChoose = newValue as String?;
-                                    });
-                                  },
-                                  items: listItem.map((valueItem) {
-                                    return DropdownMenuItem(
-                                      value: valueItem,
-                                      child: Text(valueItem),
-                                    );
-                                  }).toList(),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  //to , dropdown list and search icon Row
-                  SizedBox(
-                    height: size.height * 0.061,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: size.width * 0.05),
-                      child: Row(
-                        children: [
-                          const Expanded(
-                            flex: 1,
-                            child: Text(
-                              "To",
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.w400),
-                            ),
-                          ),
-                          //dropdown list for to
-                          Expanded(
-                            flex: 5,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 16),
-                              child: DropdownButtonFormField(
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.all(8),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(
-                                        color: HexColor(
-                                            "#00B251")), // Border color when focused
-                                  ),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: HexColor("#3F3F3F"),
-                                      )),
-                                  filled: true,
-                                  fillColor: Color.fromARGB(255, 255, 255, 255),
-                                ),
-                                hint: const Padding(
-                                  padding: EdgeInsets.only(left: 8),
-                                  child: Text("Select Location"),
-                                ),
-                                dropdownColor: Colors.white,
-                                icon: const Padding(
-                                  padding: EdgeInsets.only(left: 100),
-                                  child: Icon(Icons.expand_more),
-                                ),
-                                iconSize: 30,
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                ),
-                                value: valueChoose1,
-                                onChanged: (newValue1) {
-                                  setState(() {
-                                    valueChoose1 = newValue1 as String?;
-                                  });
-                                },
-                                items: listItem.map((valueItem) {
-                                  return DropdownMenuItem(
-                                    value: valueItem,
-                                    child: Text(valueItem),
-                                  );
-                                }).toList(),
->>>>>>> 3cccfd39dc05173f95f39c039718c9cea48c1c53
                               ),
                             ),
                           ),
@@ -315,28 +195,6 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                               ),
                             ),
                           ),
-<<<<<<< HEAD
-=======
-                          // Search icon
-                          Expanded(
-                            flex: 1,
-                            child: IconButton(
-                              icon: Image.asset(
-                                'assets/icons/search.png',
-                                height: size.width * 0.04,
-                              ),
-                              onPressed: () {
-
-                                onTap: () {
-                                  Navigator.of(context).pop();
-                                };
-
-                              },
-                            ),
-                          ),
-
-
->>>>>>> 3cccfd39dc05173f95f39c039718c9cea48c1c53
                         ],
                       ),
                     ),
@@ -410,6 +268,8 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
       ),
     );
   }
+
+
 
 //to dismiss the popup card when click the out of the container
   Widget makeDismissible({required Widget child}) => GestureDetector(

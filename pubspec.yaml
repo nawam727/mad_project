@@ -68,9 +68,11 @@ dependencies:
   flutter_local_notifications: ^15.1.1
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  http: ^0.13.3
   flutter_switch: ^0.3.2
   intl: ^0.17.0
 

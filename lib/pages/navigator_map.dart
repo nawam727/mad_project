@@ -14,10 +14,10 @@ class NavigatorMapPage extends StatefulWidget {
 class _NavigatorMapPageState extends State<NavigatorMapPage> {
   String? valueChoose;
   String? valueChoose1;
-  String x1Index = '6.821132058916255';
-  String x2Index = '6.821132058916255';
-  String y1Index = '80.04029152192247';
-  String y2Index = '80.04029152192247';
+  String x1Index = '0';
+  String x2Index = '0';
+  String y1Index = '0';
+  String y2Index = '0';
 
   //int? xp1 = int.tryParse(valueChoose);
   //int? xp2 = int.tryParse(valueChoose1);
@@ -76,6 +76,52 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                                   decoration: InputDecoration(
                                     contentPadding: EdgeInsets.all(8),
                                     focusedBorder: OutlineInputBorder(
+<<<<<<< HEAD
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                          color: HexColor(
+                                              "#00B251")), // Border color when focused
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(
+                                          color: HexColor("#3F3F3F"),
+                                        )),
+                                    filled: true,
+                                    fillColor:
+                                    Color.fromARGB(255, 255, 255, 255),
+                                  ),
+                                  hint: const Padding(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Text(
+                                      "Select Location",
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                  ),
+                                  dropdownColor: Colors.white,
+                                  icon: const Padding(
+                                    padding: EdgeInsets.only(left: 100),
+                                    child: Icon(Icons.expand_more),
+                                  ),
+                                  iconSize: 30,
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                  value: valueChoose,
+                                  onChanged: (newValue) {
+                                    setState(() {
+                                      valueChoose = newValue as String?;
+                                    });
+                                  },
+                                  items: listItem.map((valueItem) {
+                                    return DropdownMenuItem(
+                                      value: valueItem,
+                                      child: Text(valueItem),
+                                    );
+                                  }).toList(),
+                                ),
+=======
                                       borderRadius: BorderRadius.circular(10),
                                       borderSide: BorderSide(
                                           color: HexColor(
@@ -193,10 +239,10 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                                     child: Text(valueItem),
                                   );
                                 }).toList(),
+>>>>>>> 3cccfd39dc05173f95f39c039718c9cea48c1c53
                               ),
                             ),
                           ),
-                          const Expanded(child: SizedBox())
                         ],
                       ),
                     ),
@@ -222,50 +268,56 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                           //dropdown list for to
                           Expanded(
                             flex: 5,
-                            child: DropdownButtonFormField(
-                              decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                      color: HexColor(
-                                          "#00B251")), // Border color when focused
-                                ),
-                                border: OutlineInputBorder(
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 16),
+                              child: DropdownButtonFormField(
+                                decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.all(8),
+                                  focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: BorderSide(
-                                      color: HexColor("#3F3F3F"),
-                                    )),
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 255, 255, 255),
+                                        color: HexColor(
+                                            "#00B251")), // Border color when focused
+                                  ),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: HexColor("#3F3F3F"),
+                                      )),
+                                  filled: true,
+                                  fillColor: Color.fromARGB(255, 255, 255, 255),
+                                ),
+                                hint: const Padding(
+                                  padding: EdgeInsets.only(left: 8),
+                                  child: Text("Select Location"),
+                                ),
+                                dropdownColor: Colors.white,
+                                icon: const Padding(
+                                  padding: EdgeInsets.only(left: 100),
+                                  child: Icon(Icons.expand_more),
+                                ),
+                                iconSize: 30,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                                value: valueChoose1,
+                                onChanged: (newValue1) {
+                                  setState(() {
+                                    valueChoose1 = newValue1 as String?;
+                                  });
+                                },
+                                items: listItem.map((valueItem) {
+                                  return DropdownMenuItem(
+                                    value: valueItem,
+                                    child: Text(valueItem),
+                                  );
+                                }).toList(),
                               ),
-                              hint: const Padding(
-                                padding: EdgeInsets.only(left: 8),
-                                child: Text("Select Location"),
-                              ),
-                              dropdownColor: Colors.white,
-                              icon: const Padding(
-                                padding: EdgeInsets.only(left: 100),
-                                child: Icon(Icons.expand_more),
-                              ),
-                              iconSize: 30,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                              value: valueChoose1,
-                              onChanged: (newValue1) {
-                                setState(() {
-                                  valueChoose1 = newValue1 as String?;
-                                });
-                              },
-                              items: listItem.map((valueItem) {
-                                return DropdownMenuItem(
-                                  value: valueItem,
-                                  child: Text(valueItem),
-                                );
-                              }).toList(),
                             ),
                           ),
+<<<<<<< HEAD
+=======
                           // Search icon
                           Expanded(
                             flex: 1,
@@ -285,11 +337,11 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                           ),
 
 
+>>>>>>> 3cccfd39dc05173f95f39c039718c9cea48c1c53
                         ],
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),
@@ -298,62 +350,62 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
           Expanded(
             child: Container(
                 child: Column(
-              children: [
-                Expanded(
-                    child: Column(
                   children: [
                     Expanded(
-                      child: MapScreen(
-                          x1: "6.821444818536872",
-                          y1: "80.04173648147007",
-                          x2: "6.821444818536872",
-                          y2: "80.04173648147007"),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: MapScreen(
+                                  x1: "6.821444818536872",
+                                  y1: "80.04173648147007",
+                                  x2: "6.821444818536872",
+                                  y2: "80.04173648147007"),
+                            ),
+                          ],
+                        )),
+                    //bottom container that has popup function
+                    Container(
+                      child: Container(),
+                    ),
+                    //bottom container that has popup function
+                    Container(
+                      height: size.width * 0.12,
+                      decoration: BoxDecoration(
+                          color: Colors.white70,
+                          border: Border.all(width: 1, color: HexColor("3F3F3F")),
+                          borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(20),
+                          )),
+                      child: Center(
+                        child: IconButton(
+                          onPressed: () {
+                            for (int i = 0; i < 4; i++) {
+                              if (listItem[i] == valueChoose) {
+                                x1Index = listx[i];
+                                y1Index = listy[i];
+                              }
+                              if (listItem[i] == valueChoose1) {
+                                x2Index = listx[i];
+                                y2Index = listy[i];
+                              }
+                            }
+                            showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                context: context,
+                                builder: (context) =>
+                                    buildSheet(x1Index, y1Index, x2Index, y2Index,size));
+                          },
+                          icon: const Icon(
+                            Icons.expand_less_sharp,
+                            color: Colors.black54,
+                          ),
+                          iconSize: 50,
+                        ),
+                      ),
                     ),
                   ],
                 )),
-                //bottom container that has popup function
-                Container(
-                  child: Container(),
-                ),
-                //bottom container that has popup function
-                Container(
-                  height: size.width * 0.12,
-                  decoration: BoxDecoration(
-                      color: Colors.white70,
-                      border: Border.all(width: 1, color: HexColor("3F3F3F")),
-                      borderRadius: const BorderRadius.vertical(
-                        top: Radius.circular(20),
-                      )),
-                  child: Center(
-                    child: IconButton(
-                      onPressed: () {
-                        for (int i = 0; i < 4; i++) {
-                          if (listItem[i] == valueChoose) {
-                            x1Index = listx[i];
-                            y1Index = listy[i];
-                          }
-                          if (listItem[i] == valueChoose1) {
-                            x2Index = listx[i];
-                            y2Index = listy[i];
-                          }
-                        }
-                        showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            builder: (context) =>
-                                buildSheet(x1Index, y1Index, x2Index, y2Index,size));
-                      },
-                      icon: const Icon(
-                        Icons.expand_less_sharp,
-                        color: Colors.black54,
-                      ),
-                      iconSize: 50,
-                    ),
-                  ),
-                ),
-              ],
-            )),
           ),
         ],
       ),
@@ -368,65 +420,66 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
       },
       child: GestureDetector(onTap: () {}, child: child));
 
+
 //popup container
   Widget buildSheet(
-          String x1index, String y1index, String x2index, String y2index,Size size) =>
+      String x1index, String y1index, String x2index, String y2index,Size size) =>
       makeDismissible(
         child: DraggableScrollableSheet(
           initialChildSize: 0.8,
           minChildSize: 0.2,
           maxChildSize: 0.8,
           builder: (_, controller) => Container(
-            decoration: BoxDecoration(
-              border: Border.all(width: 1, color: HexColor("#3F3F3F")),
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: ListView(
-                controller: controller,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    style: TextButton.styleFrom(
-                      primary: Colors.black54, // Text color
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.expand_more_sharp,
-                          color: Colors.black54,
-                          size: 50,
-                        ),
-                        Text(
-                          'Your Path', // Replace 'Your Text' with the desired text
-                          style: TextStyle(
-                            fontSize: 16, // Adjust the font size as needed
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  // Text("$x1Index"),
-                  // Text("$y1Index"),
-                  // Text("$x2Index"),
-                  // Text("$y2Index"),
-                  Container(
-                    width: double.infinity,
-                    height: size.height * 0.8,
-                    child: MapScreen(
-                      x1: x1index,
-                      y1: y1index,
-                      x2: x2index,
-                      y2: y2index,
-                    ),
-                  ),
-                ],
+              decoration: BoxDecoration(
+                border: Border.all(width: 1, color: HexColor("#3F3F3F")),
+                color: Colors.white,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
               ),
-            )
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: ListView(
+                  controller: controller,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      style: TextButton.styleFrom(
+                        primary: Colors.black54, // Text color
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.expand_more_sharp,
+                            color: Colors.black54,
+                            size: 50,
+                          ),
+                          Text(
+                            'Your Path', // Replace 'Your Text' with the desired text
+                            style: TextStyle(
+                              fontSize: 16, // Adjust the font size as needed
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Text("$x1Index"),
+                    // Text("$y1Index"),
+                    // Text("$x2Index"),
+                    // Text("$y2Index"),
+                    Container(
+                      width: double.infinity,
+                      height: size.height * 0.8,
+                      child: MapScreen(
+                        x1: x1index,
+                        y1: y1index,
+                        x2: x2index,
+                        y2: y2index,
+                      ),
+                    ),
+                  ],
+                ),
+              )
 
           ),
         ),

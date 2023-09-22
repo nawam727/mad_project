@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mad_project/components/back_dots.dart';
+
 import 'map_pages/map_page.dart';
 
 class NavigatorMapPage extends StatefulWidget {

@@ -26,9 +26,12 @@ class _MapScreenState extends State<MapScreen> {
   Set<Polyline> _polylines = {};
 
   _MapScreenState(String this.x1, String this.y1,String this.x2, String this.y2)
+
       : _origin = Marker(
     markerId: MarkerId('origin'),
     position: LatLng(double.parse(x1), double.parse(y1)),
+
+
   ),
         _destination = Marker(
           markerId: MarkerId('destination'),
@@ -71,24 +74,25 @@ class _MapScreenState extends State<MapScreen> {
   void onMapCreated(GoogleMapController controller) {
     _googleMapController = controller;
 
+    double minLat = min(_origin.position.latitude, _destination.position.latitude);
+    double minLng = min(_origin.position.longitude, _destination.position.longitude);
+    double maxLat = max(_origin.position.latitude, _destination.position.latitude);
+    double maxLng = max(_origin.position.longitude, _destination.position.longitude);
+
     LatLngBounds bounds = LatLngBounds(
-      southwest: LatLng(
-        min(_origin.position.latitude, _destination.position.latitude),
-        min(_origin.position.longitude, _destination.position.longitude),
-      ),
-      northeast: LatLng(
-        max(_origin.position.latitude, _destination.position.latitude),
-        max(_origin.position.longitude, _destination.position.longitude),
-      ),
+      southwest: LatLng(minLat, minLng),
+      northeast: LatLng(maxLat, maxLng),
     );
 
     _googleMapController.animateCamera(
       CameraUpdate.newLatLngBounds(
         bounds,
         50, // Padding in pixels, adjust as needed
+
       ),
     );
   }
+
 
   void _addPolyline() {
     PolylineId id = PolylineId('polyline');

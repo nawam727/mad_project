@@ -13,10 +13,10 @@ class NavigatorMapPage extends StatefulWidget {
 class _NavigatorMapPageState extends State<NavigatorMapPage> {
   String? valueChoose;
   String? valueChoose1;
-  String x1Index = '0';
-  String x2Index = '0';
-  String y1Index = '0';
-  String y2Index = '0';
+  String x1Index = '6.821132058916255';
+  String x2Index = '6.821132058916255';
+  String y1Index = '80.04029152192247';
+  String y2Index = '80.04029152192247';
 
   //int? xp1 = int.tryParse(valueChoose);
   //int? xp2 = int.tryParse(valueChoose1);
@@ -195,10 +195,100 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                               ),
                             ),
                           ),
+                          const Expanded(child: SizedBox())
                         ],
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  //to , dropdown list and search icon Row
+                  SizedBox(
+                    height: size.height * 0.061,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: size.width * 0.05),
+                      child: Row(
+                        children: [
+                          const Expanded(
+                            flex: 1,
+                            child: Text(
+                              "To",
+                              style: TextStyle(
+                                  fontSize: 17, fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                          //dropdown list for to
+                          Expanded(
+                            flex: 5,
+                            child: DropdownButtonFormField(
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                      color: HexColor(
+                                          "#00B251")), // Border color when focused
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                      color: HexColor("#3F3F3F"),
+                                    )),
+                                filled: true,
+                                fillColor: Color.fromARGB(255, 255, 255, 255),
+                              ),
+                              hint: const Padding(
+                                padding: EdgeInsets.only(left: 8),
+                                child: Text("Select Location"),
+                              ),
+                              dropdownColor: Colors.white,
+                              icon: const Padding(
+                                padding: EdgeInsets.only(left: 100),
+                                child: Icon(Icons.expand_more),
+                              ),
+                              iconSize: 30,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                              ),
+                              value: valueChoose1,
+                              onChanged: (newValue1) {
+                                setState(() {
+                                  valueChoose1 = newValue1 as String?;
+                                });
+                              },
+                              items: listItem.map((valueItem) {
+                                return DropdownMenuItem(
+                                  value: valueItem,
+                                  child: Text(valueItem),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                          // Search icon
+                          Expanded(
+                            flex: 1,
+                            child: IconButton(
+                              icon: Image.asset(
+                                'assets/icons/search.png',
+                                height: size.width * 0.04,
+                              ),
+                              onPressed: () {
+
+                                onTap: () {
+                                  Navigator.of(context).pop();
+                                };
+
+                              },
+                            ),
+                          ),
+
+
+                        ],
+                      ),
+                    ),
+                  ),
+
                 ],
               ),
             ),
@@ -251,7 +341,7 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
                             backgroundColor: Colors.transparent,
                             context: context,
                             builder: (context) =>
-                                buildSheet(x1Index, y1Index, x2Index, y2Index));
+                                buildSheet(x1Index, y1Index, x2Index, y2Index,size));
                       },
                       icon: const Icon(
                         Icons.expand_less_sharp,
@@ -279,12 +369,12 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
 
 //popup container
   Widget buildSheet(
-          String x1index, String y1index, String x2index, String y2index) =>
+          String x1index, String y1index, String x2index, String y2index,Size size) =>
       makeDismissible(
         child: DraggableScrollableSheet(
-          initialChildSize: 0.3,
+          initialChildSize: 0.8,
           minChildSize: 0.2,
-          maxChildSize: 0.5,
+          maxChildSize: 0.8,
           builder: (_, controller) => Container(
             decoration: BoxDecoration(
               border: Border.all(width: 1, color: HexColor("#3F3F3F")),
@@ -296,27 +386,47 @@ class _NavigatorMapPageState extends State<NavigatorMapPage> {
               child: ListView(
                 controller: controller,
                 children: [
-                  IconButton(
+                  TextButton(
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    icon: const Icon(Icons.expand_more_sharp,
-                        color: Colors.black54),
-                    iconSize: 50,
+                    style: TextButton.styleFrom(
+                      primary: Colors.black54, // Text color
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.expand_more_sharp,
+                          color: Colors.black54,
+                          size: 50,
+                        ),
+                        Text(
+                          'Your Path', // Replace 'Your Text' with the desired text
+                          style: TextStyle(
+                            fontSize: 16, // Adjust the font size as needed
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  Text("$x1Index"),
-                  Text("$y1Index"),
-                  Text("$x2Index"),
-                  Text("$y2Index"),
+                  // Text("$x1Index"),
+                  // Text("$y1Index"),
+                  // Text("$x2Index"),
+                  // Text("$y2Index"),
                   Container(
-                      child: MapScreen(
-                          x1: "$x1index",
-                          y1: "$y1index",
-                          x2: "$x2index",
-                          y2: "$y2index")),
+                    width: double.infinity,
+                    height: size.height * 0.8,
+                    child: MapScreen(
+                      x1: x1index,
+                      y1: y1index,
+                      x2: x2index,
+                      y2: y2index,
+                    ),
+                  ),
                 ],
               ),
-            ),
+            )
+
           ),
         ),
       );

@@ -59,6 +59,8 @@ Find out which halls are currently available for your group discussions, team me
 
 - **Moksha Dilshan** ([MokshaDill](https://github.com/MokshaDill))
   - **Flutter & AR,Backend Developer:** Pioneering the AR navigation feature using unity game engine, integrating it into the app for accurate indoor navigation.
+  - **AR Development Part**
+  - https://github.com/MokshaDill/MAD-AR-DevelopmentPart
 
 ---
 
